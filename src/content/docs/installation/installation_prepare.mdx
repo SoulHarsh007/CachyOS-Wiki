@@ -66,7 +66,11 @@ Unstable internet may cause prolonged period of installation or failed installs 
 
 ## Creating a Bootable CachyOS USB Drive
 
-There are several tools and methods that you can use to create a bootable USB drive of CachyOS. The USB drive must have at least 8GB of available space.
+There are several tools and methods that you can use to create a bootable USB drive of CachyOS.
+
+:::note
+The USB drive must have at least 8GB of available space.
+:::
 
 ### balenaEtcher
 
@@ -83,23 +87,23 @@ There are several tools and methods that you can use to create a bootable USB dr
       ./balena-etcher
       ```
 2. Plug in your USB drive to your system.
-3. Select **Flash from file** and select the CachyOS ISO image file.
-4. Click **Select target** and choose the label that matches your USB drive.
-5. Press **Flash** to start the flashing process.
+3. Select **`Flash from file`** and select the CachyOS ISO image file.
+4. Click **`Select target`** and choose the label that matches your USB drive.
+5. Press **`Flash`** to start the flashing process.
 
 </Steps>
 
 :::note
-You may be prompted for administrator privileges. If so, enter your password and click Authenticate.
+You may be prompted for administrator privileges. If so, enter your password and click on **`Authenticate`**.
 :::
 
 <br />
 
 <ImageComponent imgsrc={import('~/assets/images/etcher.png')} />
 
-At the end of flash process you will get a **Flash Completed!** message. Close balenaEtcher and reboot your system to boot into CachyOS.
+At the end of flash process you will get a **`Flash Completed!`** message. Close balenaEtcher and reboot your system to boot into the **CachyOS Live ISO**.
 :::note
-Be sure to have the USB drive **boot priority** over other drives in the BIOS/UEFI or boot it from your Boot Menu.
+Be sure to have the USB drive **`boot priority`** over the other drives in the BIOS/UEFI or boot it from your Boot Menu.
 :::
 
 
@@ -125,7 +129,9 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS/UE
    ```
 </Steps>
 
-- `dd` will now copy the contents of the ISO file over to your USB drive. Once it's done, you will be ready to use the USB drive as the CachyOS installation media. Reboot your system to boot into CachyOS.
+- `dd` will now copy the contents of the ISO file over to your USB drive.
+
+Once it's done, you will be ready to use the USB drive as the CachyOS installation media. Reboot your system to boot into the CachyOS Live ISO.
 :::note
 Be sure to have the USB drive **boot priority** over other drives in the BIOS/UEFI or boot it from your Boot Menu.
 :::
@@ -136,9 +142,9 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS/UE
 
 1. Plug in USB drive.
 2. Download [Rufus](<https://rufus.ie/>) and install it, or run the portable version.
-3. On **Device**, click on the dropdown list and select your USB drive.
-4. On **Boot selection**, click on **SELECT** and locate the CachyOS ISO image file.
-5. Click **START**.
+3. On **`Device`**, click on the dropdown list and select your USB drive.
+4. On **`Boot selection`**, click on **`SELECT`** and locate the CachyOS ISO image file.
+5. Click **`START`**.
 
 </Steps>
 
@@ -159,13 +165,13 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS/UE
    # cd to the new folder: (version might change)
    cd ventoy-1.0.99/
    ```
-4. Execute VentoyGUI.x86_64 by either double clicking on it or via terminal:
+4. Execute **`VentoyGUI.x86_64`** by either double clicking on it or via the terminal:
    ```sh
    # It will ask for administrative privileges, enter your credentials
    ./VentoyGUI.x86_64
    ```
-5. Select your USB drive by clicking on **Device**.
-6. Click on **Install**.
+5. Select your USB drive by clicking on **`Device`.**
+6. Click on **`Install`.**
 7. After it finished installing Ventoy into your USB drive, you can now close the window and place the CachyOS ISO file into the new usable partition of the drive.
 
 </Steps>
@@ -177,9 +183,9 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS/UE
 <Steps>
 1. Plug in your USB drive.
 2. Download [Ventoy](<https://www.ventoy.net/en/download.html>)
-3. Run **Ventoy2Disk.exe**
-4. Select your USB drive by clicking on **Device**.
-5. Click on **Install**.
+3. Run **`Ventoy2Disk.exe`**
+4. Select your USB drive by clicking on **`Device`.**
+5. Click on **`Install`.**
 6. After it finished installing Ventoy into your USB drive, you can now close the window and place the CachyOS ISO file into the new usable partition of the drive.
 </Steps>
 
