@@ -14,7 +14,7 @@ For a better idea of the various packages we have optimized, learn more at our [
 
 ## Custom Kernel Tuned for Performance and Stability
 
-Aside from our main patchset that tunes various kernel tunables to improve desktop responsivness, we also cherrypick promising patchsets that have not been
+Aside from our main patch set that tunes various kernel parameters to improve desktop responsiveness, we also cherry pick promising patch sets that have not been
 mainlined or not in the stable revision of the kernel. These patches undergo internal testing before being shipped to users to ensure that stability isn't
 impacted. For a complete list of patches that we provide, visit [our kernel page](/features/kernel).
 

@@ -43,7 +43,7 @@ A fork of rEFIt, rEFInd was primarily made to make it easier for MacOS users to 
 
 ### Pros
 - Autodetection of all operating systems and kernels on storage devices.
-- Little to no configuration required due to aforementioned autodetection.
+- Little to no configuration required due to aforementioned auto-detection.
 - Easily able to support secure boot
 - Much more graphical UI reminiscent of the MacOS Boot selector.
 - Great theming support
@@ -52,7 +52,7 @@ A fork of rEFIt, rEFInd was primarily made to make it easier for MacOS users to 
 
 ### Cons
 - Does not support BIOS systems.
-- Slightly slower due to the autodetection feature.
+- Slightly slower due to the auto-detection feature.
 
 ### Recommendation
 rEFInd is the recommended boot manager for booting with multiple operating systems.

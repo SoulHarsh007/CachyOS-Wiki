@@ -40,7 +40,7 @@ linux-cachyos-hardened-zfs
 
 Below you can find a list of modules that are packaged **directly** into the base kernel package:
 
-- Binder - Needed for Waydroid
-- OpenRGB
-- v4l2loopback
-- NTSync
+- **Binder** - `Needed for Waydroid`
+- **OpenRGB**
+- **v4l2loopback**
+- **NTSync**

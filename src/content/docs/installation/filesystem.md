@@ -26,7 +26,7 @@ XFS is the recommended filesystem for users who do not need advanced features an
 
 
 ## BTRFS
-BTRFS is a modern copy-on-write(COW) filesystem created in 2007 and declared stable in the linux kernel in 2013. It is widely supported and is mainly known for its advanced featureset.
+BTRFS is a modern copy-on-write(COW) filesystem created in 2007 and declared stable in the linux kernel in 2013. It is widely supported and is mainly known for its advanced feature set.
 ### Pros
 - Transparent compression. BTRFS supports transparently compressing files to allow for significant space savings with no user intervention. CachyOS ships with ZSTD compression set to level 3 by default.
 - Snapshot functionality. BTRFS leverages its COW nature to allow for the creation of snapshots of subvolumes that take up very little actual space.
