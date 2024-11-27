@@ -86,7 +86,7 @@ Cache:
 echo cache | sudo tee /sys/bus/platform/drivers/amd_x3d_vcache/AMDI0101:00/amd_x3d_mode
 ```
 
-After you changed the modes, the amd preffered core stats should provide a different ranking. You can read it out with:
+After you changed the modes, the amd preferred core stats should provide a different ranking. You can read it out with:
 ```sh
 grep -v /sys/devices/system/cpu/cpu*/cpufreq/amd_pstate_prefcore_ranking
 ```
