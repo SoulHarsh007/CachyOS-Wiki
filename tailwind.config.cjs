@@ -17,6 +17,7 @@ const gray = {
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: '[data-theme="dark"]',
+  lightMode: '[data-theme="light"]',
   theme: {
     extend: {
       colors: { accent, gray },
