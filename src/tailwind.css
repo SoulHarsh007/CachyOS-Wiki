@@ -2,41 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tabbed interface */
+
 .tabs [role='tab'][aria-selected='false'] {
     overflow-x: scroll;
 }
   
 .tab [role='tab'][aria-selected='false'] {
     transition: background-color 0.3s ease;
-    border-left: 2px solid #82DCCC;
+    border-left: 2px solid rgb(130, 220, 204);
     border-bottom: 0px;
     font-size: 17px;
     color:rgb(0, 255, 255);
   }
 
 .tab:hover [role='tab'][aria-selected='false'] {
-    background-color:#00f8ec7e;
-    border-top: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    color: #FFFFFF;
+    background-color:rgba(0, 248, 236, 0.494);
+    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-weight: 600;
   }  
 
 .tab [role='tab'][aria-selected='true'] {
-    border: 2px solid #82DCCC;  
+    border: 2px solid rgb(130, 220, 204);  
     border-right: 0px;
-    background-color: #2d8c8f83;
+    background-color: rgba(45, 140, 143, 0.514);
   }
 
+/* Right sidebar */
+
+  /* Affects all text from non nested lists */
+
   starlight-toc > nav > ul > li > a > span {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 255, 255);
+    font-weight: 500;
+  }
+  /*Text color when hovering outside the text*/
+  starlight-toc > nav > ul > li > a:hover > span {
+    color: rgb(255, 255, 0);
     font-weight: 500;
   }
 
-  starlight-toc > nav > ul > li > a[aria-current="true"] > span {
+  /* This one affects the entire item except around the text*/
+    starlight-toc > nav > ul > li > a:hover {
+    background-color: rgba(130, 220, 204, 0.17);
+  }  
+
+  /*Nested ul's*/
+  
+    /*Color Hovering outside the text when in an nested item*/
+    /*Sibling item*/
+  starlight-toc > nav > ul > li > ul > li:hover > a {
+      background-color: rgba(130, 220, 204, 0.17);
+  }
+
+  starlight-toc > nav > ul > li > ul > li > a > span {
+    color: rgba(255, 255, 255, 0.527);
+    font-weight: 500;
+  }
+  starlight-toc > nav > ul > li > ul > li > a:hover > span {
     color: rgb(0, 255, 255);
+    font-weight: 500;
   }
   
-  starlight-toc > nav > ul > li > a > span:hover {
-    color: #04E16F;
+    /*Current active nested item*/
+  starlight-toc > nav > ul > li > ul > li > a[aria-current="true"] {
+    color: black;
+    background-color: rgb(130, 220, 204);
+  }
+  starlight-toc > nav > ul > li > ul > li > a[aria-current="true"] > span {
+    color: black;
+    background-color: rgb(130, 220, 204);
+  }
+
+  /* Current active sidebar item */
+
+  starlight-toc > nav > ul > li > a[aria-current="true"]  {
+    color: black;
+    background-color: rgb(130, 220, 204);
+  }
+
+  starlight-toc > nav > ul > li > a[aria-current="true"] > span {
+    background-color: rgb(130, 220, 204);
+    color: rgb(0, 0, 0);
+  }
+
+/* Left sidebar  */
+
+  /* Arrows */
+  sl-sidebar-state-persist > ul > li > details { 
+    color: rgb(0, 255, 255);
+  }
+
+  /* Current active page */
+  sl-sidebar-state-persist > ul > li > details > ul > li > a[aria-current="page"] {
+    background-color: rgb(130, 220, 204);
+  }
+
+  sl-sidebar-state-persist > ul > li > details > ul > li > a:hover[aria-current="page"] {
+    background-color: rgb(130, 220, 204);
+  }
+  
+  /* Color when hovering over text */
+
+  sl-sidebar-state-persist > ul > li > details > ul > li > a > span:hover {
+     color: rgb(255, 255, 255); 
+  }
+
+  /*Color around text when hovering*/
+  sl-sidebar-state-persist > ul > li > details > ul > li > a[aria-current="page"] > span:hover {
+     color: rgb(0, 0, 0); 
+  }
+
+  /* Color when hovering outside the text */
+
+  sl-sidebar-state-persist > ul > li > details > ul > li > a:hover {
+     color: rgb(255, 255, 255);
+     font-weight: 600;
+     background-color: rgba(0, 123, 127, 0.774);
+  }
+
+  /* Affects all text of the sidebar */
+  
+  sl-sidebar-state-persist > ul > li > details > ul > li > a {
+    font-weight: 500;
   }
