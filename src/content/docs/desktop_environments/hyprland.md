@@ -18,6 +18,8 @@ Our main goal with our setup is to have a working Hyprland but keeping it simple
 
 Take a look into our [Hyprland FAQ.](/desktop_environments/hyprland#faq)
 
+**Dotfiles maintained by [msmafra](https://github.com/msmafra)**
+
 ## Keybinds
 
 Most of the key combinations require the use of the mod key which in our case is the Windows key (referenced as SUPER),  you can change it on the config file.
@@ -65,11 +67,11 @@ Most of the key combinations require the use of the mod key which in our case is
 
 ### Resize focused window
 
-* CTRL + Shift + J (Downwards)
-* CTRL + Shift + K (Upwards)
-* CTRL + Shift + H (Left)
-* CTRL + Shift + L (Right)
-* CTRL + Shift + ArrowKeys
+* SUPER + CTRL + Shift + J (Downwards)
+* SUPER + CTRL + Shift + K (Upwards)
+* SUPER + CTRL + Shift + H (Left)
+* SUPER + CTRL + Shift + L (Right)
+* SUPER + CTRL + Shift + ArrowKey (Any direction)
 
 ### Toggle focused window into Floating or Fullscreen state
 
@@ -118,6 +120,10 @@ Most of the key combinations require the use of the mod key which in our case is
 ### Reset gaps to default value
 
 * SUPER + Shift + G
+
+### Open file manager (Variable not configured by default)
+
+* SUPER + E
 
 ## FAQ
 
