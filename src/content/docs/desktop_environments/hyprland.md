@@ -3,11 +3,15 @@ title: Hyprland configuration
 description: CachyOS Hyprland keybinds & FAQ
 ---
 
-
 :::caution
 Since Hyprland started their rework. Please be aware that it is not currently stable and you can experience bugs/unexpected crashes. Use at your own risk.
 Even their "stable" version is also broken and buggy therefore we do not plan to provide support in the future. Refer to their [wiki](<https://wiki.hyprland.org/>) instead:
+:::
 
+:::tip
+Start Hyprland using the non systemd entry otherwise it won't start and lead to a black screen.
+
+Example: **`Hyprland`** instead of **`Hyprland(systemd)`**.
 :::
 
 Our main goal with our setup is to have a working Hyprland but keeping it simple therefore some essential tools and programs might be missing such as a GUI File Manager.
@@ -77,7 +81,7 @@ Most of the key combinations require the use of the mod key which in our case is
 * SUPER + R
 * ESC to exit
 
-### Move window with your mouse
+### Move window dragging the mouse
 
 * SUPER + Left click
 
