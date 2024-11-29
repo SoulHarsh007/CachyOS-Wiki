@@ -67,7 +67,7 @@ UUID=08A24E90A24E81E4 /media/windows ntfs3 defaults,nofail 0 0
 ```
 The break down of this entry is as follows:
 
-- `UUID=08A24E90A24E81E4` This is the file system we want to mount, indentified by its UUID. There are other methods to identify your filesystem, though UUID tends to be safest. Additional methods listed [here](https://wiki.archlinux.org/title/Fstab#Identifying_file_systems).
+- `UUID=08A24E90A24E81E4` This is the file system we want to mount, identified by its UUID. There are other methods to identify your filesystem, though UUID tends to be safest. Additional methods listed [here](https://wiki.archlinux.org/title/Fstab#Identifying_file_systems).
 
 - `/media/windows` The [Linux Filesystem Hierarchy Standard](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html) says that `/media/` is the proper location for removable drives to be mounted. `windows` indicates the directory we wish to mount our drive to. Each drive we want to mount will need its own directory.
 
