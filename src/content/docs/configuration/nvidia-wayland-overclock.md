@@ -38,7 +38,7 @@ Open a terminal of your choice (Konsole, Alacritty, etc.) and follow these steps
 
 2. Activate the virtual environment:
    ```
-   source /root/NVIDIA/venv/bin/activate.fish
+   source /root/NVIDIA/venv/bin/activate
    ```
 
 3. Verify the activation:
