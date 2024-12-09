@@ -84,6 +84,12 @@ Example: `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 %command% game-performance %comm
     - On this case, everything after the first `%command%` is going to be ignored because it's being treated as game arguments therefore only `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1` got recognized as a launch option.
 :::
 
+### Fix stuttering caused by the Steam Game Recorder Feature
+
+```sh title='Add the following launch option to your game'
+LD_PRELOAD="" %command%
+```
+
 ## Performance tips
 
 ### Power Profile Switching on Demand
