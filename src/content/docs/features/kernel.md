@@ -7,7 +7,6 @@ The CachyOS Kernel is a customized kernel which utilizes enhancements, configura
 This results into a more optimized kernel for the user. Most of the kernel variants that we provide are tuned for interactivity.
 However, we also provide [one](#linux-cachyos-server) that is better geared for server workloads.
 
-
 ## CachyOS Base patch set
 
 The base patch set contains a bunch of changes compared to upstream. Here is a brief list, which is commonly included each branch:
@@ -36,19 +35,10 @@ BORE is an enhancement for EEVDF resulting in a more capable scheduler at handli
 
 The default kernel is our main recommendation in terms of scheduler choice and configuration. Currently, our default kernel
 is using [BORE](https://github.com/firelzrd/bore-scheduler) scheduler as the default option, along with our **base patch set**. It is built
-with the [clang](https://clang.llvm.org/) C compiler with ThinLTO enabled to produce more optimized binaries.
+with the [clang](https://clang.llvm.org/) C compiler with ThinLTO enabled to produce more optimized binaries + [AutoFDO](https://cachyos.org/blog/2411-kernel-autofdo/)
 
 Feel free to open an issue in our [GitHub](https://github.com/CachyOS/linux-cachyos) or reach out
 to us in [Discord](https://discord.gg/cachyos-862292009423470592) for suggestions and improvements that should be added to the default kernel.
-
-### linux-cachyos-autofdo
-
-Variant slightly more performant in some workloads, For example y-cruncher. It contains the same patch set as the default kernel + BORE/EEVDF Scheduler. For more information about AutoFDO, check out the links down below:
-
-- [Optimizing the Kernel with AutoFDO on CachyOS](https://cachyos.org/blog/2411-kernel-autofdo/)
-
-- [Results of benchmarks ran by ptr1337](https://imgur.com/a/YAjhXfN) using the [cachyos-benchmarker](https://github.com/CachyOS/cachyos-benchmarker)
-
 
 ### linux-cachyos-bore
 
@@ -90,7 +80,7 @@ Our default kernel but with `preempt=rt` enabled. **Intel GPUs are not supported
 ### linux-cachyos-server
 
 The Server Kernel is targeted for servers and more throughput. **The kernel is NOT tuned for interactivity and is not suggested for desktop users**.
-The main differences here are a lower tickrate (300Hz), [Lazy Preemption](https://lwn.net/Articles/994322/) and CONFIG_CACHY not applied. 
+The main differences here are a lower tickrate (300Hz), [Lazy Preemption](https://lwn.net/Articles/994322/) and CONFIG_CACHY not applied.
 This kernel only contains the CachyOS Base patch set.
 
 ## FAQ
@@ -103,9 +93,11 @@ Because it's expensive to build since it basically requires building the kernel 
 2) Create a profile meaning executing workloads in order to gather profiling data for the possible optimizations.
 3) Rebuild the kernel with the AutoFDO profile.
 
-So for now it's another variant but it will become the default kernel in the near future. ETA (6.12.1 - 6.12.2)
+Therefore for now it's only present in the [linux-cachyos](/features/kernel#linux-cachyos-default-kernel) variant.
 
-### I always heard that using the Real Time variant helps in Gaming! Is that true?
+For more information about AutoFDO, click [here.](https://cachyos.org/blog/2411-kernel-autofdo/)
+
+### I always heard that using the Real Time variant helps in Gaming! is that true?
 
 Real time scheduling necessitates a task to be processed on a specified deadline. Gaming on the other hand spawns a lot of processes every second. Real time
 scheduling may cause these processes to end prematurely or even stall, leading to worse performance overall.
