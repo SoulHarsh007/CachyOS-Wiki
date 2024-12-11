@@ -125,6 +125,10 @@ Most of the key combinations require the use of the mod key which in our case is
 
 * SUPER + E
 
+### Screenshot
+
+* Print (PrtSc)
+
 ## FAQ
 
 ### Why does my Discord, Thunar and Nautilus have a weird background?
@@ -140,11 +144,3 @@ windowrulev2 = opacity 0.92, class:^(thunar|nemo)$
 ### Is there a File Manager included?
 
 * No, install one you like
-
-### How can i take an screenshot?
-
-* SUPER + A (You can draw there too)
-
-### Why Hyprland randomly crashed?
-
-* Check at the beginning of this page why
