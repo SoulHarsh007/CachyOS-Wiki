@@ -18,7 +18,7 @@ Our main goal with our setup is to have a working Hyprland but keeping it simple
 
 Take a look into our [Hyprland FAQ.](/desktop_environments/hyprland#faq)
 
-**Dotfiles maintained by [msmafra](https://github.com/msmafra)**
+**Dotfiles maintained by [msmafra](https://github.com/msmafra) and [Lysec](https://github.com/Ly-sec)**
 
 ## Keybinds
 
@@ -131,8 +131,11 @@ Most of the key combinations require the use of the mod key which in our case is
 
 This is because the window has a modified opacity
 
-* Consider modifying Discord's window rule near the bottom of Hyprland's config file:
-   `windowrule=opacity 0.96,discord`
+* Consider modifying the window rule in the [Hyprland](https://github.com/CachyOS/cachyos-hyprland-settings/blob/master/etc/skel/.config/hypr/config/windowrules.conf#L21) config file.
+
+```sh title='Example'
+windowrulev2 = opacity 0.92, class:^(thunar|nemo)$
+```
 
 ### Is there a File Manager included?
 
