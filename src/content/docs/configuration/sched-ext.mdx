@@ -108,15 +108,16 @@ sudo systemctl stop scx
 Here is an explanation of what each mode means in scx_loader.
 
 - **Mode 0** = `Default scheduler flags`
-- **Mode 1** = `The flags have been modified for Gaming`
-- **Mode 2** = `Power Saving flags`
-- **Mode 3** = `Low Latency flags`
+- **Mode 1** = `Gaming`
+- **Mode 2** = `Power Saving`
+- **Mode 3** = `Low Latency`
+- **Mode 4** = `Server` *Currently only available for bpfland*
 
 Example: LAVD running in Mode 1 is the equivalent of `scx_lavd --performance`
 
-*TLDR: Each mode is a set of different flags for the intended use case.*
+*TLDR: Each mode is a set of different flags meant to improve the intended use case.*
 
-[For a more in depth look on what these Modes change on each scheduler](https://github.com/sched-ext/scx/blob/main/rust/scx_loader/src/config.rs#L167)
+[For a more in depth look on what these Modes change on each scheduler](https://github.com/sched-ext/scx/blob/main/rust/scx_loader/src/config.rs#L175)
 :::
 
 ### CachyOS Kernel Manager
