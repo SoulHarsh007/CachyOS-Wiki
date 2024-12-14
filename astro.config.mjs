@@ -112,8 +112,8 @@ export default defineConfig({
             {
               label: 'Requirements & Preinstall Setup',
               translations: {
-              sk: 'PPožiadavky CachyOS a inštalačné médium',
-              cs: 'Požadavky CachyOS a instalační médium',
+                sk: 'PPožiadavky CachyOS a inštalačné médium',
+                cs: 'Požadavky CachyOS a instalační médium',
               },
               link: 'installation/installation_prepare',
             },
@@ -193,8 +193,8 @@ export default defineConfig({
             {
               label: 'Kernel Manager',
               translations: {
-              sk: 'Správca jadra',
-              cs: 'Správce jader',
+                sk: 'Správca jadra',
+                cs: 'Správce jader',
               },
               link: 'features/kernel_manager',
             },
@@ -287,6 +287,10 @@ export default defineConfig({
             {
               label: 'Qtile',
               link: 'desktop_environments/qtile',
+            },
+            {
+              label: 'KDE Plasma',
+              link: 'desktop_environments/kde',
             },
           ],
         },
