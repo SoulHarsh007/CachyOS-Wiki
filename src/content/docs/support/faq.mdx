@@ -184,3 +184,20 @@ Once you have followed the guide. **Reboot or log out from KDE Plasma.**
 
 - **After disabling KWallet i had to relogin from all the services. Is that normal?**
   - Yes. That usually happens when you have already created a password for the KWallet. Just log in to your accounts again and the credentials will then be saved without the password prompt.
+
+## Cachy Browser
+
+### Why this browser keeps deleting my saved credentials and cookies?
+
+- *This is because the browser comes with the option `Delete cookies and site data when Cachy Browser is closed` turned on by default.*
+  - **Follow the screenshot showing where to disable it:**
+    <br />
+    <ImageComponent imgsrc={import('~/assets/images/cachy-browser-cookies.png')} />
+
+### Websites are not following the dark theme preference from the browser.
+
+- *This "issue" comes from the `privacy.resistFingerprinting` feature from Firefox. While it improves privacy, it also has its drawbacks such as websites not following the appearance preference.*
+  - **Follow the screenshot showing where to disable it:**
+    <br />
+    <ImageComponent imgsrc={import('~/assets/images/cachy-browser-resist-fingerprint.png')} />
+  - *After disabling this parameter. Restart your browser and try again.*
