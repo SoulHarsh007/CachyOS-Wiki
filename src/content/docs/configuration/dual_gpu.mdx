@@ -4,7 +4,7 @@ title: Laptop with Dual GPU Setup Guide
 
 import ImageComponent from '~/components/image-component.astro';
 
-# What's hybrid graphics?
+## What's hybrid graphics?
 
 Hybrid graphics is a hardware configuration in which you have two graphics
 cards that can work in tandem with each other. This approach is mainly found in
@@ -19,7 +19,7 @@ if asleep), thereby significantly reducing power consumption. This way when our
 dGPU is needed again (we run an application using it), it will wake up and
 start working.
 
-# What's PRIME Offload?
+## What's PRIME Offload?
 
 PRIME is a unifying technology for working with different sets of hybrid
 graphics in Linux, like NVIDIA Optimus/AMD Dynamic Switchable Graphics. PRIME
@@ -41,7 +41,7 @@ Also, please avoid using tools like optimus-manager. They may seem quite handy
 to you, but believe us, they can cause a lot of issues and you really don't
 need them if your dGPU supports PRIME Offload and dynamic power management.
 
-# How to use PRIME Offload?
+### How to use PRIME Offload
 
 To indicate PRIME that you want to use discrete graphics instead of integrated
 graphics, you must specify a number of environment variables before running the
@@ -149,9 +149,9 @@ If it's not available, make sure you have ``switcheroo-control`` installed and
 its service enabled, because all desktop environments rely on it for this
 functionality.
 
-# Troubleshooting
+## Troubleshooting
 
-## "My external monitor is very laggy on PRIME"
+### "My external monitor is very laggy on PRIME"
 
 This is a known NVIDIA driver issue. You should have the latest NVIDIA
 driver installed and use Wayland with a compositor that supports explicit sync.
@@ -159,4 +159,3 @@ For GNOME this has been fixed in version 46.2. For Plasma 6 it will probably be
 fixed with 6.1 although some users report normal performance already on 6.0.
 Other environments/window managers still have this issue, so you need to switch
 to the latest version of GNOME or Plasma to fix it.
-
