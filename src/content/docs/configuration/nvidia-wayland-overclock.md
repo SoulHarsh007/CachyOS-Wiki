@@ -19,12 +19,12 @@ In this tutorial, we'll set up Python scripts for adjusting various boosts/offse
 Open a terminal of your choice (Konsole, Alacritty, etc.) and follow these steps:
 
 1. Switch to root:
-   ```
+   ```sh
    sudo -i
    ```
 
 2. Create and navigate to the NVIDIA directory:
-   ```
+   ```sh
    mkdir NVIDIA
    cd NVIDIA
    ```
@@ -32,28 +32,28 @@ Open a terminal of your choice (Konsole, Alacritty, etc.) and follow these steps
 ### 2. Set Up Python Virtual Environment
 
 1. Create a virtual environment:
-   ```
+   ```sh
    python -m venv venv
    ```
 
 2. Activate the virtual environment:
-   ```
+   ```sh
    source /root/NVIDIA/venv/bin/activate
    ```
 
 3. Verify the activation:
-   ```
+   ```sh
    which pip
    ```
    It should return "/root/NVIDIA/venv/bin/pip".
 
 4. Install required modules:
-   ```
+   ```sh
    pip install nvidia-ml-py pynvml
    ```
 
 5. Deactivate the virtual environment:
-   ```
+   ```sh
    deactivate
    ```
 
@@ -69,7 +69,7 @@ deactivate
 ```
 
 Make the script executable:
-```
+```sh
 chmod 770 nvidia-oc.sh
 ```
 
@@ -77,7 +77,7 @@ chmod 770 nvidia-oc.sh
 
 Find your card's standard minimum and maximum clocks:
 
-```
+```sh
 nvidia-smi -q -d SUPPORTED_CLOCKS | less
 ```
 
@@ -109,12 +109,12 @@ Replace `MINCLOCK`, `MAXCLOCK`, `CLOCKOFFSET`, and `MEMOVERCLOCK` with appropria
 ### 6. Test the Configuration
 
 Run the script:
-```
+```sh
 /root/NVIDIA/nvidia-oc.sh
 ```
 
 Monitor the GPU:
-```
+```sh
 watch nvidia-smi -q -d VOLTAGE,CLOCK
 ```
 
@@ -139,14 +139,14 @@ WantedBy=network.target
 
 ### 8. Enable and Start the Service
 
-```
+```sh
 systemctl daemon-reload
 systemctl enable nvidia-oc.service
 systemctl start nvidia-oc.service
 ```
 
 Check the service status:
-```
+```sh
 systemctl status nvidia-oc.service
 ```
 
