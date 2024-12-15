@@ -10,4 +10,4 @@ If you want us to add a package, you can submit a request on GitHub or in the fo
 
 - GitHub: https://github.com/CachyOS/distribution/issues
 - Forum: https://discuss.cachyos.org/c/feedback/repository/11
-- Discord: Feedback channel
+- Discord: [Feedback Channel](https://discord.com/channels/862292009423470592/1150723027986813018)
