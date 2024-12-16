@@ -3,7 +3,7 @@ title: KDE Plasma Guides and workarounds.
 description: CachyOS KDE Plasma Help Section.
 ---
 
-import MultipleImageComponent from '~/components/multiple-images-component.astro';
+import ImageComponent from '~/components/image-component.astro';
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
 ## FAQ
@@ -28,3 +28,10 @@ Once you have followed the guide. **Reboot or log out from KDE Plasma.**
     sudo pacman -S cachyos-emerald-kde-theme-git qogir-icon-theme
     ```
   **Apply both in `System Settings - Appearance`.**
+
+### Why does SDDM looks so bland and old?
+
+- *Since there is no SDDM theme applied by default. SDDM will fallback to classic theme.*
+  - **Apply the Breeze Theme as shown in the screenshot**
+    <br />
+    <ImageComponent imgsrc={import('~/assets/images/plasma-sddm-theme.png')} />
