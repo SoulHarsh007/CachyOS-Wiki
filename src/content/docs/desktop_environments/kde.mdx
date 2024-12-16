@@ -6,58 +6,6 @@ description: CachyOS KDE Plasma Help Section.
 import ImageComponent from '~/components/image-component.astro';
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
-## How to uninstall KDE Plasma
-
-:::note
-Keep in mind that none of the methods will remove your files in the `.config` and `.cache` directories left from KDE Plasma.
-
-If you want to transition from KDE Plasma to GNOME, you may need to remove specific files and modifications made by KDE, such as the `gtk-3.0 and gtk-4.0 folders`.
-:::
-
-<Tabs>
-
-<TabItem label='Safe Method'>
-
-:::note
-This method avoids dealing with dependencies that might be used by other packages. However, it will leave some packages installed from KDE Plasma and may result in orphaned packages.
-:::
-
-```sh title='Open a terminal and run the following command'
-sudo pacman -Runs plasma
-```
-
-</TabItem>
-
-<TabItem label='Safe Method with Orphan Cleanup'>
-
-:::note
-This method is similar to the `Safe Method` with the difference that this one removes orphans too.
-
-Be aware that you might encounter some `breaks dependency with` instances. Proceed with caution.
-:::
-
-```sh title='Open a terminal and run the following command'
-sudo pacman -Rns plasma
-```
-
-</TabItem>
-
-<TabItem label='Complete Uninstallation'>
-
-:::danger
-Only use this method if you are sure you want to remove everything related to KDE Plasma from your system.
-
-This approach is more aggressive, you'll need to manage dependencies and check for any programs that depend on the packages being removed. Proceed with caution.
-:::
-
-```sh title='Open a terminal and run the following command'
-sudo pacman -Rcs plasma
-```
-
-</TabItem>
-
-</Tabs>
-
 ## FAQ
 
 ### KDE keeps asking me for entering a password every time i open Discord, Brave or similar programs
