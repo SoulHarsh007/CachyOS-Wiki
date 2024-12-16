@@ -40,8 +40,8 @@ Users from other distributions are **NOT SUPPORTED** and **HIGHLY DISCOURAGED** 
 ## 5. Redistribution of the Repository
 
 This policy defines "redistribution" as the behaviors of inclusion of the CachyOS repository (and its mirrors) or packages obtained from the CachyOS repository as a part of the distributed image of the operating system or sysroots. 
-Redistribution also includes the behaviors of providing the utilities that enable CachyOS repository by users' choice, or providing any distributed or official document that guide users to enable CachyOS 
-repository (and its mirrors) by their means. 
+Redistribution also includes the behaviors of **Linux distributions** to provide the utilities that enable CachyOS repository by users' choice, or to provide any distributed or official document that guide users to enable CachyOS 
+repository (and its mirrors) by their means. End users and third-party mirrors are not subject to the redistribution policy.
 
 Redistribution of CachyOS repository is exclusively authorized to the CachyOS team only.
 
