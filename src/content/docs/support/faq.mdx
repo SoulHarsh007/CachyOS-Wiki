@@ -200,3 +200,12 @@ sudo pacman -S nvidia
 ### Your browser is being managed by your organization. Do i need to worry?
 
 - *No. This is because we include a [policies file](https://github.com/CachyOS/CachyOS-Browser-Settings/blob/master/distribution/policies.json) on which we disable features and add modifications to the browser. Example: `additional search engines.`*
+
+### Some keyboard combinations are not working in certain websites like Photopea
+
+- *This "issue" comes from the `privacy.resistFingerprinting` feature from Firefox.
+  - **Follow the screenshot showing where to disable it:**
+    <br />
+    <ImageComponent imgsrc={import('~/assets/images/cachy-browser-resist-fingerprint.png')} />
+  - *After disabling this parameter. Restart your browser and the keyboard combinations should work again.*
+  - *Extra tip: Search for `webgl.disabled` and set it to `false`to take advantage of an improved Hardware Acceleration in Photopea.*
