@@ -2,6 +2,37 @@
 title: GUI Installer Changelogs
 description: Changelogs of Calamares and the GUI Live ISO
 ---
+24.12
+----
+
+**Features**:
+- Kernel:
+  - AutoFDO is now applied to the default `linux-cachyos` kernel for all available architectures
+    - **Note**: Performance improvements are minimal for now due to current limitations. Merging profiles requires LLVM 19, and Propeller Optimization depends on it. We anticipate LLVM 19 and more optimized profiles to be available by the end of the year, following Arch Linux's adoption of LLVM 19
+- chwd: Rusticl is now configured correctly
+- chwd: improved error logging during hooks calls
+- chwd: fixed VAAPI drivers selection
+- cachyos-settings: Added a script to facilitate running applications via Zink
+- Sysctl Configuration: Reworked and optimized several settings
+- Kernel Manager: Added support for `scx_loader`, enabling native scheduler switching
+- Installer: Bluetooth service is now enabled by default
+- Netinstall:
+  - Added `wireless-regdb` to the installed packages
+    - This configures the connection to use appropriate channels and unlocks additional channels, potentially improving internet speed
+    - **Note**: A generic region is set by default; customizing it to your region is recommended for optimal performance
+- **Package Updates**: NVIDIA 565.77, linux-cachyos 6.12.6, mesa 24.3.2, scx-scheds 1.0.8, zfs 2.2.7
+
+**Bug Fixes**
+- Installer: Installation logs no longer spawn debug terminal windows
+- Partition Management:
+  - Proper `umask` settings ensure `/boot` is inaccessible without sufficient permissions
+- Launch Installer: Internet connectivity checks have been fixed
+
+**Changelog Handheld Edition:**
+- Updated handheld related packages
+- Fixed issue with the power profile handling
+- Added support for WiFi 6
+
 24.11
 ----
 
