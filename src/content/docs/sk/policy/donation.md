@@ -11,7 +11,6 @@ Tu je zoznam aktuálnych mesačných nákladov:
 - Buildserver: 127 € (Hetzner 7950X3D)
 - Webserver/zrkadlo: 17 €
 - Mailserver/zrkadlo: 17 €
-- Matrix Bridge: 5 € (DigitalOcean VPS)
 - Forum Server (Netcup VPS): 7 €
 
 ### Patreon

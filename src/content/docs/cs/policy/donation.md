@@ -11,7 +11,6 @@ Zde je seznam aktuálních měsíčních nákladů:
 - Buildserver 127 € (Hetzner 7950X3D)
 - Webserver/mirror 17 €
 - Mailserver/mirror 17 €
-- Matrix Bridge 5 € (DigitalOcean VPS)
 - Forum Server (Netcup VPS) 7 €
 
 

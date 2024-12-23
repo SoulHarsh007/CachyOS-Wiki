@@ -1,6 +1,6 @@
 ---
 title: Peraturan Komunitas Resmi CachyOS
-description: Discord, Reddit, Twitter, Forum, Telegram, Matrix
+description: Discord, Reddit, Twitter, Forum, Telegram
 ---
 
 Dilarang keras melanggar aturan di bawah ini.

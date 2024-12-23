@@ -1,6 +1,6 @@
 ---
 title: Official CachyOS Community Rules
-description: Discord, Reddit, Twitter, Forum, Telegram, Matrix
+description: Discord, Reddit, Twitter, Forum, Telegram
 ---
 
 Violating these rules is not allowed and account ban will follow:

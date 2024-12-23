@@ -12,7 +12,6 @@ Here a list of the current costs per months:
 - Second Buildserver 70€ (Hetzner 7700X)
 - Webserver/mirror 17 €
 - Mailserver/mirror 17 €
-- Matrix Bridge 5 $
 - Forum Server (Netcup VPS) 7 Euro
 
 ### Patreon
