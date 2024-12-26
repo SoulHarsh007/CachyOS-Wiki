@@ -19,18 +19,22 @@ CachyOS ISO can be obtained from the following sources:
 Always take an extra step and verify the ISOs integrity to avoid any undesired issues at installation or while creating a bootable media.
 :::
 
+**Current ISO Version:** `241221`
+
+**SHA256 Hash:** `6b6562602705da3228d9862d7016a00ca6fa482482b87fd15656f9b2793f4ef6`
+
 <Tabs>
 
 <TabItem label='Windows'>
 
 <Steps>
 
-1. [Download](<https://mirror.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso.sha256>) this file containing the SHA256 hash **(Open it with a Text Editor e.g: Notepad).**
+1. [Download](<https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso.sha256>) this file containing the SHA256 hash **(Open it with a Text Editor e.g: Notepad).**
 2. Open CMD or PowerShell as Administrator and [navigate](<https://www.wikihow.com/Change-Directories-in-Command-Prompt>) to the path where the ISO and SHA256 files are stored.
 3. Execute the following command:
    ```powershell
    # Example:
-   certUtil -hashfile cachyos-desktop-linux-241110.iso SHA256
+   certUtil -hashfile cachyos-desktop-linux-241221.iso SHA256
    ```
 4. Compare the certUtil hash output to the one from the downloaded file in **Step 1.** If they match, you can proceed with the CachyOS installation.
 
@@ -42,18 +46,18 @@ Always take an extra step and verify the ISOs integrity to avoid any undesired i
 
 <Steps>
 
-1. [Download](<https://mirror.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso.sha256>) this file containing the SHA256 hash.
+1. [Download](<https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso.sha256>) this file containing the SHA256 hash.
 2. Open a terminal and navigate to the directory containing the `.sha256` file and execute the following commands:
    ```sh
    # Example:
    cd Downloads/
-   cat cachyos-desktop-linux-241110.iso.sha256
-   # ba09eaa951877d586ffacb21493290d294b79f63e8869c2cb43bfc6d3e7a8086
+   cat cachyos-desktop-linux-241221.iso.sha256
+   # 6b6562602705da3228d9862d7016a00ca6fa482482b87fd15656f9b2793f4ef6
    ```
 3. Compare the output from **Step 2** and execute the following command to check what's the current hash in the ISO file.
    ```sh
    # Example:
-   sha256sum cachyos-desktop-linux-241110.iso
+   sha256sum cachyos-desktop-linux-241221.iso
    ```
 4. If the hashes from **Step 2** and **Step 3** match, you can proceed with the CachyOS installation.
 
