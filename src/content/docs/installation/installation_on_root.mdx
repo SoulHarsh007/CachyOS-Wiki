@@ -244,31 +244,6 @@ After manual partitioning, there may be some additional setup needed to achieve 
     </TabItem>
 </Tabs>
 
-## Common Issues
-
-### Key was created in the future
-
-:::note
-This will be fixed in the September 2024 Release.
-:::
-
-The Installation fails with the following error log:
-```text
-gpg: key B1D99E8932D24EB5 was created 4785 seconds in the future (time warp or clock problem)
-```
-
-This problem is caused by an out-of-sync local time.
-To be specific, the pacman master key was created when a wrong time set in your OS. This may cause the timestamp of the pacman master key is in the future after you correct the time on your OS (possibly by ntp).
-
-After the installation failed, reboot again to the ISO and run the following commands:
-
-```sh
-sudo rm -rf /etc/pacman.d/gnupg
-timedatectl set-ntp true
-```
-
-Having done that, click on ***Launch Installer*** and proceed with the installation.
-
 ## More Information
 
 - [Lord Vexy's dual boot installation walkthrough with the rEFInd boot manager](https://www.youtube.com/watch?v=0Toaq3Vn5qs)
