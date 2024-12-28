@@ -166,17 +166,16 @@ GRUB is the only boot manager available for a MBR/BIOS system.
 
 ## Dual Booting
 
-After manual partitioning, there may be some additional setup needed to achieve a dual boot setup, particularly with `systemd-boot` and `GRUB`.
+*After manual partitioning, additional setup may be required to configure a dual boot system, especially with `systemd-boot` and `GRUB`.*
 
 <Tabs>
     <TabItem label='systemd-boot'>
-        After doing a manual partition install, we need to copy over Windows's EFI binaries to Linux's EFI partition so the boot manager can
-        recognize them.
+        *We need to copy the Windows EFI binaries to the Linux EFI partition so that the boot manager can recognize them.*
 
         <Steps>
-        1. Locate your Windows's EFI partition with `lsblk`
+        1. Locate your `Windows EFI partition` with `lsblk`
 
-            ```sh
+            ```sh title='Example'
             ❯ lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT
             NAME        FSTYPE   SIZE MOUNTPOINT
             zram0               15.3G [SWAP]
@@ -189,22 +188,21 @@ After manual partitioning, there may be some additional setup needed to achieve 
             └─nvme0n1p6 btrfs  239.6G /var/tmp
             ```
 
-            EFI partition are almost always partitioned as FAT32/vfat, and since `nvme0n1p1` doesn't have a Linux mountpoint, we can assume that partition
-            is the Windows's EFI partition
+            *EFI partitions are almost always formatted as `FAT32/vfat`, and since nvme0n1p1 does not have a Linux mount point, we can assume that this partition is the `Windows EFI partition`.*
 
-        2. Mount Window's EFI partition temporarily
+        2. Temporarily mount the `Windows EFI partition`.
 
             ```sh
             ❯ sudo mount /dev/nvme0n1p1 /mnt/WinBoot # Replace `nvme0n1p1` with the partition of your Windows's EFI partition
             ```
 
-        3. Copy the EFI binaries from Windows's EFI partition to Linux's EFI partition
+        3. Copy the EFI binaries from the `Windows EFI partition` to the `Linux EFI partition`.
 
             ```sh
             ❯ sudo cp -r /mnt/WinBoot/EFI/* /boot/EFI
             ```
 
-        4. Unmount the previously mounted partition and Windows should show up in the boot menu on the next boot!
+        4. Unmount the previously mounted partition, and Windows should appear in the boot menu on the next startup.
 
             ```sh
             ❯ sudo umount /mnt/WinBoot
@@ -214,19 +212,19 @@ After manual partitioning, there may be some additional setup needed to achieve 
     </TabItem>
 
     <TabItem label='GRUB'>
-        GRUB can rely on `os-prober` to autodetect the Windows EFI partition and add it to the boot menu.
+        *GRUB uses os-prober to automatically detect the Windows EFI partition and add it to the boot menu.*
 
         <Steps>
-        1. Install and run os-prober
+        1. Install and execute `os-prober`
 
             ```sh
             ❯ sudo pacman -S os-prober
             ❯ sudo os-prober
             ```
 
-        2. Enable os-prober in GRUB's configuration file
+        2. Enable `os-prober` in the GRUB configuration file
 
-            ```sh
+            ```sh title='Press CTRL+S to save and CTRL+Q to exit from Micro'
             ❯ sudo micro /etc/default/grub
             # /etc/default/grub
             # Probing for other operating systems is disabled for security reasons. Read
@@ -238,7 +236,7 @@ After manual partitioning, there may be some additional setup needed to achieve 
             ❯ sudo grub-mkconfig -o /boot/grub/grub.cfg
             ```
 
-        3. Windows should be added into the boot menu now.
+            **Windows should now be added to the boot menu.**
 
         </Steps>
     </TabItem>
