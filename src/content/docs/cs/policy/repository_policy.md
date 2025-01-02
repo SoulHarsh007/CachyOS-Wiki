@@ -1,49 +1,79 @@
 ---
-title: Politika používání repozitáře
+title: Pravidla používání repozitáře
 ---
 
-CachyOS Politika používání repozitáře
+Pravidla používání repozitáře CachyOS
 
 ## 1. Úvod
 
-Repozitář CachyOS je navržen k poskytování vysoce kvalitních optimalizovaných balíčků pro uživatele distribucí CachyOS a ArchLinux. Tato politika stanovuje podmínky pro používání repozitáře CachyOS.
+Repozitář CachyOS je navržen tak, aby poskytoval vysoce kvalitní, optimalizované balíčky pro uživatele distribucí CachyOS a ArchLinux. Tato pravidla stanovují podmínky pro používání repozitáře CachyOS.
 
-## 2. Oprávnění uživatelů
+## 2. Zřeknutí se záruky
 
-Repozitář CachyOS je výhradně k dispozici pro následující uživatele:
+Pokud to nevyžaduje platný zákon nebo není písemně dohodnuto jinak, tým CachyOS poskytuje repozitář na **„TAK JAK JE“ ZÁKLADĚ BEZ JAKÝCHKOLIV ZÁRUK NEBO PODMÍNEK**, ať už výslovných nebo předpokládaných, včetně mimo jiné jakýchkoli záruk nebo podmínek **VLASTNICTVÍ, NEPORUŠENÍ PRÁV, OBCHODOVATELNOSTI NEBO VHODNOSTI PRO KONKRÉTNÍ ÚČEL**. Jako uživatelé repozitáře jste výhradně zodpovědní za určení vhodnosti jeho používání a nesete všechna rizika spojená s jeho použitím.
+
+## 3. Omezení odpovědnosti
+
+Za žádných okolností a podle žádné právní teorie, ať už v důsledku deliktu (včetně nedbalosti), smlouvy nebo jinak, pokud to nevyžaduje platný zákon (například úmyslné nebo hrubě nedbalé jednání) nebo není písemně dohodnuto jinak, nenese tým CachyOS odpovědnost vůči uživatelům repozitáře za jakékoli škody, včetně přímých, nepřímých, zvláštních, náhodných nebo následných škod jakéhokoli charakteru vyplývajících z těchto pravidel nebo z používání či nemožnosti používat repozitář (včetně mimo jiné škod za ztrátu dobrého jména, zastavení práce, selhání počítače nebo poruchy či jakékoli jiné obchodní škody nebo ztráty), i kdyby tým CachyOS byl na možnost takových škod upozorněn.
+
+## 4. Podporovaní uživatelé
+
+Repozitář CachyOS (a jeho zrcadla) poskytuje podporu výhradně těmto uživatelům:
 
 - Uživatelé CachyOS
-- Uživatelé ArchLinux
+- Uživatelé ArchLinuxu
 
-## 3. Neoprávněné použití
+## 5. Nepodporovaní uživatelé
 
-Použití repozitáře CachyOS jinými distribucemi Linuxu, včetně dalších distribucí založených na Archu, je přísně zakázáno. To zahrnuje, ale není omezeno na:
+Uživatelé jiných distribucí **NEJSOU PODPOROVÁNI** a **NENÍ DOPORUČENO** používat repozitář CachyOS (a jeho zrcadla). To zahrnuje mimo jiné:
 
 - Manjaro
 - EndeavourOS
 - ArcoLinux
 - Parabola
-- Jakoukoli jinou distribuci Linuxu, která není explicitně zmíněna v sekci "Oprávnění uživatelů"
+- Uživatelé jakékoli jiné Linuxové distribuce, která není výslovně zmíněna v sekci „Podporovaní uživatelé“.
 
-## 4. Dodržování a monitorování
+## 6. Redistribuce repozitáře
 
-Vyhrazujeme si právo monitorovat používání našeho repozitáře k zajištění dodržování této politiky. Každé neoprávněné použití může mít za následek zrušení přístupu.
+Tato pravidla definují „redistribuci“ jako zahrnutí repozitáře CachyOS (a jeho zrcadel) nebo balíčků získaných z repozitáře CachyOS jako součást distribučního obrazu operačního systému nebo systémových kořenů.  
+Redistribuce zahrnuje také činnosti **Linuxových distribucí**, které umožňují uživatelům přidat repozitář CachyOS dle jejich volby, nebo poskytují jakoukoli distribuovanou či oficiální dokumentaci, která uživatele navádí k přidání repozitáře CachyOS (a jeho zrcadel).  
+Koncoví uživatelé a zrcadla třetích stran nepodléhají pravidlům o redistribuci.
 
-## 5. Nahlášení porušení
+Redistribuce repozitáře CachyOS je výhradně autorizována pouze týmem CachyOS.
 
-Pokud máte podezření, že dochází k porušení této politiky, prosím, nahlaste to nám na [admin@cachyos.org].
+## 7. Zakázaná redistribuce
 
-## 6. Změny politiky
+Redistribuce repozitáře CachyOS (a jeho zrcadel) v jakékoli neautorizované Linuxové distribuci, včetně dalších distribucí založených na Archu, je **PŘÍSNĚ ZAKÁZÁNA**. To zahrnuje mimo jiné:
 
-CachyOS si vyhrazuje právo kdykoliv změnit tuto politiku. Změny budou sděleny prostřednictvím našich oficiálních kanálů.
+- Manjaro
+- EndeavourOS
+- ArcoLinux
+- Parabola
+- Jakoukoli jinou Linuxovou distribuci, která není výslovně zmíněna v sekci „Redistribuce repozitáře“.
 
-## 7. Kontaktní informace
+## 8. Zrcadlení
 
-Pro jakékoliv dotazy nebo obavy ohledně této politiky nás prosím kontaktujte na:
+Je povoleno zrcadlit repozitář pomocí rsync a syncthing. Zrcadla třetích stran mohou poskytovat webový server pro repozitář, pokud zajistí, že data repozitáře zůstanou nezměněna.
 
-- Email: admin@cachyos.org
-- Webová stránka: https://cachyos.org
+## 9. Soulad a monitoring
 
-## 8. Potvrzení
+Vyhrazujeme si právo monitorovat používání našeho repozitáře, abychom zajistili soulad s těmito pravidly. Jakékoli neautorizované použití může vést ke zrušení přístupu.
 
-Používáním repozitáře CachyOS potvrzujete, že jste přečetli, pochopili a souhlasíte s dodržováním této politiky.
+## 10. Hlášení porušení pravidel
+
+Pokud máte podezření, že jsou tato pravidla porušována, nahlaste to prosím na [admin@cachyos.org].
+
+## 11. Změny pravidel
+
+CachyOS si vyhrazuje právo tato pravidla kdykoli změnit. Změny budou oznámeny prostřednictvím našich oficiálních kanálů.
+
+## 12. Kontaktní informace
+
+Pro jakékoli dotazy nebo obavy týkající se těchto pravidel nás prosím kontaktujte:
+
+- E-mail: admin@cachyos.org
+- Web: https://cachyos.org
+
+## 13. Potvrzení
+
+Používáním repozitáře CachyOS (a jeho zrcadel) potvrzujete, že jste si tato pravidla přečetli, porozuměli jim a souhlasíte s jejich dodržováním.

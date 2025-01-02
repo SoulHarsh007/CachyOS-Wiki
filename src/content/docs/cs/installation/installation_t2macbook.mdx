@@ -1,6 +1,6 @@
 ---
-title: Instalace na MacBook T2
-description: Jak nainstalovat CachyOS na MacBook T2
+title: Instalace na T2 MacBook
+description: Jak nainstalovat CachyOS na T2 MacBook
 ---
 
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
@@ -9,46 +9,48 @@ import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
 ### Obecné informace
 
-CachyOS poskytuje podporu pro MacBook T2 přímo z krabice a potřebné záplaty jádra jsou dodávány ve výchozím jádře.
+CachyOS poskytuje nativní podporu pro T2 MacBook. Potřebné opravy jádra jsou součástí všech jader dodávaných s CachyOS.
 
-**Podpora WiFi** momentálně **není implementována**, protože se jedná o firmware s uzavřeným zdrojovým kódem, který nemáme dovoleno distribuovat.
-Instalace bude fungovat pouze s LAN připojením k internetu, po instalaci si můžete sami stáhnout firmware a nainstalovat ho, abyste měli plnou podporu WiFi.
+**WiFi připojení** není **dostupné** nativně, protože se jedná o uzavřený firmware, který CachyOS nesmí redistribuovat.
+Instalace bude fungovat pouze s LAN připojením. Podpora WiFi může být nastavena po instalaci.
+Viz [instalace firmwaru](#instalace-firmwaru)
 
-Níže najdete způsob, jak nainstalovat firmware po instalaci.
+### Pokračování v instalaci
 
-### Postup instalace
+Postupujte podle pokynů v části [Příprava instalace](/installation/installation_prepare#creating-a-bootable-cachyos-usb-drive), kde se dozvíte, jak stáhnout
+ISO a vytvořit bootovací USB disk.
 
-Ve wiki najdete, jak stáhnout a flashnout ISO.
+Je nutné provést další kroky, abyste připravili T2 MacBook na instalaci Linuxu, například rozdělení disku pomocí macOS a deaktivaci zabezpečeného bootování. Pokyny najdete v [t2linux Preinstall guide](https://wiki.t2linux.org/guides/preinstall/).
 
-Po flashnutí ISO obrazu stačí sledovat stránku Instalace na Root.
-CachyOS automaticky konfiguruje váš systém pomocí CachyOS Hardware Detection, který aplikuje potřebné bootovací parametry a další nastavení.
+Po vytvoření bootovacího USB disku se řiďte pokyny v části [Instalace na Root](/installation/installation_on_root).
+CachyOS aplikuje potřebné bootovací parametry a konfigurace na T2 MacBook uživatele pomocí [CachyOS Hardware Detection](/features/chwd).
 
 ### Instalace firmwaru
 
-Firmware může být stažen a získán z jiného zrcadla, které nehostujeme my.
+Firmware lze stáhnout a získat z jiného zrcadla, které není hostované CachyOS.
 
-Po bootování do nainstalovaného systému spusťte následující příkazy:
+Spusťte následující příkazy po nabootování do nainstalovaného systému:
 
 <Steps>
 
-1. Stáhněte balíček firmwaru pomocí jednoho z následujících nástrojů:
+1. Získejte balíček firmwaru pomocí jednoho z následujících nástrojů:
 
     <Tabs>
 
-    <TabItem label="použití curl">
+    <TabItem label="pomocí curl">
 
     ```sh
     curl https://mirror.funami.tech/arch-mact2/os/x86_64/apple-bcm-firmware-14.0-1-any.pkg.tar.zst -o apple-bcm-firmware-14.0-1-any.pkg.tar.zst
     ```
-    
+
     </TabItem>
-    <TabItem label="použití wget">
-    
+    <TabItem label="pomocí wget">
+
     ```sh
     wget https://mirror.funami.tech/arch-mact2/os/x86_64/apple-bcm-firmware-14.0-1-any.pkg.tar.zst
     ```
-    > Pokud nemáte `wget`, nainstalujte ho pomocí `sudo pacman -S wget`
-    
+    > Pokud `wget` není dostupný, nainstalujte ho pomocí `sudo pacman -S wget`
+
     </TabItem>
     </Tabs>
 
@@ -59,10 +61,11 @@ Po bootování do nainstalovaného systému spusťte následující příkazy:
 
 </Steps>
 
-Po tom načtěte firmware a znovu načtěte WiFi ovladač:
+Poté načtěte firmware a znovu načtěte WiFi ovladač:
 ```bash
-sudo modprobe -r brcmfmac_wcc; sudo modprobe -r brcmfmac; sudo modprobe brcmfmac
+sudo modprobe -r brcmfmac_wcc
+sudo modprobe -r brcmfmac
+sudo modprobe brcmfmac
 ```
 
-Můžete také extrahovat firmware z ISPW souboru, viz T2 Wiki:
-https://wiki.t2linux.org/guides/wifi-bluetooth/
+Firmware lze také extrahovat z ISPW souboru, viz [t2linux wiki stránka](https://wiki.t2linux.org/guides/wifi-bluetooth/)

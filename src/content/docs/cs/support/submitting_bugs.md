@@ -1,29 +1,32 @@
 ---
-title: Odesílání chyb
+title: Podávání hlášení o chybách
 ---
 
-# Popište svůj problém
+# Popište váš problém
 
-- Co nefunguje?
-- Pomáhá downgrade balíčku X s řešením problému?
-- Použijte funkci vyhledávání pro podobné problémy.
+- *Co nefunguje?*
+- *Opraví problém downgradování balíčku X?*
+- *Použili jste funkci hledání pro podobné problémy?*
+- *Provedli jste nějaké vlastní úpravy?*
+  - Příklad: `Přidání dalšího příznaku v souboru modprobe`
 
 # Poskytněte logy
 
-CachyOS poskytuje skvělý nástroj pro sběr logů nazvaný `cachyos-bugreport.sh`.
+CachyOS nabízí skvělý nástroj pro shromažďování logů ze systému nazvaný `cachyos-bugreport.sh`.
 Tento nástroj shromažďuje logy z:
 - dmesg
-- journlctl
+- journalctl
+- inxi `(pro získání informací o hardwaru)`
 
-Když budou logy shromážděny, aplikace se zeptá uživatele, zda má být nahraný na naše paste služby.
+Když jsou logy shromážděny, uživatel bude vyzván k rozhodnutí, zda je chce nahrát na náš paste web.
 
-Spusťte následující příkaz v terminálu a odkaz s chybami zveřejněte ve vlákně:
+**Spusťte následující příkaz v terminálu a přidejte odkaz spolu s hlášením o chybě do tématu:**
 ```sh
 sudo cachyos-bugreport.sh
 ```
 
-# Odkazy pro odeslání hlášení
+# Odkazy pro podání hlášení
 
-- Github: https://github.com/CachyOS/distribution
-- Fórum: https://discuss.cachyos.org/c/feedback/bugreports/10
-
+- GitHub: <https://github.com/CachyOS/distribution>
+- Fórum: <https://discuss.cachyos.org/c/feedback/bugreports/10>
+- Discord: [Kanál podpory](https://discord.com/channels/862292009423470592/862294383470051348)

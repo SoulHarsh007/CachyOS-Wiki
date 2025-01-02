@@ -1,110 +1,181 @@
 ---
-title: Příprava instalace
-description: Jak připravit CachyOS k instalaci
+title: Přípravné kroky
+description: Jak připravit CachyOS pro instalaci
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem, Aside } from '@astrojs/starlight/components';
 import ImageComponent from '~/components/image-component.astro';
-
-Následující část vás provede kroky potřebnými k přípravě všech prvků pro instalaci CachyOS.
 
 ## Systémové požadavky
 
-Před zahájením instalace se ujistěte, že váš počítač splňuje následující minimální systémové požadavky:
+Před zahájením příprav na instalaci se ujistěte, že počítač splňuje potřebné systémové požadavky pro běh CachyOS. Instalátor
+využívá online proces instalace, takže stabilní a relativně rychlé připojení k internetu je nezbytné.
 
-* 3 GB paměti
-* 30 GB místa na pevném disku
-* Procesor 1 GHz
-* Grafická karta a HD monitor
-* Širokopásmové připojení k internetu
+<Tabs>
 
-Pro nejlepší výkon doporučujeme mít:
+<TabItem label="Minimální požadavky">
 
-* 4 GB paměti
-* 50 GB místa na pevném disku
-* Procesor podporující x86-64-v3
-* Připojení k internetu 50 Mbps nebo lepší
-* Novější grafickou kartu NVIDIA (900+), grafickou kartu AMD nebo Intel
+*   3 GB RAM
+*   30 GB úložného prostoru (HDD/SSD)
+*   Stabilní připojení k internetu
 
-## Příprava na instalaci
+:::caution
+Nestabilní připojení může způsobit prodloužení doby instalace nebo v nejhorším případě neúspěšnou instalaci.
+:::
 
-Před instalací CachyOS na váš počítač je třeba provést několik úkolů.
+</TabItem>
 
-## Stažení obrazu
+<TabItem label="Doporučené požadavky">
 
-Stáhněte si CachyOS podle popisu v kapitole [Stahování CachyOS](/cachyos_basic/download/).
+*   8 GB RAM
+*   50 GB úložného prostoru (SSD/NVMe)
+*   [CPU podporující x86-64-v3](/installation/installation_prepare#x86_64-microarchitecture-level-support)
+*   Internetová rychlost 50 Mbps nebo lepší
+*   GPU NVIDIA (900+ - např. GTX 950), AMD +GCN 1.0 (např. AMD R7 240) nebo Intel (Integrovaná grafika řady HD nebo vyšší. Série Arc)
 
-## Příprava instalace na fyzickém zařízení
+</TabItem>
 
-### Vytvoření bootovatelného USB disku s CachyOS
+</Tabs>
 
-K vytvoření bootovatelného USB disku s CachyOS na Linuxu nebo Windows můžete použít několik programů. USB disk musí mít alespoň 8 GB.
+## Podpora úrovně mikroarchitektury x86_64
 
-#### Vytvoření bootovatelného USB disku na Linuxu nebo Windows
+<Tabs>
 
-##### Balena Etcher
+<TabItem label="x86_64-v3 kompatibilní CPU">
+
+- **Intel**
+  - Haswell a novější generace **(např. Broadwell, Skylake, Coffee Lake atd.)**
+- **AMD**
+  - **Řada Ryzen**
+
+</TabItem>
+
+<TabItem label="x86_64-v4 kompatibilní CPU">
+
+- **Intel**
+  - **Knights Landing (Xeon Phi x200), Knights Mill (Xeon Phi x205), Skylake-SP, Skylake-X, Cannon Lake, Cascade Lake, Cooper Lake, Ice Lake, Rocket Lake, Tiger Lake a Sapphire Rapids**
+- **AMD**
+  - **CPU Zen4+**
+
+</TabItem>
+
+</Tabs>
+
+## Vytvoření bootovacího USB disku CachyOS
+
+Existuje několik nástrojů a metod, které lze použít k vytvoření bootovacího USB disku CachyOS.
+
+:::note
+USB disk musí mít alespoň 8 GB volného prostoru.
+:::
+
+### balenaEtcher
 
 <Steps>
 
-1. Připojte svůj USB disk k dostupnému USB portu.
-2. Stáhněte [Balena Etcher](https://etcher.balena.io/).
-
-   Pokud stáhnete soubor `.AppImage`, přiřaďte mu oprávnění pro spuštění pomocí `chmod +x balenaEtcher-<verze>-<arch>.AppImage` a spusťte jej příkazem `./balenaEtcher-<verze>-<arch>.AppImage`.
-
-3. Klikněte na **Flash from file** a vyberte ISO obraz CachyOS.
-4. Klikněte na **Select target** a vyberte označení připojeného USB disku.
-5. Klikněte na **Flash** pro zahájení procesu.
+1. Stáhněte si [balenaEtcher](<https://etcher.balena.io/>). balenaEtcher podporuje vytvoření obrazu Linuxu, MacOS a Windows.
+   Pokud byl stažen soubor `.zip`, extrahujte ho a spusťte binární soubor pomocí následujících příkazů:
+      ```sh
+      # Extrahujte soubor zip:
+      bsdtar xvf <název zip souboru>
+      # Přejděte do nové složky:
+      cd balenaEtcher-linux-x64/
+      # Spusťte balenaEtcher:
+      ./balena-etcher
+      ```
+2. Připojte USB disk k počítači.
+3. Vyberte **`Flash from file`** a vyberte ISO obraz CachyOS.
+4. Klikněte na **`Select target`** a zvolte připojený USB disk.
+5. Stiskněte **`Flash`** pro zahájení procesu vytváření.
 
 </Steps>
 
 :::note
-Můžete být požádáni o administrátorská práva, vložte přihlašovací údaje a stiskněte **Authenticate**.
+balenaEtcher může vyžadovat administrátorská práva. Pokud ano, zadejte své heslo a klikněte na **`Authenticate`**.
 :::
 
 <br />
 
 <ImageComponent imgsrc={import('~/assets/images/etcher.png')} />
 
-Po dokončení procesu se zobrazí zpráva **Flash Completed!**. Zavřete Balena Etcher a restartujte systém, aby se nabootoval do CachyOS.
-:::note
-Ujistěte se, že v BIOSu máte nastavenou **prioritu bootování** z USB disku před ostatními disky.
-:::
 
-##### Příkazový řádek
+### Příkazová řádka (Linux a MacOS)
 
 <Steps>
 
-1. Připojte svůj USB disk k dostupnému USB portu.
-2. Zjistěte označení zařízení připojeného USB disku pomocí příkazu `sudo fdisk -l` (např. `/dev/sdX`, kde `X` může být `a`, `b`, atd.).
-3. Spusťte `sudo dd bs=4M if=full_iso_name.iso of=/dev/sdX status=progress oflag=sync` (nahraďte `/dev/sdX` označením zařízení připojeného USB disku).
+1. Připojte USB disk.
+2. Detekujte připojený USB disk pomocí následujících příkazů:
+   ```sh
+   # Linux
+   # USB disk může být identifikován např. jako /dev/sda podle modelu a velikosti disku.
+   sudo fdisk -l
 
+   # MacOS
+   # USB disky jsou identifikovány jako "/dev/diskY", kde "Y" může být 0,1 atd.
+   diskutil list
+   ```
+3. Zkopírujte obsah ISO souboru na připojený USB disk spuštěním:
+   ```sh
+   # Nahraďte <usbdrive> označením disku.
+   sudo dd bs=4M if=full_iso_name.iso of=/dev/<usbdrive> status=progress oflag=sync
+   ```
 </Steps>
 
-Příkaz `dd` nyní zkopíruje obsah ISO souboru na váš USB disk. Po dokončení je USB disk připraven k použití jako instalační médium CachyOS. Restartujte systém, aby se nabootoval do CachyOS.
-:::note
-Ujistěte se, že v BIOSu máte nastavenou **prioritu bootování** z USB disku před ostatními disky.
-:::
+- `dd` nyní zkopíruje obsah ISO souboru na připojený USB disk.
 
-##### Rufus (pouze Windows)
+### Rufus (pouze Windows)
 
 <Steps>
 
-1. Připojte svůj USB disk k dostupnému USB portu.
-2. Stáhněte [Rufus](https://rufus.ie/) a nainstalujte jej, nebo spusťte přenosnou verzi.
-3. V části **Device** klikněte na rozbalovací seznam a vyberte připojený USB disk.
-4. V části **Boot selection** klikněte na **SELECT** a najděte ISO obraz CachyOS.
-5. Klikněte na **START**.
+1. Připojte USB disk.
+2. Stáhněte si [Rufus](<https://rufus.ie/>) a nainstalujte ho, nebo spusťte přenosnou verzi.
+3. V poli **`Device`** klikněte na rozevírací seznam a vyberte připojený USB disk.
+4. V poli **`Boot selection`** klikněte na **`SELECT`** a najděte ISO obraz CachyOS.
+5. Klikněte na **`START`**.
 
 </Steps>
 
-##### Ventoy
+### Ventoy (Linux a Windows)
+
+<Tabs>
+
+<TabItem label="Linux">
 
 <Steps>
 
-1. Připojte svůj USB disk k dostupnému USB portu.
-2. Stáhněte [Ventoy](https://www.ventoy.net/en/download.html)
-3. **Vyberte** svůj USB disk. Ventoy nyní naformátuje váš USB disk.
-4. Po **úspěšném** formátování budete mít oddíl nazvaný "Ventoy".
-5. Obraz CachyOS by měl být umístěn do tohoto oddílu, poté z něj lze bootovat.
+1. Připojte USB disk.
+2. Stáhněte si [Ventoy](<https://www.ventoy.net/en/download.html>)
+3. Rozbalte Ventoy pomocí následujícího příkazu:
+   ```sh
+   # Nahraďte verzi správnou verzí např.: ventoy-1.0.99-linux.tar.gz
+   bsdtar xvf ventoy-version-linux.tar.gz
+   # Přejděte do nové složky: (verze se může lišit)
+   cd ventoy-1.0.99/
+   ```
+4. Spusťte **`VentoyGUI.x86_64`** dvojklikem nebo přes terminál:
+   ```sh
+   # Bude vyžadovat administrátorská práva, zadejte své přihlašovací údaje
+   ./VentoyGUI.x86_64
+   ```
+5. Vyberte připojený USB disk kliknutím na **`Device`.**
+6. Klikněte na **`Install`.**
+7. Po dokončení instalace Ventoy na připojený USB disk zavřete okno a umístěte ISO soubor CachyOS do nové použitelné oddílu disku.
 
 </Steps>
+
+</TabItem>
+
+<TabItem label="Windows">
+
+<Steps>
+1. Připojte USB disk.
+2. Stáhněte si [Ventoy](<https://www.ventoy.net/en/download.html>)
+3. Spusťte **`Ventoy2Disk.exe`**
+4. Vyberte připojený USB disk kliknutím na **`Device`.**
+5. Klikněte na **`Install`.**
+6. Po dokončení instalace Ventoy na připojený USB disk zavřete okno a umístěte ISO soubor CachyOS do nové použitelné oddílu disku.
+</Steps>
+
+</TabItem>
+
+</Tabs>

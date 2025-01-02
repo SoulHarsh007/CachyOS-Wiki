@@ -1,13 +1,13 @@
 ---
-title: Odesílání požadavků na balíčky do CachyOS
-description: Požadavky na balíčky pro AUR, ...
+title: Podávání žádostí o balíčky do CachyOS
+description: Žádosti o balíčky pro AUR balíčky, ...
 ---
 
-CachyOS nabízí široký výběr předkompilovaných balíčků AUR, které jsou běžně používané.
-Uživatelé mohou požádat o přidání balíčku AUR a tyto požadavky jsou automaticky aktualizovány naším buildserverem.
+CachyOS nabízí rozsáhlý seznam předkompilovaných AUR balíčků, které jsou běžně používány.
+Uživatelé mohou vytvářet žádosti o AUR balíčky, které, pokud jsou schváleny, jsou automaticky aktualizovány naším build serverem.
 
-Pokud uživatelé chtějí přidat balíček, mohou to udělat na GitHubu nebo v diskuzním fóru.
+Pokud chcete, abychom přidali balíček, můžete podat žádost na GitHubu nebo na fóru.
 
 - GitHub: https://github.com/CachyOS/distribution/issues
 - Fórum: https://discuss.cachyos.org/c/feedback/repository/11
-
+- Discord: [Kanál pro zpětnou vazbu](https://discord.com/channels/862292009423470592/1150723027986813018)

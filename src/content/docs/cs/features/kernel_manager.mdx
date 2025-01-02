@@ -1,52 +1,116 @@
 ---
-title: Správa jader s CachyOS Kernel Managerem
-description: CachyOS Kernel Manager je výkonný nástroj pro správu jader, který umožňuje uživatelům snadno instalovat nebo sestavovat vlastní jádra s lehkostí.
+title: Správa linuxových jader a frameworku sched-ext pomocí CachyOS Kernel Manageru
+description: CachyOS Kernel Manager je mocný nástroj pro správu jader, který uživatelům umožňuje snadno instalovat nebo sestavovat vlastní jádra.
 ---
 
 import ImageComponent from '~/components/image-component.astro';
 
-CachyOS Kernel Manager
-======================
-
-CachyOS Kernel Manager zjednodušuje instalaci a správu jader z repozitáře. Poskytuje také podrobný přehled všech nainstalovaných jader.
-
 Instalace jádra z repozitáře
 ---------------------------------------
 
-Pro instalaci jádra jednoduše spusťte aplikaci CachyOS Kernel Manager a vyberte požadované jádro z nabídky dostupných možností.
-Poté stačí kliknout na tlačítko "execute" pro dokončení instalace.
+**CachyOS Kernel Manager usnadňuje instalaci a správu jader z jakéhokoli repozitáře Arch Linuxu.**
+
+Pro instalaci jádra spusťte aplikaci `CachyOS Kernel Manager` a vyberte požadované jádro zaškrtnutím políčka `[]` ze seznamu všech dostupných možností. Poté stačí stisknout tlačítko `Execute` a instalace jádra se spustí.
 
 <br />
 <ImageComponent imgsrc={import('~/assets/images/cachyos-km1.png')} />
 
-Konfigurace a sestavování jádra
+:::note
+Tlačítko `Execute` se znepřístupní, pokud vyberete již nainstalované jádro.
+:::
+
+Konfigurace a sestavení vlastního jádra CachyOS
 ---------------------------------
-
-CachyOS Kernel Manager také usnadňuje konfiguraci a sestavování vlastních jader. Pro začátek otevřete aplikaci a klikněte na tlačítko "configure". Poté můžete upravit různá nastavení, jako je plánovač, výkonnostní governor, tick rate a další. Jakmile provedete požadované změny, jednoduše klikněte na tlačítko "execute" pro spuštění sestavování vašeho vlastního jádra.
-
-Dostupné konfigurační možnosti zahrnují:
-
-*   Plánovač (sched-ext, BORE, ECHO, RC, RT)
-*   Povolení CachyOS konfigurace
-*   Úpravy konfigurace pomocí nconfig, menuconfig, xconfig nebo gconfig
-*   NUMA (vypnuté nebo zapnuté)
-*   KBUILD CFLAGS (-O3 nebo -O2)
-*   Výkonnostní governor jako výchozí
-*   Povolení BBR2
-*   Tick rate (500Hz, 600Hz, 750Hz, 1000Hz)
-*   Tickless (idle, periodic, full)
-*   Vypnutí plánovače I/O Deadline
-*   Vypnutí plánovače I/O Kyber
-*   Povolení/zakázání MG-LRU
-*   Povolení/zakázání DAMON
-*   Povolení/zakázání Speculative page fault
-*   Aplikace automatické optimalizace jádra
-*   Aplikace optimalizace jádra pro specifické architektury CPU
-*   Sestavení ZFS modulu
-*   Sestavení NVIDIA modulu
-*   Povolení LTO (Full, Thin, No)
-
-Po dokončení se automaticky nainstaluje sestavené jádro a balíček lze nalézt v `$HOME/.cache/cachyos-km`.
 
 <br />
 <ImageComponent imgsrc={import('~/assets/images/cachyos-km2.png')} />
+
+**CachyOS Kernel Manager usnadňuje konfiguraci a sestavení vlastního jádra CachyOS.**
+
+:::note
+CachyOS Kernel Manager je speciálně navržen pro sestavování vlastních jader pro **varianty CachyOS** a nepodporuje sestavování ani konfiguraci standardního jádra Arch Linuxu ani jiných variant.
+:::
+
+*Začněte tím, že otevřete Kernel Manager a kliknete na tlačítko `Configure`. Tím se spustí nastavování různých parametrů, jako je požadovaný scheduler, frekvence časovače a další. Jakmile provedete požadované změny, klikněte na tlačítko `Build kernel` a zahajte sestavování vlastního jádra CachyOS.*
+
+**Dostupné možnosti konfigurace:**
+
+* *`Custom package name`: **Pomocí této volby můžete pojmenovat své jádro libovolně, například: `linux-custom-cachy`***
+* *Scheduler (BORE, RC, RT, RT+BORE, EEVDF a BMQ)*
+* *Povolit konfiguraci CachyOS*
+* *Upravit konfiguraci pomocí nconfig, menuconfig, xconfig nebo gconfig*
+* *Povolit/Zakázat NUMA*
+* *Povolit/Zakázat Modprobed-db*
+* *KBUILD CFLAGS (-O3 nebo -O2)*
+* *Výchozí governor výkonu*
+* *Povolit BBR3*
+* *Výběr frekvence časovače (100Hz, 250Hz, 300Hz, 500Hz, 600Hz, 750Hz, 1000Hz)*
+* *Režim bez časovače (idle, periodic, full)*
+* *Preempce (Full, Voluntary nebo Server)*
+* *Transparentní velké stránky (Always nebo Madvise)*
+* *Povolit/Zakázat DAMON*
+* *Povolit/Zakázat automatickou detekci architektury CPU*
+* *Použít optimalizaci jádra pro specifické architektury CPU*
+* *Povolit LTO (Full, Thin, No)*
+* *Sestavit modul ZFS*
+* *Sestavit uzavřený modul NVIDIA*
+* *Sestavit otevřený modul NVIDIA*
+* *Zahrnout vmlinux s ladicími informacemi/symboly*
+* *Načíst/Uložit předvolbu konfigurace Kernel Manageru: `(Pouze předvolby ze samotného manageru)`*
+* *Správa záplat jádra (vzdálená i lokální podpora)*
+
+**Po úspěšném sestavení jádra budete vyzváni k zadání hesla sudo pro jeho instalaci.**
+
+## Správa frameworku sched-ext
+
+**Kernel Manager poskytuje grafické uživatelské rozhraní (GUI) pro správu a ovládání schedulerů sched-ext. K tomuto rozhraní se dostanete kliknutím na tlačítko `sched-ext scheduler config` v hlavním okně.**
+
+<br />
+<ImageComponent imgsrc={import('~/assets/images/cachyos-km3.png')} />
+
+Toto GUI umožňuje:
+
+- **Přepínat mezi různými schedulery sched-ext (scx).**
+- **Povolit nebo zakázat službu scheduleru.**
+- **Zkontrolovat aktuálně spuštěný scheduler.**
+- **Nastavit příznaky a profily scheduleru.  `V současnosti podporují profily pouze bpfland a lavd.`**
+
+K dosažení tohoto cíle používá Kernel Manager `scx_loader` s konfigurací uloženou v:
+
+`/etc/scx_loader.toml`.  Další informace o konfiguračním souboru `scx_loader` naleznete v [této dokumentaci](https://github.com/sched-ext/scx/blob/main/rust/scx_loader/configuration.md).
+
+- **Jak funguje `scx_loader`?**
+    - Jakmile vyberete scheduler a profil, scx_loader spustí scheduler s vybraným profilem a uloží tuto konfiguraci do souboru `/etc/scx_loader.toml`, aby byla zachována i po restartu. Příklad, jak bude soubor vypadat po výběru `scx_bpfland` s profilem `Gaming`:
+        ```toml
+        default_sched = "scx_bpfland"
+        default_mode = "Gaming"
+
+        [scheds.scx_bpfland]
+        auto_mode = []
+        gaming_mode = ["-m", "performance"]
+        lowlatency_mode = ["-k", "-s", "5000", "-l", "5000"]
+        powersave_mode = ["-m", "powersave"]
+        ```
+
+### Profily scheduleru
+
+- **K čemu slouží "profily"?**
+  - Jsou to předvolby pro scheduler, které upravují příznaky na základě osvědčených kombinací pro zvýšení efektivity pro specifické případy použití, jako je například "Gaming".
+
+**Podrobnější informace naleznete v tabulce.**
+
+#### Bpfland
+
+|   Název profilu  	|  Příznaky příkazového řádku  	|                                                         Popis                                                         	|
+|:---------------:	|:--------------------:	|:---------------------------------------------------------------------------------------------------------------------------:	|
+| **Nízká latence** 	| `-k -s 5000 -l 5000` 	| Snižuje latenci na úkor propustnosti. Vhodné pro aplikace pracující v reálném čase, jako je zpracování zvuku a multimédií. 	|
+| **Gaming**      	| `-k -m performance`  	| Optimalizuje pro vysoký výkon ve hrách. Upřednostňuje P-jádra před E-jádry na procesorech Intel a CCD na procesorech Ryzen X3D.         	|
+| **Úspora energie**  	| `-m powersave`       	| Upřednostňuje energetickou účinnost. Upřednostňuje méně výkonná jádra (např. E-jádra na procesorech Intel).                                          	|
+| **Server**        | `-c 0`                | Zakáže interaktivní klasifikaci úloh v Bpflandu, čímž se stává vhodnějším pro server. Očekává se zvýšení výkonu v serverových úlohách přibližně o 2-3 %
+
+#### LAVD
+
+|       Název profilu       	| Příznaky příkazového řádku 	|                                                             Popis                                                            	|
+|:------------------------:	|:------------------:	|:----------------------------------------------------------------------------------------------------------------------------------:	|
+| **Gaming a nízká latence** 	|   `--performance`  	| Maximalizuje výkon využitím všech dostupných jader, upřednostňuje fyzická jádra.                                                   	|
+|      **Úspora energie**      	|    `--powersave`   	| Minimalizuje spotřebu energie při zachování rozumného výkonu. Upřednostňuje úsporná jádra a vlákna před fyzickými jádry. 	|

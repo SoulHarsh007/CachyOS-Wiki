@@ -1,39 +1,40 @@
 ---
-title: Instalace edice pro handheldy
+title: Instalace Handheld Edition
 description: Jak nainstalovat CachyOS na přenosná zařízení
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-CachyOS poskytuje edici pro přenosná zařízení, jako je Steam Deck, Rog Ally a Legion Go. Tato edice poskytuje zážitek podobný SteamOS s přepínáním herních režimů, předinstalovanými herními aplikacemi a dalšími funkcemi.
+CachyOS nabízí edici pro přenosná zařízení, jako jsou Steam Deck, ROG Ally a Legion Go. Tato edice poskytuje zážitek podobný SteamOS s přepínáním herních režimů, předinstalovanými herními aplikacemi a dalšími funkcemi.
 
-Edice pro handheldy využívá LAVD Scheduler jako výchozí plánovač, který je optimalizovaný pro přenosná zařízení, což poskytuje lepší frametimes pro hraní her.
+Handheld Edition používá plánovač CPU LAVD jako výchozí, který je optimalizován pro přenosná zařízení. Výsledkem je zlepšení snímkových frekvencí a výdrže baterie při hraní.
 
-Edice pro handheldy používá `systemd-boot` jako bootloader, a není k dispozici žádná volba bootloaderu, jak je tomu u výchozí edice CachyOS. Toto je záměrné pro zjednodušení procesu.
+Handheld Edition používá jako správce bootování `systemd-boot`. Na rozdíl od výchozího ISO CachyOS není výběr správce bootování dostupný. Tento krok má za cíl zjednodušit proces instalace.
 
-## Instalace na root
+## Instalace na Root
 
 <Steps>
 
 1. **Stáhněte** nejnovější Handheld ISO z webu/fóra.
 
-2. **Vypalte** ISO na USB. https://wiki.cachyos.org/installation/installation_prepare/
+2. [Vytvořte bootovací médium](/installation/installation_prepare) z ISO.
 
-3. **Nabootujte** z USB s ISO.
+3. **Nabootujte** do ISO.
 
-4. Klikněte na tlačítko **Launch Installer**.
+4. Klikněte na tlačítko **Spustit instalátor**.
 
-5. Otevře se Calamares, postupujte podle kroků v Calamares.
+5. Otevře se Calamares. Postupujte podle pokynů na obrazovce.
 
-6. V kroku rozdělení disku použijte možnost **Erase Disk**. Při přechodu z jiných distribucí, které používají odlišné rozvržení oddílů, může být možnost nahradit oddíly problematická.
+6. V kroku rozdělení disku zvolte možnost **Vymazat disk**. Pokud přecházíte z jiné linuxové distribuce, která pravděpodobně používá jiný formát rozdělení disku, mějte na paměti, že možnost nahrazení oddílu může být problematická a nemusí fungovat podle očekávání.
 
 7. Nainstalujte systém.
 
 </Steps>
 
-Po dokončení instalace je potřeba zařízení restartovat. Calamares vás na to upozorní.
+Po dokončení instalace vás Calamares vyzve k restartování zařízení.
 
-První spuštění může trvat delší dobu, protože se stahuje a spouští Steam. Tento proces může trvat až 2 minuty.
+První spuštění může trvat delší dobu, protože se stahuje a spouští Steam.
+Tento proces může trvat až 2 minuty.
 
 ## Instalace s Dual Boot
 
@@ -41,27 +42,24 @@ První spuštění může trvat delší dobu, protože se stahuje a spouští St
 
 1. **Stáhněte** nejnovější Handheld ISO z webu/fóra.
 
-2. **Vypalte** ISO na USB. https://wiki.cachyos.org/installation/installation_prepare/
+2. [Vytvořte bootovací médium](/installation/installation_prepare) z ISO.
 
-3. **Nabootujte** z USB s ISO.
+3. **Nabootujte** do ISO.
 
-4. Klikněte na tlačítko **Launch Installer**.
+4. Klikněte na tlačítko **Spustit instalátor**.
 
-5. Otevře se Calamares, postupujte podle kroků v Calamares.
+5. Otevře se Calamares. Postupujte podle pokynů na obrazovce.
 
-6. V kroku rozdělení disku vyberte **Manuální rozdělení** a vytvořte následující oddíly:
+6. V kroku rozdělení disku vyberte **Ruční rozdělení disku** a vytvořte následující oddíly:
 
     - 2GB /boot
-    - XGB /
+    - XGB / (X může být libovolná velikost úložného prostoru, kterou chcete přidělit kořenovému systému souborů)
 
 7. Pokračujte v krocích a nainstalujte systém.
 
 </Steps>
 
-Po dokončení instalace je potřeba zařízení restartovat. Calamares vás na to upozorní.
+Po dokončení instalace vás Calamares vyzve k restartování zařízení.
 
-První spuštění může trvat delší dobu, protože se stahuje a spouští Steam. Tento proces může trvat až 2 minuty.
-
-## Instalace s podporou Secure Boot
-
-dodělat
+První spuštění může trvat delší dobu, protože se stahuje a spouští Steam.
+Tento proces může trvat až 2 minuty.

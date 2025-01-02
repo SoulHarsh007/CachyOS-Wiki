@@ -1,74 +1,113 @@
 ---
-title: Stažení a Kontrola
-description: Stažení a kontrola CachyOS ISA.
+title: Stažení a ověření
+description: Stažení a ověření ISO obrazu CachyOS.
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-CachyOS lze nainstalovat pomocí dvou typů instalátorů: grafického (GUI) instalátoru a instalátoru příkazové řádky (CLI).
+## Stažení ISO obrazu
 
-## Kontrola
+ISO obraz CachyOS lze získat z následujících zdrojů:
 
-:::caution[WARNING]
-Vždy udělejte extra krok a ověřte integritu ISO souboru, abyste předešli nežádoucím problémům při instalaci nebo při vytváření bootovatelných médií.
+*   [Webové stránky](<https://cachyos.org/download>)
+*   [SourceForge](<https://sourceforge.net/projects/cachyos-arch/files/>)
+*   [Zrcadlo CachyOS](<https://mirror.cachyos.org/ISO/>)
+
+## Ověření integrity ISO obrazu pomocí SHA256
+
+:::caution[VAROVÁNÍ]
+Vždy proveďte další krok k ověření integrity ISO obrazu, abyste se vyhnuli nežádoucím problémům při instalaci nebo při vytváření spouštěcího média.
 :::
 
-Zde je jak to můžete udělat:
+**Aktuální verze ISO obrazu:** `241221`
 
-Pokud jsi na Windowsu:
+**SHA256 Hash:** `6b6562602705da3228d9862d7016a00ca6fa482482b87fd15656f9b2793f4ef6`
+
+<Tabs>
+
+<TabItem label='Windows'>
 
 <Steps>
 
-1. Pokud jste stáhli ISO soubor pomocí SourceForge, vedle každého souboru je vykřičník obsahující jak SHA1, tak SHA256 kontrolní součet.
-
-2. Otevřete CMD nebo PowerShell jako správce a navigujte do cesty, kde je uložený ISO soubor.
-
-3. Zadejte následující příkaz: `certUtil -hashfile full_iso_name.iso SHA256`
-
-   e.g:
+1. Stáhněte [soubor](https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso.sha256) obsahující SHA256 hash **(Otevřete jej v textovém editoru, např.: Poznámkový blok).**
+2. Otevřete CMD nebo PowerShell jako správce a [přejděte](<https://www.wikihow.com/Change-Directories-in-Command-Prompt>) do cesty, kde jsou uloženy soubory ISO a SHA256.
+3. Spusťte následující příkaz:
    ```powershell
-   certUtil -hashfile cachyos-kde-linux-230813.iso SHA256
+   # Příklad:
+   certUtil -hashfile cachyos-desktop-linux-241221.iso SHA256
    ```
-
-4. Porovnejte hash získaný pomocí certUtil s informacemi o souboru na SourceForge. Pokud se shodují, jste připraveni pokračovat.
+4. Porovnejte výstup hash z certUtil s hashem ze staženého souboru v **Kroku 1.** Pokud se shodují, můžete pokračovat v instalaci CachyOS.
 
 </Steps>
 
-Kontrola z jakékoliv Linux distribuce:
+</TabItem>
+
+<TabItem label='Linux'>
 
 <Steps>
 
-1. Otevřete terminál a přejděte do cesty, kde je uložený ISO soubor.
-
-2. Zadejte následující příkaz: `sha256sum full_iso_name.iso`
-
-   Například:
+1. Stáhněte [soubor](https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso.sha256) obsahující SHA256 hash.
+2. Otevřete terminál a přejděte do adresáře obsahujícího soubor `.sha256` a spusťte následující příkazy:
    ```sh
-   sha256sum cachyos-kde-linux-230319.iso
+   # Příklad:
+   cd Downloads/
+   cat cachyos-desktop-linux-241221.iso.sha256
+   # 6b6562602705da3228d9862d7016a00ca6fa482482b87fd15656f9b2793f4ef6
    ```
-
-3. Porovnejte, zda se SHA256 hash získaný pomocí příkazu `sha256sum` shoduje s SHA256 hashem uvedeným na SourceForge.
+3. Porovnejte výstup z **Kroku 2** a spusťte následující příkaz pro kontrolu aktuálního hashe v souboru ISO.
+   ```sh
+   # Příklad:
+   sha256sum cachyos-desktop-linux-241221.iso
+   ```
+4. Pokud se hashe z **Kroku 2** a **Kroku 3** shodují, můžete pokračovat v instalaci CachyOS.
 
 </Steps>
 
-## Ověřte autentičnost ISO souboru
+</TabItem>
 
-Pro ověření autentičnosti ISO souboru a ujištění se, že skutečně vyšel od oficiálního vývojového týmu  CachyOS:
+<TabItem label='macOS'>
 
 <Steps>
 
-1. Importujte GPG klíč pro ověření autentičnosti:
+1. Stáhněte [soubor](https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso.sha256) obsahující SHA256 hash.
+2. Otevřete terminál a přejděte do adresáře obsahujícího soubor `.sha256` a spusťte následující příkazy:
+   ```sh
+   # Příklad:
+   cd Downloads/
+   cat cachyos-desktop-linux-241221.iso.sha256
+   # 6b6562602705da3228d9862d7016a00ca6fa482482b87fd15656f9b2793f4ef6
+   ```
+3. Porovnejte výstup z **Kroku 2** a spusťte následující příkaz pro kontrolu aktuálního hashe v souboru ISO.
+   ```sh
+   # Příklad:
+   shasum -a 256 cachyos-desktop-linux-241221.iso
+   ```
+4. Pokud se hashe z **Kroku 2** a **Kroku 3** shodují, můžete pokračovat v instalaci CachyOS.
+
+</Steps>
+
+</TabItem>
+
+</Tabs>
+
+## Ověření autenticity ISO obrazu (Linux)
+
+Chcete-li ověřit autenticitu souboru ISO a ujistit se, že aktuální soubor byl vydán oficiálním vývojářským týmem CachyOS:
+
+<Steps>
+
+1. Importujte GPG klíč pro ověření autenticity:
 
    ```shell
    gpg --keyserver hkps://keys.openpgp.org --recv-key F3B607488DB35A47
    ```
 
-2. Stáhněte ISO soubor a jeho soubor s podpisem `.sig` a spusťte následující příkaz (nahraďte `full_iso_name.iso` skutečným názvem souboru ISO):
+2. Stáhněte soubor ISO a jeho podpisový soubor `.sig` a spusťte následující příkaz (nahraďte `full_iso_name.iso` skutečným názvem souboru ISO):
    ```shell
    gpg --verify full_iso_name.iso.sig full_iso_name.iso
    ```
 
-   Pokud získáte výstup **Good signature**, ISO soubor je pravý:
+   Pokud obdržíte výstup **Good signature**, soubor ISO je pravý:
    ```
    gpg: Signature made Mo 01 Apr 2024 14:13:30 CEST
    gpg:                using RSA key 882DCFE48E2051D48E2562ABF3B607488DB35A47
@@ -80,16 +119,6 @@ Pro ověření autentičnosti ISO souboru a ujištění se, že skutečně vyše
 
 </Steps>
 
-:::caution
-Pokud výstup nevrátí řetězec **Good signature** nebo se ID klíče neshoduje, nepoužívejte ISO obraz a ověřte, zda jste soubor stáhli z legitimního zdroje CachyOS. To může naznačovat, že váš obraz byl pozměněn.
+:::danger
+Pokud výstup nevrátí řetězec **Good signature** nebo se ID klíče neshoduje, nepoužívejte ISO obraz a ujistěte se, že stažený obraz pochází z legitimního zdroje CachyOS. Špatný podpis by mohl naznačovat, že stažený obraz byl pozměněn.
 :::
-
-## Stažení ISA
-
-CachyOS ISO může být staženo z těchto zdrojů:
-
-*   [Web](https://cachyos.org/download)
-*   [SourceForge](https://sourceforge.net/projects/cachyos-arch/files/)
-*   [CachyOS Zrcadlo](https://mirror.cachyos.org/ISO/)
-
-Jsou poskytovány jak online, tak offline instalátory pro vaše pohodlí.

@@ -1,90 +1,87 @@
 ---
-title: Kód chování
+title: Kodex chování
 ---
 
-# Kodeks chování pro přispěvatele
+# Kodex chování přispěvatele (Contributor Covenant Code of Conduct)
 
 ## Naše závazky
 
-My jako členové, přispěvatelé a vedoucí slibujeme, že účast v naší komunitě bude pro každého bezpečnou a bezobtížnou zkušeností, bez ohledu na věk, tělesnou velikost, viditelné nebo neviditelné postižení, etnický původ, pohlavní rysy, genderovou identitu a vyjádření, úroveň zkušeností, vzdělání, sociální a ekonomický status, národnost, osobní vzhled, rasu, náboženství nebo sexuální orientaci.
+My, členové, přispěvatelé a vedoucí komunity, se zavazujeme zajistit, aby účast v naší komunitě byla zážitkem bez obtěžování pro každého, bez ohledu na věk, tělesné proporce, viditelné či neviditelné postižení, etnicitu, pohlavní charakteristiky, genderovou identitu a vyjádření, úroveň zkušeností, vzdělání, socioekonomický status, národnost, osobní vzhled, rasu, náboženství nebo sexuální identitu a orientaci.
 
-Slibujeme jednat tak, abychom přispívali k otevřené, přátelské, rozmanité, inkluzivní a zdravé komunitě.
+Zavazujeme se jednat a komunikovat způsoby, které přispívají k otevřené, přívětivé, rozmanité, inkluzivní a zdravé komunitě.
 
 ## Naše standardy
 
-Příklady chování, které přispívají k pozitivnímu prostředí naší komunity, zahrnují:
+Příklady chování, které přispívá k pozitivnímu prostředí pro naši komunitu, zahrnují:
 
-* Projevování empatie a laskavosti k ostatním lidem
-* Respektování odlišných názorů, pohledů a zkušeností
-* Sdílení a přijímání konstruktivní zpětné vazby s grácií
-* Přijímání odpovědnosti a omlouvání se těm, které naše chyby ovlivnily, a učení se z těchto zkušeností
-* Zaměření se na to, co je nejlepší nejen pro nás jako jednotlivce, ale pro celou komunitu
+- Projevování empatie a laskavosti vůči ostatním lidem
+- Respektování odlišných názorů, pohledů a zkušeností
+- Poskytování a přijímání konstruktivní zpětné vazby s úctou
+- Přijímání odpovědnosti a omlouvání se těm, kterých se dotknou naše chyby, a učení se z těchto zkušeností
+- Soustředění se na to, co je nejlepší nejen pro nás jako jednotlivce, ale pro celou komunitu
 
-Příklady nevhodného chování zahrnují:
+Příklady nepřijatelného chování zahrnují:
 
-* Použití sexualizovaného jazyka nebo obrazů a sexuální pozornost nebo pokusy o nátlak jakéhokoli druhu
-* Trollování, urážky, hanlivé komentáře a osobní či politické útoky
-* Veřejné či soukromé obtěžování
-* Zveřejňování soukromých informací ostatních, jako jsou fyzické nebo emailové adresy, bez jejich explicitního souhlasu
-* Jiné chování, které by mohlo být považováno za nevhodné v profesionálním prostředí
+- Používání sexualizovaného jazyka nebo obrazového materiálu a jakékoliv sexuální pozornosti nebo návrhy
+- Trolling, urážlivé nebo hanlivé komentáře a osobní či politické útoky
+- Veřejné nebo soukromé obtěžování
+- Zveřejňování soukromých informací jiných osob, jako je fyzická adresa nebo e-mail, bez jejich výslovného souhlasu
+- Jakékoli jiné chování, které by mohlo být rozumně považováno za nevhodné v profesionálním prostředí
 
-## Zodpovědnost za vynucování pravidel
+## Odpovědnost za vymáhání
 
-Vedoucí komunity jsou zodpovědní za objasnění a vynucování našich standardů přijatelného chování a podle potřeby přijmou odpovídající a spravedlivá korektivní opatření v reakci na jakékoliv chování, které považují za nevhodné, hrozivé, urážlivé nebo škodlivé.
+Vedoucí komunity jsou odpovědní za objasnění a prosazování našich standardů přijatelného chování a přijmou vhodná a spravedlivá opatření v reakci na jakékoli chování, které považují za nevhodné, ohrožující, urážlivé nebo škodlivé.
 
-Vedoucí komunity mají právo a povinnost odstranit, upravit nebo zamítnout komentáře, commity, kódy, úpravy wiki, problémy a další příspěvky, které nejsou v souladu s tímto Kódexem chování, a budou komunikovat důvody svých rozhodnutí o moderaci, když je to vhodné.
+Vedoucí komunity mají právo a povinnost odstranit, upravit nebo odmítnout komentáře, příspěvky, kód, úpravy wiki, problémy a další příspěvky, které nejsou v souladu s tímto Kodexem chování, a pokud je to vhodné, sdělit důvody rozhodnutí o moderování.
 
 ## Rozsah
 
-Tento Kódex chování platí ve všech prostorech komunity a platí také, když jednotlivec oficiálně zastupuje komunitu ve veřejných prostorech. Příklady zastupování naší komunity zahrnují používání oficiální e-mailové adresy, příspěvek prostřednictvím oficiálního účtu na sociálních médiích nebo jednání jako jmenovaný zástupce na online či offline akci.
+Tento Kodex chování platí ve všech komunitních prostorech a rovněž při oficiálním zastupování komunity na veřejnosti. Příklady zastupování naší komunity zahrnují používání oficiální e-mailové adresy, publikování na oficiálních účtech sociálních médií nebo působení jako určený zástupce na online či offline událostech.
 
-## Vynucování
+## Vymáhání
 
-Případy zneužívání, obtěžování nebo jiného neakceptovatelného chování lze nahlásit vedoucím komunity odpovědným za vynucování na adrese admin@cachyos.org.
-Všechny stížnosti budou promptně a spravedlivě přezkoumány a vyšetřeny.
+Případy urážlivého, obtěžujícího nebo jinak nepřijatelného chování mohou být hlášeny vedoucím komunity odpovědným za vymáhání na adrese admin@cachyos.org.  
+Všechny stížnosti budou přezkoumány a vyšetřeny rychle a spravedlivě.
 
-Všichni vedoucí komunity jsou povinni respektovat soukromí a bezpečnost stěžovatele jakéhokoli incidentu.
+Všichni vedoucí komunity jsou povinni respektovat soukromí a bezpečnost osoby, která incident nahlásí.
 
-## Směrnice pro vynucování
+## Pravidla pro vymáhání
 
-Vedoucí komunity budou následovat tyto Směrnice pro dopad na komunitu při stanovování následků za jakékoli jednání, které považují za porušení tohoto Kódexu chování:
+Vedoucí komunity se budou řídit těmito Pravidly pro dopad na komunitu při určování důsledků jakéhokoli jednání, které považují za porušení tohoto Kodexu chování:
 
-### 1. Oprava
+### 1. Napomenutí
 
-**Dopad na komunitu**: Použití nevhodného jazyka nebo jiného chování, které je považováno za neprofesionální nebo nevhodné ve společenství.
+**Dopad na komunitu**: Použití nevhodného jazyka nebo jiného chování, které je považováno za neprofesionální nebo nevítané v komunitě.
 
-**Následek**: Soukromé písemné varování od vedoucích komunity, poskytující jasnost ohledně povahy porušení a vysvětlení, proč bylo chování nevhodné. Může být požadováno veřejné omluvení.
+**Důsledek**: Soukromé písemné varování od vedoucích komunity, poskytující vysvětlení povahy porušení a proč bylo chování nevhodné. Může být požadována veřejná omluva.
 
 ### 2. Varování
 
-**Dopad na komunitu**: Porušení prostřednictvím jediné události nebo série akcí.
+**Dopad na komunitu**: Porušení prostřednictvím jednoho incidentu nebo série činů.
 
-**Následek**: Varování s následky pro pokračování v chování. Žádná interakce s osobami zapojenými, včetně nevyžádané interakce s těmi, kteří vynucují Kódex chování, po určité období. To zahrnuje vyhýbání se interakcím v komunitních prostorech stejně jako v externích kanálech jako sociální média. Porušení těchto podmínek může vést k dočasnému nebo trvalému banu.
+**Důsledek**: Varování s následky pro pokračující chování. Zakázána interakce s dotčenými osobami, včetně nevyžádané interakce s těmi, kdo Kodex chování vymáhají, po stanovenou dobu. To zahrnuje vyhýbání se interakcím v komunitních prostorech i na externích kanálech, jako jsou sociální média. Porušení těchto podmínek může vést k dočasnému nebo trvalému zákazu.
 
-### 3. Dočasný ban
+### 3. Dočasný zákaz
 
-**Dopad na komunitu**: Závažné porušení standardů komunity, včetně trvalého nevhodného chování.
+**Dopad na komunitu**: Závažné porušení komunitních standardů, včetně přetrvávajícího nevhodného chování.
 
-**Následek**: Dočasný ban na jakýkoliv druh interakce nebo veřejné komunikace s komunitou po určité období. Během tohoto období není dovoleno žádné veřejné ani soukromé interakce s osobami zapojenými, včetně nevyžádané interakce s těmi, kteří vynucují Kódex chování. Porušení těchto podmínek může vést k trvalému banu.
+**Důsledek**: Dočasný zákaz jakékoli interakce nebo veřejné komunikace s komunitou po stanovenou dobu. Během tohoto období není povolena žádná veřejná ani soukromá interakce s dotčenými osobami, včetně nevyžádané interakce s těmi, kdo Kodex chování vymáhají. Porušení těchto podmínek může vést k trvalému zákazu.
 
-### 4. Trvalý ban
+### 4. Trvalý zákaz
 
-**Dopad na komunitu**: Prokazování vzorce porušení standardů komunity, včetně trvalého nevhodného chování, obtěžování jednotlivce nebo agresivního chování či hanobení skupin jednotlivců.
+**Dopad na komunitu**: Opakované porušování komunitních standardů, včetně přetrvávajícího nevhodného chování, obtěžování jednotlivce nebo agrese vůči skupinám osob.
 
-**Následek**: Trvalý ban na jakýkoliv druh veřejné interakce v rámci komunity.
+**Důsledek**: Trvalý zákaz jakékoli veřejné interakce v rámci komunity.
 
+## Přisuzování
 
-## Připisování
-
-Tento Kódex chování je upraven z [Contributor Covenant][homepage],
-verze 2.0, dostupné na
+Tento Kodex chování je převzat z [Contributor Covenant][homepage], verze 2.0, dostupného na  
 https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-Směrnice pro dopad na komunitu byly inspirovány [Mozilla's code of conduct
-enforcement ladder](https://github.com/mozilla/diversity).
+Pravidla pro dopad na komunitu byla inspirována [Kodexem chování Mozilly](https://github.com/mozilla/diversity).
 
 [homepage]: https://www.contributor-covenant.org
 
-Pro odpovědi na časté otázky ohledně tohoto kódu chování navštivte FAQ na
-https://www.contributor-covenant.org/faq. Překlady jsou k dispozici na
+Pro odpovědi na časté dotazy ohledně tohoto Kodexu chování navštivte FAQ na  
+https://www.contributor-covenant.org/faq. Překlady jsou dostupné na  
 https://www.contributor-covenant.org/translations.

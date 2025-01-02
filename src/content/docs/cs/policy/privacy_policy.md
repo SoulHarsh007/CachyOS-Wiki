@@ -1,62 +1,62 @@
 ---
-title: Ochrana osobních údajů
+title: Zásady ochrany osobních údajů
 ---
 
-### 1. Úvod
+## 1. Úvod
 
-CachyOS ("my," "nás" nebo "naše") se zavazuje chránit vaši soukromí. Tato zásady ochrany osobních údajů popisují, jak sbíráme, používáme, zveřejňujeme a chráníme vaše informace při návštěvě našich webových stránek a při používání našich služeb, včetně fóra založeného na softwaru Discourse. Používáním našich služeb souhlasíte s tímto způsobem sběru a používání informací v souladu s touto politikou.
+CachyOS („my“, „nás“ nebo „naše“) se zavazuje chránit vaše soukromí. Tyto Zásady ochrany osobních údajů popisují, jak shromažďujeme, používáme, zveřejňujeme a chráníme vaše informace při návštěvě našich webových stránek a používání našich služeb, včetně fóra založeného na softwaru Discourse. Používáním našich služeb souhlasíte se shromažďováním a používáním informací v souladu s těmito zásadami.
 
-### 2. Správce
+## 2. Správce údajů
 
-Správcem osobních údajů je:
-CachyOS Team
-Email: admin at cachyos dot org
+Správcem údajů odpovědným za vaše osobní údaje je:
+Tým CachyOS  
+E-mail: admin at cachyos dot org
 
-### 3. Sběr a využití dat
+## 3. Shromažďování a používání údajů
 
-#### 3.1. Obecné použití platformy
+### 3.1. Obecné používání platformy
 
 Při návštěvě našich webových stránek náš poskytovatel hostingu automaticky shromažďuje určité technické údaje:
 - IP adresa
-- Navštívený obsah
+- Přistupovaný obsah
 - Datum a čas přístupu
 - Typ a verze prohlížeče
-- URL odkazu, odkud přišel uživatel
+- Referrer URL
 
-Tato data jsou nezbytná pro provoz webových stránek a zajištění jejich bezpečnosti, v souladu s čl. 6 odst. 1 písm. f) GDPR. Data jsou uchovávána po dobu 91 dnů, poté jsou smazána.
+Tyto údaje jsou nezbytné pro provoz webových stránek a zajištění jejich bezpečnosti v souladu s čl. 6 odst. 1 písm. f) GDPR. Údaje jsou uchovávány po dobu 91 dní, poté jsou smazány.
 
-#### 3.2. Registrace uživatelského účtu
+### 3.2. Registrace uživatelského účtu
 
-Při vytváření uživatelského účtu sbíráme:
+Při vytvoření uživatelského účtu shromažďujeme:
 - Uživatelské jméno
-- Emailovou adresu
+- E-mailovou adresu
 - Heslo
 
-Můžeme také shromažďovat další údaje, jako je IP adresa, preferovaný jazyk a časové pásmo. Tato informace se používá k správě vašeho účtu a poskytování našich služeb, v souladu s čl. 6 odst. 1 písm. b) GDPR. Vaše data budou uchována po dobu, kdy máte u nás účet.
+Můžeme také shromažďovat další údaje, jako je vaše IP adresa, jazyková preference a časové pásmo. Tyto informace slouží k správě vašeho účtu a poskytování našich služeb podle čl. 6 odst. 1 písm. b) GDPR. Vaše údaje budou uchovávány, dokud budete mít u nás účet.
 
-### 4. Služby
+## 4. Služby
 
-#### 4.1. Fórum
+### 4.1. Fórum
 
-Pro účast na našem fóru musíte zaregistrovat účet. Shromažďujeme vaše uživatelské jméno, emailovou adresu a odpověď na CAPTCHA, abychom zabránili spamu. Můžete si vybrat, zda chcete svou emailovou adresu zobrazit ostatním uživatelům. Příspěvky a komentáře zobrazují vaše uživatelské jméno a datum registrace. Po smazání účtu budou příspěvky anonymizovány.
+Pro účast na našem fóru si musíte registrovat účet. Shromažďujeme vaše uživatelské jméno, e-mailovou adresu a odpověď na captcha, abychom zabránili spamu. Můžete si vybrat, zda chcete svou e-mailovou adresu zobrazit ostatním uživatelům. Příspěvky a komentáře zobrazují vaše uživatelské jméno a datum registrace. Po smazání účtu zůstanou příspěvky anonymizovány.
 
-#### 4.2. Webové stránky
+### 4.2. Webové stránky
 
-Můžete procházet naše webové stránky bez poskytování osobních údajů. Určité interakce, jako je kontaktování nás nebo přihlašování k odběru newsletterů, však mohou vyžadovat poskytnutí osobních údajů, jako je emailová adresa a jméno. Tato data jsou zpracovávána k splnění vašich požadavků, v souladu s čl. 6 odst. 1 písm. b) GDPR.
+Naše webové stránky můžete procházet bez poskytování osobních údajů. Některé interakce, jako je kontaktování nás nebo přihlášení k odběru novinek, však mohou vyžadovat poskytnutí osobních údajů, například vaší e-mailové adresy a jména. Tyto údaje jsou zpracovávány za účelem splnění vašich požadavků podle čl. 6 odst. 1 písm. b) GDPR.
 
-### 5. Kontakt
+## 5. Kontakt
 
-Když nás kontaktujete emailem, shromažďujeme vaši emailovou adresu a veškeré další informace, které poskytnete. Tato data jsou používána k odpovědi na vaši žádost a jsou uchovávána po dobu nezbytnou k plnění tohoto účelu, v souladu s čl. 6 odst. 1 písm. f) GDPR.
+Při kontaktování nás prostřednictvím e-mailu shromažďujeme vaši e-mailovou adresu a další informace, které poskytnete. Tyto údaje slouží k odpovědi na váš dotaz a jsou uchovávány po dobu nezbytnou k dosažení tohoto účelu v souladu s čl. 6 odst. 1 písm. f) GDPR.
 
-### 6. Uchovávání dat
+## 6. Uchovávání údajů
 
-Vaše osobní údaje uchováváme pouze po dobu nezbytnou k dosažení účelů, pro které byly shromážděny. Jakmile data již nejsou potřebná, budou smazána v souladu s našimi politikami uchovávání dat.
+Vaše osobní údaje uchováváme pouze po dobu nezbytnou k dosažení účelů, pro které byly shromážděny. Jakmile údaje již nejsou potřeba, budou smazány v souladu s našimi zásadami uchovávání údajů.
 
-### 7. Příjemci dat
+## 7. Příjemci údajů
 
-Vaše data můžeme sdílet s externími poskytovateli služeb, jako je naším poskytovatelem hostingu, k usnadnění našich služeb. Tito poskytovatelé jsou smluvně povinni chránit vaše data a používat je pouze pro specifikované účely.
+Vaše údaje můžeme sdílet s externími poskytovateli služeb, například naším poskytovatelem hostingu, za účelem usnadnění našich služeb. Tito poskytovatelé jsou smluvně zavázáni chránit vaše údaje a používat je pouze pro stanovené účely.
 
-### 8. Vaše práva
+## 8. Vaše práva
 
 Podle GDPR máte následující práva týkající se vašich osobních údajů:
 - Právo na přístup (čl. 15 GDPR)
@@ -65,26 +65,26 @@ Podle GDPR máte následující práva týkající se vašich osobních údajů:
 - Právo na omezení zpracování (čl. 18 GDPR)
 - Právo na přenositelnost údajů (čl. 20 GDPR)
 - Právo vznést námitku (čl. 21 GDPR)
-- Právo kdykoliv odvolat souhlas (čl. 7 odst. 3 GDPR)
-- Právo podat stížnost u dozorového orgánu (čl. 77 GDPR)
+- Právo odvolat souhlas (čl. 7 odst. 3 GDPR)
+- Právo podat stížnost u dozorového úřadu (čl. 77 GDPR)
 
-Pro vykonání těchto práv nás kontaktujte na adrese admin@cachyos.org.
+Pro uplatnění těchto práv nás prosím kontaktujte na admin@cachyos.org.
 
-### 9. Zabezpečení dat
+## 9. Zabezpečení údajů
 
-Používáme odpovídající technická a organizační opatření pro zajištění bezpečnosti vašich údajů proti neoprávněnému přístupu, změně, zveřejnění nebo zničení.
+Provádíme vhodná technická a organizační opatření k zajištění úrovně bezpečnosti přiměřené riziku, aby byly vaše údaje chráněny před neoprávněným přístupem, změnou, zveřejněním nebo zničením.
 
-### 10. Změny této zásady ochrany osobních údajů
+## 10. Změny těchto Zásad ochrany osobních údajů
 
-Můžeme čas od času aktualizovat naši zásady ochrany osobních údajů. O změnách vás budeme informovat zveřejněním nové zásady ochrany osobních údajů na této stránce. Změny jsou účinné okamžitě po jejich zveřejnění.
+Tyto Zásady ochrany osobních údajů můžeme čas od času aktualizovat. O případných změnách vás budeme informovat zveřejněním nových Zásad ochrany osobních údajů na této stránce. Změny jsou účinné okamžitě po zveřejnění.
 
-### 11. Kontaktujte nás
+## 11. Kontaktujte nás
 
-Pokud máte jakékoli otázky nebo obavy ohledně této zásady ochrany osobních údajů, kontaktujte nás na:
-Email: admin at cachyos dot org
+Máte-li jakékoli dotazy nebo obavy týkající se těchto Zásad ochrany osobních údajů, kontaktujte nás prosím na:  
+E-mail: admin at cachyos dot org
 
 ---
 
-Tato zásada ochrany osobních údajů zajišťuje soulad s GDPR a popisuje postupy týkající se vašich osobních údajů v rámci služeb a webových stránek CachyOS.
+Tyto Zásady ochrany osobních údajů zajišťují soulad s GDPR a stanovují postupy týkající se vašich osobních údajů pro služby a webové stránky CachyOS.
 
 Datum: 1.06.2024

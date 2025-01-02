@@ -1,18 +1,17 @@
 ---
-title: Příspěvek
-description: Jak nás podpořit
+title: Podpora
+description: Způsoby, jak nás podpořit
 ---
 
-Pokud chcete podpořit naši práci, můžete nám poskytnout finanční dar a pomoci tak s pokrytím nákladů na naše build servery.
-Každý dárce získá na našem Discordu titul Donator.
+Pokud chcete podpořit naši práci, můžete nám přispět a pomoci pokrýt náklady na naše buildservery. Každý dárce získá hodnost Dárce na našem Discordu.
 
-Zde je seznam aktuálních měsíčních nákladů:
+Zde je seznam aktuálních nákladů za měsíc:
 
 - Buildserver 127 € (Hetzner 7950X3D)
-- Webserver/mirror 17 €
-- Mailserver/mirror 17 €
-- Forum Server (Netcup VPS) 7 €
-
+- Druhý Buildserver 70 € (Hetzner 7700X)
+- Webserver/zrcadlo 17 €
+- Mailserver/zrcadlo 17 €
+- Server fóra (Netcup VPS) 7 €
 
 ### Patreon
 
