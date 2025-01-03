@@ -1,0 +1,343 @@
+---
+title: Sprievodca hraním hier na CachyOS
+description: 'Pokrýva základnú inštaláciu balíkov, hranie hier cez Steam s Protonom, rôzne možnosti verzií Protonu, Lutris ako centrálny hub pre všetky hry a skriptové inštalátory pre populárne hry.'
+---
+
+import MultipleImageComponent from '~/components/multiple-images-component.astro';
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+
+Vitajte v sprievodcovi hraním hier v CachyOS. Prevedieme vás základnými aspektmi, ako všetko nastaviť a užiť si skvelý zážitok.
+
+## Predpoklady
+
+:::caution
+Predtým, než sa ponoríme do zábavných vecí, je nevyhnutné uistiť sa, že ovládače vašej grafickej karty sú nainštalované a fungujú správne. Ak vaša grafická karta nepracuje optimálne, môžete sa stretnúť s problémami pri hraní hier.
+:::
+
+### Základné balíky
+
+Aby sme vám to uľahčili, CachyOS zoskupil všetky potrebné balíky pre hranie hier do jedného meta balíka, ktorý obsahuje všetky známe obchody a doplnky pre hranie hier v Linuxe. Toto robí inštaláciu a nastavenie pre hranie hier rýchlejšie a menej komplikované pre každého.
+
+```sh title='Spustite nasledujúci príkaz v termináli'
+sudo pacman -S cachyos-gaming-meta
+```
+
+:::note
+Balík `cachyos-gaming-meta` nainštaluje všetky dôležité knižnice, balíky, pluginy a obchody ako Steam, Lutris a niektoré nástroje, ktoré sú potrebné pre správne spustenie a fungovanie väčšiny hier. Pozrite si [zoznam balíkov](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-gaming-meta/PKGBUILD#L10) pre viac informácií o tom, čo sa inštaluje.
+
+*Ak zistíte, že nejaké balíky chýbajú, neváhajte to oznámiť tímu CachyOS.*
+:::
+
+## Steam
+
+Pre používateľov Steamu je hranie hier na CachyOS hračkou! Otvorte Steam a postupujte podľa [sprievodcu Protonom](/configuration/gaming#how-to-enable-proton-support-in-steam) a ste pripravení užívať si svoje hry.
+
+:::note
+Používatelia notebookov s dedikovanými NVIDIA GPU by sa mali riadiť nasledujúcim [návodom](https://wiki.cachyos.org/configuration/dual_gpu/)
+:::
+
+### Ako povoliť podporu Protonu v Steame
+
+<br />
+<MultipleImageComponent
+  images={[
+    import('~/assets/images/Steam1_Screenshot_20230907_071249.png'),
+    import('~/assets/images/Steam2_Screenshot_20230907_071521.png'),
+    import('~/assets/images/Steam3_Screenshot_20230907_072849.png'),
+    import('~/assets/images/Steam4_Screenshot_20230907_072236.png')
+  ]}
+/>
+
+:::tip
+CachyOS poskytuje rôzne verzie Protonu, ktoré zostavujeme a udržiavame pre ďalšie zlepšenia výkonu:
+- `proton-cachyos` `(zahrnutý v balíku cachyos-gaming-meta)` je ten, ktorý vyvíjame s pridanými zmenami QoL + vybranými patchmi + optimalizáciami kompilácie `(x86-64-v3 & x86-64-v4)`
+- `proton-ge-custom`, `proton-tkg-git`, `proton-experimental` a `proton stable releases` sú zostavené proti natívnym knižniciam.
+- `proton-ge-custom-bin` stiahnutý z AUR.
+:::
+
+:::tip
+Ak chcete skontrolovať, či je vaša hra kompatibilná alebo ako beží s Linuxom, navštívte [proton-db](https://www.protondb.com/) alebo [Are We Anti-Cheat Yet?](https://areweanticheatyet.com/).
+:::
+
+## Steam FAQ & Tipy
+
+### Ktorú verziu Protonu by som mal použiť v Steame?
+
+- [`proton-cachyos`](https://github.com/CachyOS/proton-cachyos) Je ten, ktorý zostavujeme a udržiavame a je vysoko odporúčaný, pokiaľ nemá problém s hrou, ktorú chcete hrať. Mal by fungovať vo väčšine prípadov.
+- `Proton Experimental` Najnovšia vývojová verzia od `Valve`. Ak je hra, ktorú chcete hrať, relatívne nová alebo nefunguje dobre so súčasnou stabilnou verziou Protonu, alebo ste videli ľudí, ktorí ju odporúčajú v [ProtonDB](https://www.protondb.com/).
+- `Proton 9.0.3 alebo nižšie` Stabilné verzie od `Valve`. Ak hra, ktorú chcete hrať, funguje iba v predchádzajúcej verzii Protonu.
+- `Proton-GE` Zostava vytvorená používateľom [GloriousEggroll](https://github.com/GloriousEggroll/proton-ge-custom), v niektorých prípadoch sa hodí.
+
+### Čo je proton-cachyos?
+
+Pozrite si toto [vysvetlenie o ňom.](/configuration/gaming#proton-cachyos)
+
+### Ako správne kombinovať viacero možností spustenia
+
+- Pridajte premenné prostredia alebo príkazy, ktoré chcete, a na konci uveďte `%command%`
+    - Príklad: `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 prime-run game-performance %command%`
+
+:::caution
+Nepridávajte viacero `%command%` použitím ako oddeľovačov pre viacero možností spustenia.
+
+Príklad: `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 %command% game-performance %command% prime-run %command%`
+    - V tomto prípade sa všetko po prvom `%command%` bude ignorovať, pretože sa to považuje za argumenty hry, a preto bola ako možnosť spustenia rozpoznaná iba `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1`.
+:::
+
+### Oprava sekania spôsobeného funkciou Steam Game Recorder
+
+```sh title='Pridajte nasledujúcu možnosť spustenia do vašej hry'
+LD_PRELOAD="" %command%
+```
+
+## Tipy na výkon
+
+### Prepínanie energetického profilu na požiadanie
+
+:::note
+Toto správanie je mierne odlišné s `intel_pstate`. Na Intel zostáva governor na powersave, ale hodnoty EPP/EPB sú nastavené na performance.
+:::
+
+CachyOS poskytuje obalový skript [`game-performance`](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/game-performance),
+ktorý používa `power-profiles-daemon` na dočasné prepnutie aktuálneho energetického profilu na `performance`.
+Profil `performance` zvyšuje úrovne výkonu systému a mení CPU governor na `performance`.
+
+Keď sa tento skript použije na spustenie hry, systém sa nastaví na používanie profilu `performance`, pokiaľ je hra spustená.
+Predtým použitý energetický profil sa obnoví po zatvorení hry.
+
+*[Feral's GameMode](https://github.com/FeralInteractive/gamemode)
+má podobné správanie, ale nemal by sa používať, pretože CachyOS už obsahuje [`ananicy-cpp`](https://gitlab.com/ananicy-cpp/ananicy-cpp)*
+
+### Ako pridať game-performance do Steamu, Lutrisu, Heroic Games Launcher a Bottles
+
+<Tabs>
+
+<TabItem label='Steam'>
+
+<Steps>
+1. Otvorte svoju `Knižnicu Steam`
+2. Kliknite pravým tlačidlom myši na názov hry a vyberte `Vlastnosti`.
+3. Na karte `Všeobecné` nájdete sekciu `Možnosti spustenia`.
+4. Pridajte nasledujúcu možnosť spustenia:
+    ```sh
+    game-performance %command%
+    ```
+</Steps>
+
+</TabItem>
+
+<TabItem label='Heroic Games Launcher'>
+
+<Steps>
+1. Na ľavom paneli otvorte `Nastavenia`.
+2. Prejdite na `Predvolené nastavenia hier` a kliknite na `Rozšírené`.
+3. V sekcii príkaz `wrapper` pridajte nasledujúci riadok bez akýchkoľvek argumentov:
+   ```sh
+   game-performance
+   ```
+4. Kliknite na znamienko `+` pre uloženie zmien.
+</Steps>
+
+</TabItem>
+
+<TabItem label='Lutris'>
+
+<Steps>
+1. V pravom hornom rohu otvorte `hamburger menu`
+2. Prejdite na `Predvoľby/Globálne možnosti`.
+3. Povoľte `Rozšírený režim` v pravom hornom rohu.
+4. Prejdite nadol na `Príkazový prefix` a pridajte nasledujúci riadok:
+   ```sh
+   game-performance
+   ```
+5. Uložte zmeny.
+</Steps>
+
+</TabItem>
+
+<TabItem label='Bottles (Nefunguje)'>
+
+<Steps>
+1. Otvorte existujúcu Bottle.
+2. Otvorte `ozubené koliesko` (vedľa Spustiť spustiteľný súbor).
+3. Pridajte nasledujúci riadok do poľa `Možnosti spustenia`:
+   ```sh
+   game-performance
+   ```
+</Steps>
+
+</TabItem>
+
+</Tabs>
+
+## Proton-CachyOS
+
+Proton-CachyOS je založený na vetve `proton-bleeding-edge branch` a aplikuje na ňu množstvo patchov a zmien.
+- **Patche Wine-staging**
+- **Wine Fullscreen FSR**
+- **Podpora Reflex: `Len tituly DX12`**
+- **Podpora pre umu-launcher**
+
+*Okrem toho je proton-cachyos kompilovaný proti natívnym systémovým knižniciam a inštrukciám kompilátora, čo môže ďalej zlepšiť výkon.*
+
+## Wine-CachyOS
+
+Toto je riešenie podobné proton-cachyos, ale ako samostatná verzia, ktorú môžu používať Lutris, Heroic, Bottles a iné.
+
+:::note
+Hoci sa dá použiť ako systémové Wine pre desktopové aplikácie, uvedomte si, že to môže viesť k neočakávanému správaniu a problémom kvôli tomu, že sa viac zameriava na hranie hier s patchmi a zmenami.
+:::
+
+- **Založené na vývojovej verzii Wine od Valve**
+- **Pridáva skoré opravy/obchádzky pre hry**
+- **protonfixes**
+- **Podpora pre `umu-launcher`**
+
+**Modifikácie QoL**
+
+- `WINE_WMCLASS:` premenná prostredia na nastavenie wm class všetkých wine okien, čo umožňuje wm ovládať okno prostredníctvom pravidiel.
+- `WINEUSERSANDBOX:` premenná prostredia na zakázanie vytvárania symbolických odkazov z priečinkov Wine, ako sú Dokumenty/Obrázky atď., na ekvivalentné priečinky v používateľskom adresári
+- `Zakázané natívne dekorácie okien`
+- `Zmeny na optimalizáciu výkonu Wine podobne ako to robíme s proton-cachyos`
+
+## Bottles
+
+Bottles je aplikácia, ktorá vám umožňuje jednoducho spravovať Windows prefixy na vašich obľúbených distribúciách Linuxu.
+
+Bottles môžu tiež využívať rôzne bežce ako Lutris a sú všetky spravovateľné v rámci aplikácie. Bottles ponúka možnosť prefixu zameraného na hranie hier.
+
+Môžete tiež inštalovať závislosti, pridávať EXE súbory a používať ich inštalátory na jedno kliknutie pre aplikácie súvisiace s hraním hier, ako napríklad EA App alebo Battle.net.
+
+```sh title="Ako nainštalovať Bottles"
+# Otvorte terminál a spustite nasledujúci príkaz:
+sudo pacman -S bottles
+```
+
+*Ak sa o tom chcete dozvedieť viac, pozrite si ich [dokumentáciu](https://docs.usebottles.com/).*
+
+## Úvod a tipy pre Lutris
+
+Lutris slúži ako centrálny hub pre všetky vaše hry na CachyOS.
+
+S Lutrisom môžete efektívne spravovať vaše bežce hier, vrátane Wine, Proton a emulátorov.
+
+- **Hry môžete spúšťať cez Lutris jednoduchým kliknutím na tlačidlo `Prehrať`.**
+- **Pridajte ľubovoľnú hru, ktorú chcete, kliknutím na znamienko `+` vľavo hore.**
+- **Nastavte obchod v časti `Zdroje` na ľavom paneli a prepojte svoj účet, následne sa nainštaluje daný obchod a potom budete môcť spúšťať hry priamo z obchodu, rovnako ako to robíte v systéme Windows.**
+- **A mnoho ďalšieho!**
+
+### Obchody s hrami podporované v Lutrise
+
+- [EA App](https://lutris.net/games/ea-app/)
+- [Epic Games Store](https://lutris.net/games/epic-games-store/)
+- [GOG Galaxy](https://lutris.net/games/gog-galaxy/)
+- [Steam](https://lutris.net/games/steam/)
+- [Ubisoft Connect](https://lutris.net/games/ubisoft-connect/)
+
+### Nastavenie wine-cachyos Wine runner
+
+<br />
+<MultipleImageComponent
+  images={[
+    import('~/assets/images/lutris-guide-1.png'),
+    import('~/assets/images/lutris-guide-2.png')]}
+/>
+
+## Lutris FAQ
+
+### Ako môžem pridať parameter pri spúšťaní hry? Napríklad -dx11
+
+- Kliknite pravým tlačidlom myši na ikonu hry > `Konfigurovať` > `Možnosti hry` > `Argumenty` > Pridajte ľubovoľný argument, ktorý potrebujete.
+
+### Funguje game-performance na Lutrise?
+
+- Áno. Pozrite sa [sem](/configuration/gaming#how-to-add-game-performance-to-steam-lutris-heroic-games-launcher-and-bottles)
+
+### Ako môžem použiť wine-cachyos v Lutrise?
+
+- V `Možnosti bežca` > `Verzia Wine` sa zobrazuje pod názvom `System 9.0 Staging Default`
+
+### Ako môžem nastaviť umu-launcher s proton-cachyos v Lutrise?
+
+:::tip
+Uistite sa, že máte umu-launcher nainštalovaný vo vašom systéme. Nainštalujte ho pomocou nasledujúceho príkazu:
+`sudo pacman -S umu-launcher`
+:::
+
+    <Tabs>
+
+    <TabItem label="Globálne (ovplyvní všetky hry)">
+
+    <Steps>
+
+    1. Na hlavnej obrazovke Lutrisu kliknite na `ozubené koliesko` napravo od **Wine**
+    2. Vykonajte nasledujúce zmeny na karte **Možnosti bežca**
+        - **Verzia Wine** = `proton-cachyos`
+        - **Použiť systémové winetricks** = *Zakázané*
+        - **Grafika**
+            - **Povoliť DXVK** = `Povolené`
+            - **Povoliť VKD3D** = `Povolené`
+            - **Povoliť D3D Extras** = `Povolené`
+            - **Povoliť DXVK-NVAPI / DLSS** = `Povolené`
+            - Užívateľom definované verzie **DXVK**, **VKD3D** a **DXVK-NVAPI** sa nepoužijú pri použití `umu-launcher`
+    3. Prejdite na kartu **Možnosti systému**
+        - **Lutris**
+            - **Zakázať Lutris Runtime** = `Povolené`
+            - **Preferovať systémové knižnice** = `Povolené`
+    4. Prejdite nadol na **Spustenie hry** a vyhľadajte tabuľku **Premenné prostredia**
+    5. Pridajte nasledujúce premenné prostredia:
+        - **Kľúč**: `UMU_NO_RUNTIME`
+            - **Hodnota**: `1` *ak používate umu-launcher `1.1.4` z CachyOS*
+            - **Hodnota**: `pressure-vessel` *ak používate umu-launcher `1.1.3` dodávaný s Lutrisom*
+        - **Kľúč**: `UMU_RUNTIME_UPDATE` *voliteľné*
+            - **Hodnota**: `0` *preskočí aktualizácie Steam Linux Runtime pre `proton-cachyos`*
+        - **Kľúč**: `PROTON_VERB` *voliteľné*
+            - **Hodnota**: `waitforexitandrun` *umožňuje protonfixes fungovať s príslušným `GAMEID`*
+    6. Uložte zmeny.
+
+    </Steps>
+
+    </TabItem>
+
+    <TabItem label="Pre jednotlivé hry (preferované)">
+
+    <Steps>
+
+    1. Kliknite pravým tlačidlom myši na hru, ktorú chcete konfigurovať, a potom kliknite na **Konfigurovať**
+    2. Vykonajte nasledujúce zmeny na karte **Možnosti bežca**
+        - **Verzia Wine** = `proton-cachyos`
+        - **Použiť systémové winetricks** = *Zakázané*
+        - **Grafika**
+            - **Povoliť DXVK** = `Povolené`
+            - **Povoliť VKD3D** = `Povolené`
+            - **Povoliť D3D Extras** = `Povolené`
+            - **Povoliť DXVK-NVAPI / DLSS** = `Povolené`
+            - Užívateľom definované verzie **DXVK**, **VKD3D** a **DXVK-NVAPI** sa nepoužijú pri použití `umu-launcher`
+    3. Prejdite na kartu **Možnosti systému**
+        - **Lutris**
+            - **Zakázať Lutris Runtime** = `Povolené`
+            - **Preferovať systémové knižnice** = `Povolené`
+    4. Prejdite nadol na **Spustenie hry** a vyhľadajte tabuľku **Premenné prostredia**
+    5. Pridajte nasledujúce premenné prostredia:
+        - **Kľúč**: `UMU_NO_RUNTIME`
+            - **Hodnota**: `1` *ak používate umu-launcher `1.1.4` z CachyOS*
+            - **Hodnota**: `pressure-vessel` *ak používate umu-launcher `1.1.3` dodávaný s Lutrisom*
+        - **Kľúč**: `UMU_RUNTIME_UPDATE` *voliteľné*
+            - **Hodnota**: `0` *preskočí aktualizácie Steam Linux Runtime pre `proton-cachyos`*
+        - **Kľúč**: `PROTON_VERB` *voliteľné*
+            - **Hodnota**: `waitforexitandrun` *umožňuje protonfixes fungovať s príslušným `GAMEID`*
+    6. Uložte zmeny.
+    </Steps>
+
+    </TabItem>
+
+    </Tabs>
+
+## Podpora Ray tracing
+
+Arch Wiki už poskytuje komplexné inštrukcie o tom, ako povoliť [ray tracing](https://wiki.archlinux.org/title/Hardware_raytracing) pre rôzne hardvérové platformy.
+- [Ray tracing na NVIDIA](https://wiki.archlinux.org/title/Hardware_raytracing#NVIDIA)
+- [Ray tracing na AMD](https://wiki.archlinux.org/title/Hardware_raytracing#AMD)
+- [Ray tracing na Intel](https://wiki.archlinux.org/title/Hardware_raytracing#Intel)
+
+**S týmto sprievodcom ste teraz pripravení začať hrať hry na CachyOS. Užite si to!**

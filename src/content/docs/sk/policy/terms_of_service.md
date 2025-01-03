@@ -1,34 +1,34 @@
 ---
-title: Podmienky poskytovania služby
+title: Podmienky poskytovania služieb
 ---
 
-## 1. Rozsah podmienok poskytovania služby
+## 1. Rozsah platnosti Podmienok poskytovania služieb
 
 ### 1.1. Definície
 
-Tieto Podmienky poskytovania služby upravujú používanie platformy CachyOS a súvisiacich služieb, vrátane fór, wiki, nástroja na hlásenie chýb a ďalších kolaboratívnych nástrojov ("Služby").
-CachyOS ("my," "nás," "naše") prevádzkuje platformu prístupnú na cachyos.org a súvisiacich subdoménach. Používatelia ("vy," "váš") musia prijať tieto podmienky, aby mohli používať Služby.
+Tieto Podmienky poskytovania služieb upravujú používanie platformy CachyOS a súvisiacich služieb, vrátane fór, wiki, nástroja na hlásenie chýb a ďalších nástrojov na spoluprácu ("Služby").
+CachyOS ("my," "nás," "naše") prevádzkuje platformu dostupnú na cachyos.org a súvisiacich subdoménach. Používatelia ("vy," "váš") musia prijať tieto podmienky, aby mohli používať Služby.
 
 ### 1.2. Používanie Služieb
 
-Služby môžu používať iba fyzické osoby s plnou právnou spôsobilosťou. Maloletí môžu používať Služby s súhlasom rodičov alebo zákonného zástupcu.
+Používať Služby môžu iba fyzické osoby, ktoré dosiahli vek plnoletosti a majú plnú právnu spôsobilosť. Maloletí môžu používať Služby so súhlasom rodiča alebo zákonného zástupcu.
 
-### 1.3. Prístup k podmienkam poskytovania služby
+### 1.3. Prístup k Podmienkam poskytovania služieb
 
-Najnovšiu verziu Podmienok poskytovania služby je možné kedykoľvek získať na našej webovej stránke: [https://cachyos.org/terms](https://cachyos.org/terms).
+Najnovšia verzia Podmienok poskytovania služieb je kedykoľvek dostupná na našej webovej stránke: https://cachyos.org/terms.
 
-## 2. Registrácia, uzavretie zmluvy a predmet
+## 2. Registrácia, uzavretie zmluvy a predmet zmluvy
 
 ### 2.1. Požiadavky
 
-Na používanie našich interaktívnych služieb (napr. fóra, príspevky balíčkov) sa musíte zaregistrovať prostredníctvom nášho online formulára, poskytnúť presné kontaktné informácie a súhlasiť s týmito Podmienkami poskytovania služby.
-Aktivácia vášho účtu znamená uzavretie zmluvy. Neexistuje žiadne právo na aktiváciu alebo účasť.
+Na používanie našich Interaktívnych služieb (napr. fóra, príspevky balíkov) sa musíte zaregistrovať prostredníctvom nášho online formulára, poskytnúť presné kontaktné informácie a súhlasiť s týmito Podmienkami poskytovania služieb.
+Aktivácia vášho účtu znamená uzavretie zmluvy. Nie je nárok na aktiváciu alebo účasť.
 
 ### 2.2. Zmena platformy
 
-Vyhradzujeme si právo zmeniť alebo rozšíriť Služby a štruktúru platformy. Zmeny, ktoré významne ovplyvnia účel týchto Podmienok poskytovania služby, budú oznámené používateľom.
+Vyhradzujeme si právo meniť alebo rozširovať Služby a štruktúru platformy. Zmeny, ktoré významne ovplyvňujú účel týchto Podmienok poskytovania služieb, budú používateľom oznámené.
 
-## 3. Povinnosti používateľa interaktívnych služieb
+## 3. Povinnosti používateľa Interaktívnych služieb
 
 ### 3.1. Úplnosť informácií
 
@@ -36,102 +36,102 @@ Musíte poskytnúť úplné a presné kontaktné informácie a aktualizovať ich
 
 ### 3.2. Používanie účtu
 
-Váš účet je osobný a musí byť chránený pred neoprávneným použitím. Zodpovedáte za akékoľvek zneužitie vášho účtu.
+Váš účet je osobný a musí byť chránený pred neoprávneným použitím. Ste zodpovední za akékoľvek zneužitie vášho účtu.
 
 ### 3.3. Správanie
 
-Používatelia musia interagovať s rešpektom a zákonne, v súlade s našimi Všeobecnými zásadami a Kódexom správania.
+Používatelia musia interagovať s rešpektom a v súlade so zákonom, pričom dodržiavajú naše Všeobecné pokyny a Kódex správania.
 
 ### 3.4. Obsah a správanie
 
-Zodpovedáte za akýkoľvek obsah, ktorý prispievate, a za to, že neporušuje tieto podmienky alebo platné zákony.
+Ste zodpovední za akýkoľvek obsah, ktorým prispievate, pričom zabezpečujete, že neporušuje tieto podmienky ani platné zákony.
 
 ### 3.5. Porušenia
 
-Nesmiete zverejňovať obsah, ktorý je urážlivý, nepravdivý, zlovestný alebo porušuje akékoľvek zákony, vrátane autorských práv a ochranných známok.
+Nesmiete zverejňovať obsah, ktorý je urážlivý, nepravdivý, zlomyseľný alebo porušuje akékoľvek zákony, vrátane zákonov o autorských právach a ochranných známkach.
 
 ### 3.6. Trvalé záznamy
 
-Príspevky môžu byť indexované vyhľadávačmi a zostanú prístupné celosvetovo. Nemôžete si nárokovať vymazanie alebo opravu takýchto záznamov.
+Príspevky môžu byť indexované vyhľadávačmi a zostať prístupné na celom svete. Nemôžete si nárokovať vymazanie alebo opravu takýchto záznamov.
 
-### 3.7. Diskrétnosť obsahu
+### 3.7. Rozhodovanie o obsahu
 
 Vyhradzujeme si právo odmietnuť, vymazať, upraviť alebo odstrániť akýkoľvek obsah podľa nášho uváženia a uložiť sankcie za porušenie týchto podmienok.
 
 ## 4. Zodpovednosť používateľov; Odškodnenie
 
-Súhlasíte s tým, že nás odškodníte za všetky náklady vzniknuté v dôsledku nárokov tretích strán v dôsledku vašich porušení týchto Podmienok poskytovania služby.
+Súhlasíte s tým, že nás odškodníte za všetky náklady vzniknuté z nárokov tretích strán v dôsledku vášho porušenia týchto Podmienok poskytovania služieb.
 
-## 5. Prenos práv na používanie
+## 5. Prevod práv na používanie
 
 ### 5.1. Autorské práva
 
 Zverejnením obsahu nám udeľujete práva potrebné na poskytovanie našich Služieb. Musíte zabezpečiť, že máte práva na akýkoľvek obsah, ktorý nahrávate.
 
-### 5.2. Licencie príspevkov
+### 5.2. Licencie pre príspevky
 
-Softvérové príspevky musia byť licencované pod licenciou projektu alebo pod GNU General Public License verzie 3.
+Príspevky do softvéru musia byť licencované pod licenciou projektu alebo GNU General Public License verzie 3.
 
-### 5.3. Pokračovanie práv
+### 5.3. Trvanie práv
 
-Práva na používanie zostávajú v platnosti aj po ukončení účtu.
+Práva na používanie zostávajú v platnosti aj po zrušení účtu.
 
 ## 6. Dostupnosť platformy
 
-Usilujeme sa o to, aby bola platforma dostupná, ale nemôžeme zaručiť 100% dostupnosť.
+Snažíme sa udržiavať platformu dostupnú, ale nemôžeme zaručiť 100% dostupnosť.
 
 ## 7. Zodpovednosť CachyOS
 
 ### 7.1. Obmedzenie zodpovednosti
 
-Nezodpovedáme za obsah používateľov alebo za akékoľvek škody vyplývajúce z jeho použitia. Používatelia musia prijímať opatrenia proti škodlivému obsahu.
+Nie sme zodpovední za obsah používateľov ani za žiadne škody vyplývajúce z jeho používania. Používatelia musia prijať opatrenia proti škodlivému obsahu.
 
-### 7.2. Prehľad obsahu
+### 7.2. Kontrola obsahu
 
-Nevykonávame prehľad všetkého obsahu zverejneného používateľmi a nezodpovedáme za neho. Nezákonný obsah bude odstránený po objavení.
+Nekontrolujeme všetok obsah zverejnený používateľmi a nie sme zaň zodpovední. Nezákonný obsah bude po zistení odstránený.
 
-### 7.3. Obmedzenie nárokov na škody
+### 7.3. Obmedzenie nárokov na náhradu škody
 
-Vylučujeme zodpovednosť za škody okrem prípadov hrubej nedbanlivosti, úmyselného pochybenia alebo porušenia základných zmluvných povinností.
+Vylučujeme zodpovednosť za škody, s výnimkou prípadov hrubej nedbanlivosti, úmyselného konania alebo porušenia základných zmluvných povinností.
 
 ### 7.4. Ďalšie obmedzenie zodpovednosti
 
-Nezodpovedáme za obsah externých odkazovaných stránok.
+Nie sme zodpovední za obsah externých prepojených stránok.
 
-## 8. Zmena Podmienok poskytovania služby
+## 8. Zmena Podmienok poskytovania služieb
 
 ### 8.1. Zmeny
 
-Tieto Podmienky poskytovania služby môžeme podľa potreby upraviť. Používatelia budú informovaní o zmenách emailom. Nedodržanie zmien do dvoch týždňov znamená súhlas.
+Tieto Podmienky poskytovania služieb môžeme zmeniť podľa potreby. Používatelia budú o zmenách informovaní e-mailom. Ak používateľ nevznesie námietky voči zmenám do dvoch týždňov, považujú sa za prijaté.
 
 ### 8.2. Námietky voči zmenám
 
-Ak vzniesete námietky voči zmenám, zmluva bude pokračovať podľa predchádzajúcich podmienok, ale môžeme ukončiť dohodu k najbližšiemu možnému dátumu.
+Ak nesúhlasíte so zmenami, zmluva bude pokračovať podľa predchádzajúcich podmienok, ale môžeme zmluvu vypovedať k najbližšiemu možnému termínu.
 
-## 9. Trvanie a ukončenie dohody
+## 9. Trvanie a ukončenie zmluvy
 
-### 9.1. Trvanie Podmienok poskytovania služby
+### 9.1. Trvanie Podmienok poskytovania služieb
 
-Tieto Podmienky poskytovania služby sú uzavreté na neurčitý čas.
+Tieto Podmienky poskytovania služieb sa uzatvárajú na dobu neurčitú.
 
 ### 9.2. Ukončenie
 
-Ktorákoľvek strana môže ukončiť tieto Podmienky poskytovania služby bez dôvodu kedykoľvek.
+Každá zo strán môže kedykoľvek ukončiť tieto Podmienky poskytovania služieb bez udania dôvodu.
 
 ### 9.3. Vymazanie účtu
 
 Verejné vyhlásenia a príspevky môžu zostať viditeľné aj po vymazaní účtu.
 
-## 10. Rôzne
+## 10. Rôzne ustanovenia
 
-### 10.1. Platné právo
+### 10.1. Rozhodné právo
 
-Tieto Podmienky poskytovania služby sa riadia výlučne právnymi predpismi príslušnej jurisdikcie, s výnimkou Dohovoru OSN o zmluvách o medzinárodnom predaji tovaru (CISG).
+Tieto Podmienky poskytovania služieb sa spravujú výlučne zákonmi príslušnej jurisdikcie, s vylúčením Dohovoru OSN o zmluvách o medzinárodnej kúpe tovaru (CISG).
 
-### 10.2. Oddeliteľnosť
+### 10.2. Salvátorská klauzula
 
-Ak sa akékoľvek ustanovenie týchto Podmienok poskytovania služby zistí ako neplatné, zostávajúce ustanovenia zostanú v platnosti.
+Ak sa akékoľvek ustanovenie týchto Podmienok poskytovania služieb ukáže ako neplatné, zostávajúce ustanovenia zostávajú v platnosti.
 
 ### 10.3. Spory
 
-Platforma na riešenie sporov Európskej komisie je dostupná na [https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr). Nie sme povinní zúčastniť sa na postupoch riešenia sporov pred spotrebiteľským arbitrážnym výborom.
+Platforma Európskej komisie na riešenie sporov online je dostupná na https://ec.europa.eu/consumers/odr. Nie sme povinní zúčastňovať sa na postupoch riešenia sporov pred spotrebiteľským arbitrážnym orgánom.

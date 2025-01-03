@@ -1,68 +1,187 @@
 ---
-title: Post Inštalácia
+title: Po Inštalácii
 description: Kroky na konfiguráciu po inštalácii CachyOS
 ---
 
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
-## 1\. Aktualizujte svoj systém:
+## Aktualizácia Systému
 
-### 1\. Aktualizácia systému pomocou Octopi:
+<Tabs>
 
-Octopi je grafický správca balíčkov pre distribúcie založené na Archu, ktorý poskytuje pohodlný spôsob správy balíčkov a aktualizácií.
-Na aktualizáciu systému pomocou Octopi postupujte podľa týchto krokov:
+<TabItem label="Použitím Octopi (GUI)">
+
+Octopi je grafický správca balíkov pre distribúcie založené na Archu, ktorý poskytuje pohodlný spôsob správy balíkov a aktualizácií.
+Ak chcete aktualizovať svoj systém pomocou Octopi, postupujte podľa týchto krokov:
 
 <Steps>
 
-1. Spustite **Octopi** z aplikačného menu.
-2. V hlavnom okne kliknite na tlačidlo **System Upgrade**.
-3. Octopi skontroluje dostupné aktualizácie a predloží ich vám.
-4. Na pokračovanie v aktualizácii kliknite na tlačidlo **Apply**.
+1. Spustite **Octopi** z ponuky aplikácií.
+2. V hlavnom okne kliknite na tlačidlo **Skontrolovať aktualizácie** (vľavo hore), teraz vedľa neho **Aktualizácia systému.**
+3. Octopi teraz skontroluje dostupné aktualizácie a vyzve vás, aby ste ich nainštalovali buď priamo v Octopi, alebo v termináli.
+4. Ak chcete pokračovať v aktualizácii, kliknite na tlačidlo **Použiť**.
 5. Octopi stiahne a nainštaluje aktualizácie.
-6. Odporúča sa reštartovať počítač po veľkej aktualizácii (najmä ak sa zmení verzia jadra).
+6. Odporúča sa reštartovať počítač po rozsiahlej aktualizácii **(najmä ak sa aktualizovalo jadro)**.
 
 </Steps>
 
-### 2\. Aktualizácia systému pomocou Pacman:
+</TabItem>
+
+<TabItem label="Použitím Pacman">
 
 <Steps>
 
-1. Otvorte terminálový emulátor (alebo stlačte `ctrl + alt + t` - `mod + return` v Cachyho WM).
+1. Otvorte emulátor terminálu (alebo stlačte **`ctrl + alt + t`** - **`mod + return`** v prostredí WM, napr. Qtile).
 2. Spustite nasledujúci príkaz na aktualizáciu systému:
 
    ```sh
    sudo pacman -Syu
    ```
+3. Odporúča sa reštartovať počítač po rozsiahlej aktualizácii **(najmä ak sa aktualizovalo jadro)**.
 
 </Steps>
 
-A je to! Teraz je váš systém aktuálny a pripravený na použitie.
+</TabItem>
 
-## 2\. Povoliť ochranu firewallu:
+<TabItem label="Offline Aktualizácia Systému">
 
-Na povolenie ochrany firewallu postupujte podľa týchto krokov:
+*CachyOS podporuje offline aktualizácie systému pomocou skriptu [`pacman-offline`](https://github.com/eworm-de/pacman-offline). To umožňuje vášmu systému stiahnuť aktualizácie balíkov a použiť ich pri nasledujúcom reštarte. (Áno, ako vo Windows)*
+
+:::note
+Nástroj `pacman-offline` sa integruje s funkciou offline aktualizácií systému systemd. Automaticky spracováva aktualizácie jadra a načítanie modulov.
+
+Súbor `/etc/pacman.d/offline.conf` je kľúčový pre správu toho, ktoré balíky sa aktualizujú počas bežných a offline aktualizácií. Uistite sa, že je správne nakonfigurovaný pre vaše požadované jadro alebo pridajte balíky, ktoré chcete, aby sa aktualizovali iba počas vykonávania pacman-offline a ignorovali sa pri bežnej aktualizácii. Príklad: `pacman -Syu`.
+
+**Ak povolíte časovač automatických aktualizácií, už nemusíte manuálne aktualizovať svoj systém.**
+:::
+
+<Steps>
+
+1. **Nainštalujte balík pacman-offline**
+
+   ```bash
+   sudo pacman -S pacman-offline
+   ```
+
+2. **Povedzte Pacmanu, aby čítal zo samostatného zoznamu ignorovaných balíkov.**
+
+   ```bash title='Pridajte nasledujúci reťazec na riadok 73 súboru /etc/pacman.conf'
+   Include = /etc/pacman.d/offline.conf
+   ```
+3. **Pridanie jadier CachyOS, aby ich Pacman ignoroval počas bežných aktualizácií**
+
+   Nástroj `pacman-offline` používa tento súbor na určenie, ktoré balíky sa majú ignorovať počas tradičných aktualizácií Pacman.
+
+   **Príklad: keď spustíte `sudo pacman -Syu`**
+
+   *Nahraďte obsah súboru `/etc/pacman.d/offline.conf` nasledujúcim:*
+
+   ```text
+   # Jadrá Arch Linuxu
+   IgnorePkg = linux linux-headers linux-docs
+   IgnorePkg = linux-lts linux-lts-headers linux-lts-docs
+   IgnorePkg = linux-zen linux-zen-headers linux-zen-docs
+   IgnorePkg = linux-hardened linux-hardened-headers linux-hardened-docs
+
+   # Jadrá CachyOS
+   IgnorePkg = linux-cachyos linux-cachyos-headers
+   IgnorePkg = linux-cachyos-bmq linux-cachyos-bmq-headers
+   IgnorePkg = linux-cachyos-bore linux-cachyos-bore-headers
+   IgnorePkg = linux-cachyos-deckify linux-cachyos-deckify-headers
+   IgnorePkg = linux-cachyos-eevdf linux-cachyos-eevdf-headers
+   IgnorePkg = linux-cachyos-gcc linux-cachyos-gcc-headers
+   IgnorePkg = linux-cachyos-hardened linux-cachyos-hardened-headers
+   IgnorePkg = linux-cachyos-lts linux-cachyos-lts-headers
+   IgnorePkg = linux-cachyos-rc linux-cachyos-rc-headers
+   IgnorePkg = linux-cachyos-rt-bore linux-cachyos-rt-bore-headers
+   IgnorePkg = linux-cachyos-sched-ext linux-cachyos-sched-ext-headers
+   IgnorePkg = linux-cachyos-server linux-cachyos-server-headers
+   IgnorePkg = linux-cachyos-lto linux-cachyos-lto-headers
+   IgnorePkg = linux-cachyos-bmq-lto linux-cachyos-bmq-lto-headers
+   IgnorePkg = linux-cachyos-bore-lto linux-cachyos-bore-lto-headers
+   IgnorePkg = linux-cachyos-deckify-lto linux-cachyos-deckify-lto-headers
+   IgnorePkg = linux-cachyos-eevdf-lto linux-cachyos-eevdf-lto-headers
+   IgnorePkg = linux-cachyos-gcc-lto linux-cachyos-gcc-lto-headers
+   IgnorePkg = linux-cachyos-hardened-lto linux-cachyos-hardened-lto-headers
+   IgnorePkg = linux-cachyos-lts-lto linux-cachyos-lts-lto-headers
+   IgnorePkg = linux-cachyos-rc-lto linux-cachyos-rc-lto-headers
+   IgnorePkg = linux-cachyos-rt-bore-lto linux-cachyos-rt-bore-lto-headers
+   IgnorePkg = linux-cachyos-sched-ext-lto linux-cachyos-sched-ext-lto-headers
+   IgnorePkg = linux-cachyos-server-lto linux-cachyos-server-lto-headers
+   ```
+
+   *Teraz sa všetky tieto balíky budú ignorovať pri bežných aktualizáciách, ale budú sa kontrolovať počas offline prípravy.*
+
+3. **Spustite prípravu na offline aktualizáciu iba raz**
+
+   ```bash title='Spustite nasledujúci príkaz'
+   sudo systemctl start pacman-offline-prepare.service
+   ```
+   Tento príkaz potom spôsobí, že sa pacman-offline spustí raz a synchronizuje databázy balíkov a pokračuje v sťahovaní aktualizácií, ale neinštaluje ich.
+
+</Steps>
+
+*Ak chcete, aby sa tento skript automatizoval. Postupujte podľa nasledujúcich krokov:*
+
+<Steps>
+
+1. **Povoľte časovač prípravy**
+
+   Povolenie `pacman-offline-prepare.timer` umožní systemd spúšťať tento skript na sťahovanie aktualizácií denne po niekoľkých minútach od každého spustenia systému.
+
+   ```bash
+   sudo systemctl enable pacman-offline-prepare.timer
+   ```
+
+2. **Reštartujte systém:**
+
+   Aktualizácie sa nainštalujú počas nasledujúceho reštartu systému.
+
+3. **(Voliteľné) Automatické Reštarty Systému:**
+
+    Povoľte `pacman-offline-reboot.timer` na automatické reštartovanie systému štandardne o **3:00** (Vaše časové pásmo), ak sú k dispozícii čakajúce aktualizácie. Uvedomte si, že to nie je vždy v rovnakom čase kvôli zahrnutiu `RandomizedDelaySec`, ktoré je predvolene nastavené na 2 hodiny.
+
+    ```bash
+    sudo systemctl enable pacman-offline-reboot.timer
+    ```
+
+    :::tip
+    Môžete upraviť súbor `pacman-offline-reboot.timer`, aby ste zmenili čas, kedy sa má váš systém reštartovať, ak sú k dispozícii čakajúce aktualizácie, alebo zakázali náhodné plánovanie.
+    :::
+
+</Steps>
+
+</TabItem>
+
+</Tabs>
+
+## Konfigurácia Firewallu (ufw)
+:::note
+UFW je predvolene povolený po inštalácii.
+:::
+Ak chcete konfigurovať ufw, postupujte podľa týchto krokov:
 
 <Tabs>
 
-<TabItem label="1">
+<TabItem label="Povoliť">
 
 ```bash
-# Nainštalujte balík ufw (Uncomplicated Firewall) pomocou Pacman:
-sudo pacman -S ufw
-```
-
-</TabItem>
-<TabItem label="2">
-
-```bash
-# Povoľte firewall pomocou tohto príkazu:
 sudo ufw enable
 ```
 
 </TabItem>
-<TabItem label="3">
 
-Predvolene ufw povolí všetku prichádzajúcu a odchádzajúcu komunikáciu. Môžete pridať konkrétne pravidlá do firewallu na blokovanie alebo povolenie konkrétnych pripojení.
+<TabItem label="Zakázať">
+
+```bash
+sudo ufw disable
+```
+
+</TabItem>
+
+<TabItem label="Povoliť">
+
+Predvolene ufw povoľuje všetku prichádzajúcu a odchádzajúcu prevádzku, môžete pridať konkrétne pravidlá do firewallu na blokovanie alebo povolenie konkrétnych pripojení.
 
 ```bash
 # Napríklad:
@@ -70,52 +189,126 @@ sudo ufw allow ssh
 ```
 
 </TabItem>
-<TabItem label="4">
+
+<TabItem label="Zamietnuť">
 
 ```bash
-# Na kontrolu stavu firewallu použite nasledujúci príkaz:
+# Ak chcete zamietnuť konkrétny port, pozrite si nasledujúci príklad:
+sudo ufw deny 80
+```
+
+</TabItem>
+
+<TabItem label="Stav">
+
+```bash
 sudo ufw status verbose
 ```
 
 </TabItem>
+
 </Tabs>
 
-:::note[POZNÁMKA]
-Buďte opatrní pri konfigurácii pravidiel firewallu, pretože nesprávne nakonfigurované pravidlá vás môžu zablokovať z vlastného systému.
+:::note
+Buďte opatrní pri konfigurácii pravidiel firewallu, pretože nesprávne nakonfigurované pravidlá vás môžu zablokovať vo vlastnom systéme.
 :::
 
-## 3\. Inštalácia aplikácií:
+:::note
+Môžete ho konfigurovať aj graficky pomocou sekcie "Firewall" v nastaveniach KDE Plasma.
+:::
 
-CachyOS prichádza predinštalovaný s mnohými užitočnými aplikáciami, ale možno budete chcieť nainštalovať ďalšie, aby zodpovedali vášmu pracovnému toku.
-Tu sú niektoré populárne aplikácie, ktoré by ste mohli zvážiť nainštalovať:
-
-*   GIMP (editor obrázkov)
-*   VLC (prehrávač médií)
-*   Stacer (systémový monitor)
-*   Skype, Telegram, Discord, Signal (messenger aplikácie)
-*   Steam (pre hranie)
-*   Spotify (hudba)
-*   MailSpring (e-mailový klient)
-*   Super Productivity (manažér úloh a Pomodoro timer)
-*   Visual Studio Code (editor kódu)
-*   Blender (3D softvér)
-*   Krita (digitálne maľovanie)
-
-Tieto aplikácie môžete jednoducho nainštalovať pomocou príkazového riadku. Napríklad:
+## Povolenie Globálnej Ponuky
+Pre niektoré aplikácie, ako napríklad Visual Studio Code, nemusí globálna ponuka fungovať alebo môže byť pripojená k nadradenej aplikácii namiesto panela.
 
 ```sh
-paru -S vlc mailspring spotify gimp
-```
-
-Ak dostanete chybovú správu, skúste použiť iný príkaz alebo skontrolujte názov aplikácie v databáze.
-
-## 4\. Povoliť globálne menu:
-Pre niektoré aplikácie ako Visual Studio Code, globálne menu nemusí fungovať alebo môže byť pripojené k nadradenej aplikácii namiesto panela.
-
-```sh
-# Na povolenie podpory globálneho menu spustite tento príkaz a reštartujte aplikáciu.
+# Ak chcete povoliť podporu globálnej ponuky, spustite príkaz a reštartujte aplikáciu.
 sudo pacman -S appmenu-gtk-module libdbusmenu-glib
 ```
 
-## 5\. Nastavenie Bluetooth slúchadiel:
-Ak chcete automaticky pripojiť svoje slúchadlá, postupujte podľa krokov v príručke Arch wiki: [https://wiki.archlinux.org/title/bluetooth\_headset#Headset\_via\_Bluez5/PulseAudio](https://wiki.archlinux.org/title/bluetooth_headset#Headset_via_Bluez5/PulseAudio). Ak Pulseaudio nefunguje, môže byť potrebné manuálne znovu pripojiť slúchadlá pri každom reštarte počítača.
+## Povolenie podpory AppArmor pomocou profilov AppArmor.d (Voliteľné)
+
+<Steps>
+
+1. Pridajte nasledujúce parametre jadra do svojho Boot Managera, pozrite si [Konfigurácia Boot Managera](/configuration/boot_manager_configuration) pre referencie
+
+   ```text
+   lsm=landlock,lockdown,yama,integrity,apparmor,bpf
+   ```
+
+2. Nainštalujte balíky apparmor a apparmord **(Sada viac ako +1500 profilov)**
+   ```bash
+   sudo pacman -S apparmor apparmor.d-git
+   ```
+
+3. Povoľte/Spustite službu AppArmor
+
+   ```bash
+   systemctl enable --now apparmor.service
+   ```
+
+4. Povoľte ukladanie profilov AppArmor do vyrovnávacej pamäte
+
+   ```shell
+   # /etc/apparmor/parser.conf
+   ## Pridajte nasledujúce riadky:
+   write-cache
+   Optimize=compress-fast
+   ```
+   Uložte súbor a reštartujte.
+</Steps>
+
+## Zmena Predvoleného Shellu
+
+V súčasnosti CachyOS používa [fish](https://fishshell.com/) ako predvolený prihlasovací shell používateľa. Môžete však zmeniť
+predvolený shell na akýkoľvek chcete.
+
+<Tabs>
+   <TabItem label='bash'>
+
+      Toto je predvolený shell takmer v každej distribúcii Linuxu. Stále sa používa aj ako prihlasovací shell pre root používateľa. bash
+      má základnú funkciu automatického dopĺňania a jednoduchú správu histórie. Od zsh a fish sa líši tým, že nemá
+      prepracovanú personalizáciu a ekosystém zásuvných modulov, ktorý majú fish aj zsh.
+
+      ```sh title='Zmena predvoleného shellu na bash'
+      ❯ chsh -s /usr/bin/bash
+      ```
+
+   </TabItem>
+
+   <TabItem label='zsh'>
+
+      Poskytujeme [konfiguráciu pre zsh](https://github.com/CachyOS/cachyos-zsh-config) s bežne používanými zásuvnými modulmi a konfiguráciami.
+      Jej cieľom je mať funkčnosť 1:1 s našou [konfiguráciou pre fish](https://github.com/CachyOS/cachyos-fish-config).
+      Toto je tiež predvolený shell používaný v systéme MacOS.
+
+      ```sh title='Zmena predvoleného shellu na zsh'
+      ❯ chsh -s /usr/bin/zsh
+      ```
+
+   </TabItem>
+</Tabs>
+
+## Aktualizácia/používanie [tldr](https://github.com/tldr-pages/tldr)
+
+:::note
+CachyOS používa [tealdeer](https://github.com/tealdeer-rs/tealdeer), čo je rýchlejšia implementácia pôvodného tldr založená na Ruste.
+:::
+
+Tento nástroj je mimoriadne užitočný pre tých, ktorí nechcú veľa čítať alebo strácať čas čítaním stránky s pomocou/manuálovou stránkou.
+
+<Steps>
+
+1. ```sh title="Otvorte terminál a spustite nasledujúci príkaz"
+   tldr --update
+   ```
+2. Príklad použitia tldr:
+   ```sh
+   tldr java
+     Spustenie programu `.jar`:
+
+      java -jar filename.jar
+
+   # Ako vidíte, je to naozaj užitočné a časom sa pridávajú nové nástroje/stránky
+   ```
+
+</Steps>

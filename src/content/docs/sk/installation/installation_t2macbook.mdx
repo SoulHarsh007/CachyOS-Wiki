@@ -1,68 +1,71 @@
 ---
-title: T2 MacBook Inštalácia
+title: Inštalácia na T2 MacBook
 description: Ako nainštalovať CachyOS na T2 MacBook
 ---
 
-## Inštalácia na T2 MacBook
-
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+
+## Inštalácia
 
 ### Všeobecné informácie
 
-CachyOS poskytuje podporu pre T2 MacBook priamo z balíka a potrebné kernelové patche sú zahrnuté v predvolenom jadre.
+CachyOS poskytuje priamu podporu pre T2 MacBook. Potrebné kernel patche sú obsiahnuté vo všetkých jadrách poskytovaných CachyOS.
 
-**Podpora WiFi** momentálne **nie je implementovaná**, pretože ide o uzavretý zdrojový firmware, ktorý nemôžeme distribuovať.
-Inštalácia bude fungovať iba s pripojením k internetu cez LAN. Po inštalácii si môžete stiahnuť firmware a nainštalovať ho na získanie správnej podpory WiFi.
-
-Nižšie nájdete spôsob, ako nainštalovať firmware po inštalácii.
+**WiFi pripojenie** **nie je dostupné** hneď po inštalácii, pretože ide o firmware so zatvoreným zdrojovým kódom, ktorý CachyOS nemá povolenie redistribuovať.
+Inštalácia bude fungovať iba s LAN pripojením. Podpora WiFi sa dá nastaviť po inštalácii.
+Pozrite si [inštaláciu firmvéru](#inštalácia-firmvéru).
 
 ### Pokračovanie v inštalácii
 
-Na Wiki nájdete, ako stiahnuť a flashovať ISO.
+Postupujte podľa pokynov v časti [Príprava na inštaláciu](/installation/installation_prepare#vytvorenie-bootovacieho-usb-disku-cachyos) o tom, ako stiahnuť
+ISO a vytvoriť bootovateľný USB disk.
 
-Po flashovaní ISO obrazu postupujte podľa stránky s inštaláciou na root.
-CachyOS automaticky konfiguruje váš systém pomocou hardvérového detektora CachyOS, ktorý aplikuje požadované bootovacie parametre a ďalšie nastavenia.
+Musíte vykonať ďalšie kroky na prípravu T2 MacBooku na inštaláciu Linuxu, ako je napríklad rozdelenie disku pomocou macOS a deaktivácia bezpečného spustenia (secure boot). Môžete sa riadiť [príručkou predinštalácie t2linux](https://wiki.t2linux.org/guides/preinstall/) pre pokyny.
 
-### Inštalácia firmware
+Po vytvorení bootovateľného USB disku prejdite na [Inštaláciu na Root](/installation/installation_on_root).
+CachyOS aplikuje potrebné bootovacie parametre a konfigurácie na T2 MacBook používateľa pomocou [CachyOS Hardware Detection](/features/chwd).
 
-Firmware je možné stiahnuť a načítať z iného mirroru, ktorý nie je hostovaný u nás.
+### Inštalácia firmvéru
 
-Po spustení do nainštalovaného systému vykonajte nasledujúce príkazy:
+Firmvér je možné stiahnuť a získať z iného zrkadla, ktoré nie je hostované spoločnosťou CachyOS.
+
+Po zavedení do nainštalovaného systému spustite nasledujúce príkazy:
 
 <Steps>
 
-1. Získajte balík firmvér pomocou jedného z nasledujúcich nástrojov:
+1. Získajte balík firmvéru pomocou jedného z nasledujúcich nástrojov:
 
     <Tabs>
 
-    <TabItem label="použitie curl">
+    <TabItem label="použitím curl">
 
     ```sh
     curl https://mirror.funami.tech/arch-mact2/os/x86_64/apple-bcm-firmware-14.0-1-any.pkg.tar.zst -o apple-bcm-firmware-14.0-1-any.pkg.tar.zst
     ```
 
     </TabItem>
-    <TabItem label="použitie wget">
+    <TabItem label="použitím wget">
 
     ```sh
     wget https://mirror.funami.tech/arch-mact2/os/x86_64/apple-bcm-firmware-14.0-1-any.pkg.tar.zst
     ```
-    > Ak nemáte `wget`, nainštalujte ho pomocou `sudo pacman -S wget`
+    > Ak `wget` nie je dostupný, nainštalujte ho pomocou `sudo pacman -S wget`
 
     </TabItem>
     </Tabs>
 
-2. Nainštalujte balík firmware:
+2. Nainštalujte balík firmvéru
     ```sh
     sudo pacman -U apple-bcm-firmware-14.0-1-any.pkg.tar.zst
     ```
 
 </Steps>
 
-Po tom načítajte firmware a obnovte wifi ovládač:
+Potom načítajte firmvér a reštartujte ovládač WiFi:
 ```bash
-sudo modprobe -r brcmfmac_wcc; sudo modprobe -r brcmfmac; sudo modprobe brcmfmac
+sudo modprobe -r brcmfmac_wcc
+sudo modprobe -r brcmfmac
+sudo modprobe brcmfmac
 ```
 
-Firmware môžete extrahovať aj z ISPW súboru, viď T2 Wiki:
-https://wiki.t2linux.org/guides/wifi-bluetooth/
+Firmvér je tiež možné extrahovať zo súboru ISPW, pozrite si [stránku t2linux wiki](https://wiki.t2linux.org/guides/wifi-bluetooth/).

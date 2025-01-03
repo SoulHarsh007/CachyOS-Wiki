@@ -1,37 +1,247 @@
 ---
-title: Inštalácia Root
-description: Inštalácia s vymazaním disku
+title: Ako nainštalovať CachyOS a sprievodca rozdelením disku
+description: Inštalácia vymazaním disku
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-CachyOS poskytuje niekoľko spôsobov, ako nainštalovať systém.
-Možnosť "Erase Disk" v Calamares vymaže vybraný disk a potom nainštaluje CachyOS na cieľový disk.
+:::caution
+Pre inštaláciu CachyOS musí byť zakázané Secure boot. Pre nastavenie Secure boot po inštalácii si pozrite [Nastavenie Secure Boot.](/configuration/secure_boot_setup)
+:::
+
+:::tip
+Po neúspešnom pokuse o inštaláciu sa dôrazne odporúča reštartovať ISO.
+
+V opačnom prípade sa môžu počas procesu inštalácie vyskytnúť pretrvávajúce chyby.
+
+Stáva sa to preto, lebo inštalátor pri neúspešnej inštalácii správne neodmontuje partície.
+
+:::
+
+## Vymazať disk
+
+Možnosť "Erase Disk" v Calamares vymaže vybraný disk a nainštaluje na cieľ CachyOS.
 
 <Steps>
 
-1. Bootujte do ISO a kliknite na tlačidlo **Launch Installer**.
+1. Zavedte systém z ISO a kliknite na **Launch Installer**.
 
-2. Vyberte si **Bootloader**, ktorý chcete použiť, pozrite si aj článok o bootloaderoch na Wiki.
+2. Vyberte preferovaného **Boot Manager**. Viac informácií nájdete v sekcii [Boot Managers](/installation/boot_managers).
 
-3. Vyberte si svoju **región**.
+3. Nastavte preferovaný **Jazyk** a **Región/Časové pásmo**.
 
-4. Vyberte si svoje **rozloženie klávesnice**.
+4. Nakonfigurujte **Rozloženie klávesnice**.
 
-5. Vyberte si svoj **súborový systém**, pozrite si aj článok o súborových systémoch.
+5. Vyberte **Erase Disk** a zvoľte [Filesystem](/installation/filesystem).
 
-6. Vyberte si svoje **desktopové prostredie**, pozrite si aj článok o desktopových prostrediach.
+6. Vyberte **Desktopové prostredie** podľa vlastného výberu, pozrite si [Desktopové prostredia](/installation/desktop_environments).
 
-7. Začiarknite alebo odčiarknite ďalšie balíčky pre inštaláciu z internetu.
+7. Prispôsobte, ktoré balíčky sa majú alebo nemajú nainštalovať počas procesu inštalácie.
 
-8. Skontrolujte **Stránku so súhrnom** a pokračujte v inštalácii.
+8. Nastavte prihlasovacie údaje.
+
+9. Starostlivo si prezrite súhrn inštalácie na Stránke s prehľadom. Ak vyzerá všetko správne, pokračujte v inštalácii kliknutím na ***Install Now***. V opačnom prípade sa vráťte a vykonajte potrebné zmeny.
 
 </Steps>
 
-Systém potom nainštaluje CachyOS na váš systém. Ovládače budú plne konfigurované out-of-the box pomocou nášho hardvérového detektora. Po inštalácii nie je potrebné inštalovať ďalšie ovládače alebo podobne.
+## Manuálne rozdelenie disku
 
-Akonáhle je systém nainštalovaný, zobrazí sa výzva na reštartovanie systému.
+### UEFI/GPT
 
-### Urobiť
+Tabuľka partícií sa pre jednotlivých správcov zavádzania líši. Postupujte podľa správnych pokynov pre každý z nich.
 
-Pridať nejaké obrázky a ďalej vylepšiť stránku Wiki.
+<Tabs>
+
+<TabItem label='systemd-boot & rEFInd'>
+
+<Steps>
+
+1. Zavedte systém z ISO a kliknite na tlačidlo **Launch Installer**.
+
+2. Nastavte preferovaný **Jazyk** a **Región/Časové pásmo**.
+
+3. Nakonfigurujte **Rozloženie klávesnice**.
+
+4. Vyberte **Manuálne rozdelenie disku**.
+
+5. Vytvorte novú partíciu s nasledujúcimi parametrami:
+    * Veľkosť: ***2048MiB***
+    * Filesystem: ***FAT32***
+    * Prípojný bod: ***/boot***
+    * Flags: **boot**
+
+6. Vytvorte ďalšiu partíciu pre ***root***:
+    * Veľkosť: ***Minimálne 20000MiB***
+    * Filesystem: Akýkoľvek, pozrite si [Filesystem](/installation/filesystem)
+    * Prípojný bod: ***/***
+    * Flags:
+
+7. Skontrolujte, či ***Inštalovať boot loader na:*** smeruje na /boot
+
+8. Vyberte **Desktopové prostredie** podľa vlastného výberu, pozrite si [Desktopové prostredia](/installation/desktop_environments).
+
+9. Prispôsobte, ktoré balíčky sa majú alebo nemajú nainštalovať počas procesu inštalácie.
+
+10. Nastavte prihlasovacie údaje.
+
+11. Starostlivo si prezrite súhrn inštalácie na Stránke s prehľadom. Ak vyzerá všetko správne, pokračujte v inštalácii kliknutím na ***Install Now***. V opačnom prípade sa vráťte a vykonajte potrebné zmeny.
+
+</Steps>
+
+</TabItem>
+
+<TabItem label='GRUB'>
+
+<Steps>
+
+1. Zavedte systém z ISO a kliknite na tlačidlo **Launch Installer**.
+
+2. Nastavte preferovaný **Jazyk** a **Región/Časové pásmo**.
+
+3. Nakonfigurujte **Rozloženie klávesnice**.
+
+4. Vyberte **Manuálne rozdelenie disku**.
+
+5. Vytvorte novú partíciu s nasledujúcimi parametrami:
+    * Veľkosť: ***Minimálne 100MiB***
+    * Filesystem: ***FAT32***
+    * Prípojný bod: ***/boot/efi***
+    * Flags: **boot**
+
+6. Vytvorte ďalšiu partíciu pre ***root***:
+    * Veľkosť: ***Minimálne 20000MiB***
+    * Filesystem: Akýkoľvek, pozrite si [Filesystem](/installation/filesystem)
+    * Prípojný bod: ***/***
+    * Flags:
+
+7. Skontrolujte, či ***Inštalovať boot loader na:*** smeruje na /boot/efi
+
+8. Vyberte **Desktopové prostredie** podľa vlastného výberu, pozrite si [Desktopové prostredia](/installation/desktop_environments).
+
+9. Prispôsobte, ktoré balíčky sa majú alebo nemajú nainštalovať počas procesu inštalácie.
+
+10. Nastavte prihlasovacie údaje.
+
+11. Starostlivo si prezrite súhrn inštalácie na Stránke s prehľadom. Ak vyzerá všetko správne, pokračujte v inštalácii kliknutím na ***Install Now***. V opačnom prípade sa vráťte a vykonajte potrebné zmeny.
+
+</Steps>
+
+</TabItem>
+
+</Tabs>
+
+### MBR/BIOS
+
+:::note
+GRUB je jediný správca zavádzania dostupný pre systém MBR/BIOS.
+:::
+
+<Steps>
+
+1. Zavedte systém z ISO a kliknite na tlačidlo **Launch Installer**.
+
+2. Nastavte preferovaný **Jazyk** a **Región/Časové pásmo**.
+
+3. Nakonfigurujte **Rozloženie klávesnice**.
+
+4. Vyberte **Manuálne rozdelenie disku**.
+
+5. Vytvorte novú partíciu s nasledujúcimi parametrami:
+    * Veľkosť: ***Minimálne 20000MiB***
+    * Filesystem: Akýkoľvek, pozrite si [Filesystem](/installation/filesystem)
+    * Prípojný bod: ***/***
+    * Flags:
+
+6. Skontrolujte, či ***Inštalovať boot loader na:*** smeruje na váš zavádzací disk, napr.: /dev/sda
+
+7. Vyberte **Desktopové prostredie**, ktoré chcete používať, pozrite si [Desktopové prostredia](/installation/desktop_environments).
+
+8. Vyberte špecifické balíčky, ktoré chcete nainštalovať z poskytnutého zoznamu, a odznačte všetky, ktoré nepotrebujete.
+
+9. Nastavte svoje prihlasovacie údaje.
+
+10. Starostlivo si prezrite súhrn inštalácie na Stránke s prehľadom. Ak sú pre vás všetky nastavenia správne, pokračujte v inštalácii kliknutím na ***Install Now***. V opačnom prípade sa vráťte a vykonajte potrebné zmeny.
+
+</Steps>
+
+## Duálne zavedenie
+
+*Po manuálnom rozdelení disku môže byť potrebné dodatočné nastavenie na konfiguráciu systému duálneho zavedenia, najmä s `systemd-boot` a `GRUB`.*
+
+<Tabs>
+    <TabItem label='systemd-boot'>
+        *Musíme skopírovať binárne súbory Windows EFI do partície Linux EFI, aby ich správca zavádzania rozpoznal.*
+
+        <Steps>
+        1. Nájdite `Windows EFI partition` pomocou `lsblk`
+
+            ```sh title='Príklad'
+            ❯ lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT
+            NAME        FSTYPE   SIZE MOUNTPOINT
+            zram0               15.3G [SWAP]
+            nvme0n1            476.9G
+            ├─nvme0n1p1 vfat     100M
+            ├─nvme0n1p2           16M
+            ├─nvme0n1p3 ntfs   234.4G
+            ├─nvme0n1p4 ntfs     830M
+            ├─nvme0n1p5 vfat       2G /boot
+            └─nvme0n1p6 btrfs  239.6G /var/tmp
+            ```
+
+            *EFI partície sú takmer vždy formátované ako `FAT32/vfat`, a keďže nvme0n1p1 nemá prípojný bod pre Linux, predpokladajte, že táto partícia je `Windows EFI partition`.*
+
+        2. Dočasne pripojte `Windows EFI partition`.
+
+            ```sh
+            ❯ sudo mount /dev/nvme0n1p1 /mnt/WinBoot # Nahraďte `nvme0n1p1` partíciou EFI partície Windowsu
+            ```
+
+        3. Skopírujte EFI binárne súbory z `Windows EFI partition` do `Linux EFI partition`.
+
+            ```sh
+            ❯ sudo cp -r /mnt/WinBoot/EFI/* /boot/EFI
+            ```
+
+        4. Odpojte predtým pripojenú partíciu a Windows by sa mal zobraziť v ponuke zavádzania pri nasledujúcom spustení.
+
+            ```sh
+            ❯ sudo umount /mnt/WinBoot
+            ```
+
+        </Steps>
+    </TabItem>
+
+    <TabItem label='GRUB'>
+        *GRUB používa os-prober na automatické zistenie Windows EFI partície a pridanie do ponuky zavádzania.*
+
+        <Steps>
+        1. Nainštalujte a spustite `os-prober`
+
+            ```sh
+            ❯ sudo pacman -S os-prober
+            ❯ sudo os-prober
+            ```
+
+        2. Povoľte `os-prober` v konfiguračnom súbore GRUB
+
+            ```sh title='Pre uloženie stlačte CTRL+S a pre ukončenie CTRL+Q v Micro'
+            ❯ sudo micro /etc/default/grub
+            # /etc/default/grub
+            # Prehľadávanie iných operačných systémov je z bezpečnostných dôvodov zakázané. Prečítajte si
+            # dokumentáciu o GRUB_DISABLE_OS_PROBER, ak chcete túto funkciu stále povoliť,
+            # nainštalujte os-prober a odkomentujte, aby sa zistili a zahrnuli ďalšie
+            # operačné systémy.
+            GRUB_DISABLE_OS_PROBER=false
+
+            ❯ sudo grub-mkconfig -o /boot/grub/grub.cfg
+            ```
+
+            **Windows by teraz mal byť pridaný do ponuky zavádzania.**
+
+        </Steps>
+    </TabItem>
+</Tabs>
+
+## Viac informácií
+
+- [Inštalačný návod pre duálne zavedenie od Lorda Vexyho so správcom zavádzania rEFInd](https://www.youtube.com/watch?v=0Toaq3Vn5qs)

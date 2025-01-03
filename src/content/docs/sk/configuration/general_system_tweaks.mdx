@@ -1,0 +1,188 @@
+---
+title: Všeobecné vyladenia systému
+description: Veci, ktoré môžete urobiť na vyladenie po inštalácii
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## AMD Ryzen
+
+### Ovladač AMD P-State
+---------------------------
+
+`amd-pstate` je ovládač na škálovanie výkonu CPU od AMD, ktorý zavádza nový mechanizmus riadenia frekvencie CPU na moderných sériách APU a CPU od AMD v jadre Linuxu. Nový mechanizmus je založený na Collaborative Processor Performance Control (CPPC), ktorý poskytuje jemnejšiu správu frekvencie ako staršie hardvérové P-Stavy ACPI. Súčasné platformy CPU/APU od AMD používajú ovládač ACPI P-states na správu frekvencie a taktov CPU s prepínaním iba v 3 P-stavoch. CPPC nahrádza ovládacie prvky ACPI P-states a umožňuje flexibilné rozhranie s nízkou latenciou, aby jadro Linuxu mohlo priamo komunikovať s hardvérom o výkonových náznakoch.
+
+Nižšie sú uvedené 3 režimy prevádzky ovládača `amd-pstate` a položky príkazového riadku jadra, ktoré sa majú použiť pri spúšťaní:
+
+- **AMD P-State (Non-Autonomous Mode)**: `amd-pstate=passive`
+- **AMD P-State Guided (Guided Autonomous Mode)**: `amd-pstate=guided`
+- **AMD P-State EPP (Autonomous Mode)**: `amd-pstate=active`
+
+:::note
+Ovladač AMD P-State EPP sa používa predvolene, ak sa nevykoná žiadna explicitná konfigurácia.
+:::
+
+Medzi prevádzkovými režimami môžete prepínať aj za behu, aby ste otestovali možnosti:
+
+- **Autonómny režim**: platforma zohľadňuje iba hodnoty nastavené pre minimálny výkon, maximálny výkon a Energy Performance Preference.
+   ```sh
+   echo active | sudo tee /sys/devices/system/cpu/amd_pstate/status
+   ```
+
+- **Riadený-autonómny režim**: platforma nastavuje úroveň prevádzkového výkonu podľa aktuálneho zaťaženia a v rámci limitov stanovených OS prostredníctvom registrov minimálneho a maximálneho výkonu.
+   ```sh
+   echo guided | sudo tee /sys/devices/system/cpu/amd_pstate/status
+   ```
+
+- **Neautonómny režim**: platforma získava požadovanú úroveň výkonu priamo od OS prostredníctvom registra Desired Performance Register.
+   ```sh
+   echo passive | sudo tee /sys/devices/system/cpu/amd_pstate/status
+   ```
+
+Pre viac informácií:
+
+*   [https://www.kernel.org/doc/html/v6.9/admin-guide/pm/amd-pstate.html](https://www.kernel.org/doc/html/v6.9/admin-guide/pm/amd-pstate.html)
+*   [https://lore.kernel.org/lkml/20221110175847.3098728-1-Perry.Yuan@amd.com/](https://lore.kernel.org/lkml/20221110175847.3098728-1-Perry.Yuan@amd.com/)
+*   [https://lore.kernel.org/lkml/20230119115017.10188-1-wyes.karny@amd.com/](https://lore.kernel.org/lkml/20230119115017.10188-1-wyes.karny@amd.com/)
+
+### Konfigurácia AMD P-State EPP
+
+Na používanie P-State EPP sú k dispozícii dva regulátory škálovania frekvencie CPU: **powersave** a **performance**. Odporúča sa používať regulátor powersave a nastaviť preferenciu.
+
+*   Nastavenie regulátora powersave: `sudo cpupower frequency-set -g powersave`
+*   Nastavenie regulátora performance: `sudo cpupower frequency-set -g performance`
+
+Ak chcete nastaviť preferenciu, spustite nasledujúci príkaz s požadovanou preferenciou:
+
+```sh
+echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+```
+
+Dostupné preferencie: `performance`, `power`, `balance_power`, `balance_performance`
+
+Benchmarky pre každú preferenciu nájdete tu:
+[https://lore.kernel.org/lkml/20221219064042.661122-1-perry.yuan@amd.com/](https://lore.kernel.org/lkml/20221219064042.661122-1-perry.yuan@amd.com/)
+
+### Optimalizátor AMD 3D V-Cache
+
+Spoločnosť AMD zverejnila opravu na optimalizáciu plánovania vyrovnávacej pamäte na Dual CCD 3D CPU, ako sú 7950X3D a 7900X3D.
+V systéme BIOS musíte v časti CPPC Option nastaviť možnosť "Driver". To umožní prepísať použitý režim pomocou sysfs.
+
+Existujú dva režimy:
+1. Frequency (Frekvencia)
+2. Cache (Vyrovnávacia pamäť)
+
+Ak je nastavená možnosť `cache`, ovládač sa pokúsi umiestniť úlohy najskôr na CCD s vyššou vyrovnávacou pamäťou, čo je prospešné najmä pri hrách.
+Možnosť `frequency` sa pokúsi umiestniť úlohy na druhý CCD, ktorý má vyššiu frekvenciu ako 3D Cache CCD.
+
+Frequency (Predvolené):
+```sh
+echo frequency | sudo tee /sys/bus/platform/drivers/amd_x3d_vcache/AMDI0101:00/amd_x3d_mode
+```
+
+Cache:
+```sh
+echo cache | sudo tee /sys/bus/platform/drivers/amd_x3d_vcache/AMDI0101:00/amd_x3d_mode
+```
+
+Po zmene režimov by štatistiky preferovaných jadier amd mali poskytovať iné poradie. Môžete si ich prečítať pomocou:
+```sh
+grep -v /sys/devices/system/cpu/cpu*/cpufreq/amd_pstate_prefcore_ranking
+```
+
+### AMD P-State Core Performance Boost
+
+AMD Core Performance Boost známy aj ako AMD Turbo Core je technológia dynamického škálovania frekvencie od spoločnosti AMD, ktorá umožňuje
+procesoru dynamicky nastavovať a riadiť prevádzkovú frekvenciu procesora v určitých verziách svojich procesorov,
+čo umožňuje zvýšený výkon v prípade potreby pri zachovaní nižších energetických a tepelných parametrov počas bežnej prevádzky.
+
+Od verzie `linux-cachyos` 6.9.6 je jadro opravené s podporou CPB pre ovládače p-state od AMD (zahŕňa `passive`, `active` a `guided`).
+Používatelia môžu zmeniť stav zvýšenia výkonu každého CPU prostredníctvom súboru boost sysfs `/sys/devices/system/cpu/cpuX/cpufreq/boost`
+(X označuje číslo jadra, napr. cpu0 je prvé jadro, cpu1 druhé atď.).
+
+```sh
+❯ echo 0 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/boost # Zakáže zvýšenie výkonu pre všetky jadrá
+❯ lscpu -ae # Ukazuje, že AMD CPB je globálne zakázané
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ   MINMHZ       MHZ
+  0    0      0    0 0:0:0:0          yes 3301.0000 400.0000 1212.8250
+  1    0      0    0 0:0:0:0          yes 3301.0000 400.0000 1394.2180
+  2    0      0    1 1:1:1:0          yes 3301.0000 400.0000 1204.4600
+
+❯ echo 1 | sudo tee /sys/devices/system/cpu/cpu0/cpufreq/boost # Povolí zvýšenie výkonu na cpu0
+❯ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ   MINMHZ       MHZ
+  0    0      0    0 0:0:0:0          yes 4564.0000 400.0000 1393.2380
+  1    0      0    0 0:0:0:0          yes 3301.0000 400.0000  400.0000
+  2    0      0    1 1:1:1:0          yes 3301.0000 400.0000 2157.8469
+```
+
+CachyOS tiež poskytuje verziu `power-profiles-daemon`, ktorá prenáša commit, ktorý umožňuje
+podporu pre AMD CPB. AMD CPB bude zakázané, ak sa používa profil `powersave`, a bude povolené pre `balanced` alebo `performance`.
+
+Pre viac informácií pozri:
+- https://lore.kernel.org/linux-pm/1a78eeaa-fadd-4734-aaeb-2fe11e96e198@amd.com/T/#m4a0c8917ea8fb033504055bd61512c80c85410c8
+- https://lore.kernel.org/linux-pm/20240624213400.67773-1-mario.limonciello@amd.com/
+
+## Možné zlepšenia výkonu
+
+### Zakázanie Split Lock Mitigate
+
+V niektorých prípadoch môže split lock mitigate spomaliť výkon v niektorých aplikáciách a hrách. K dispozícii je oprava na jeho zakázanie prostredníctvom sysctl.
+
+*   Zakázanie split lock mitigate: `sudo sysctl kernel.split_lock_mitigate=0`
+*   Povolenie split lock mitigate: `sudo sysctl kernel.split_lock_mitigate=1`
+
+Ak chcete, aby bola zmena trvalá, pridajte nasledujúci riadok do `/etc/sysctl.d/99-splitlock.conf`:
+
+```text
+kernel.split_lock_mitigate=0
+```
+
+Pre viac informácií o split lock pozri:
+
+- https://www.phoronix.com/news/Linux-Splitlock-Hurts-Gaming
+- https://github.com/doitsujin/dxvk/issues/2938
+
+## Vyladenia pre úsporu energie
+
+### Povolenie RCU Lazy
+
+RCU Lazy pomáha znižovať spotrebu energie v systémoch v nečinnosti alebo s nízkym zaťažením. To môže byť užitočné pre notebooky a prenosné zariadenia.
+Zlepšenie je medzi 5-10% z hľadiska úspory energie. Je však dôležité poznamenať, že táto funkcia úspory energie môže prísť za cenu mierne zníženého výkonu v závislosti od scenára.
+Jadro linux-cachyos-deckify bude mať túto možnosť predvolene povolenú, pretože úspora energie je kľúčová a nevyhnutná pre tieto zariadenia.
+
+Ak chcete povoliť RCU Lazy, pridajte nasledujúci parameter do zoznamu parametrov [príkazového riadka](/configuration/boot_manager_configuration/) jadra:
+```text
+rcutree.enable_rcu_lazy=1
+```
+
+## Riešenia pre NVIDIA
+
+### Zakázanie SDDM Wayland Backend
+
+:::note
+Počnúc cachyos-kde-settings 4.3 používa SDDM predvolene KWin ako svoj Wayland kompozitor.
+:::
+
+Hoci je to pekný krok vpred, môže to priniesť niektoré nepríjemnosti, ako napríklad zrušenie podpory pretaktovania pomocou nvidia-settings alebo spôsobiť nekompatibilitu so staršími GPU, ktoré majú problémy s Waylandom.
+
+Ak chcete vrátiť túto zmenu. **Odstráňte** cachyos-kde-settings:
+```sh
+sudo pacman -R cachyos-kde-settings
+```
+
+## Zlepšenia zvuku
+
+### Udelenie privilégií v reálnom čase pre používateľa
+
+:::note
+Dôrazne odporúčané pre Pipewire. Tým sa zmierni veľa bežných problémov, ako sú napríklad výpadky zvuku alebo jeho prerušovanie v určitých situáciách.
+:::
+
+```sh
+# Nainštalujte nasledujúci balík:
+sudo pacman -S realtime-privileges
+# Spustite nasledujúci príkaz:
+sudo gpasswd -a $USER realtime
+# Reštartujte systém.
+```

@@ -1,83 +1,132 @@
 ---
-title: Kódex správania sa
+title: Kódex správania
 ---
 
-# Kódex správania prispievateľov
+# Kódex správania Contributor Covenant
 
 ## Náš záväzok
 
-My, ako členovia, prispievatelia a lídri, sľubujeme, že účasť v našej komunite bude pre všetkých bez obťažovania, bez ohľadu na vek, veľkosť tela, viditeľné alebo neviditeľné postihnutie, etnický pôvod, pohlavné charakteristiky, rodovú identitu a vyjadrenie, úroveň skúseností, vzdelanie, socio-ekonomický status, národnosť, osobný vzhľad, rasu, náboženstvo alebo sexuálnu identitu a orientáciu.
+My ako členovia, prispievatelia a vedúci sa zaväzujeme, že účasť v našej
+komunite bude zážitkom bez obťažovania pre každého, bez ohľadu na vek, telesné
+rozmery, viditeľné alebo neviditeľné zdravotné postihnutie, etnickú príslušnosť, pohlavné znaky, rodovú
+identitu a prejav, úroveň skúseností, vzdelanie, socioekonomický status,
+národnosť, osobný vzhľad, rasu, náboženstvo alebo sexuálnu identitu
+a orientáciu.
 
-Sľubujeme, že budeme konať a interagovať spôsobmi, ktoré prispievajú k otvorenej, vítajúcej, rozmanitej, inkluzívnej a zdravej komunite.
+Zaväzujeme sa konať a interagovať spôsobmi, ktoré prispievajú k otvorenej, ústretovej,
+rozmanitej, inkluzívnej a zdravej komunite.
 
 ## Naše štandardy
 
-Príklady správania, ktoré prispievajú k pozitívnemu prostrediu pre našu komunitu, zahŕňajú:
+Príklady správania, ktoré prispieva k pozitívnemu prostrediu pre našu
+komunitu, zahŕňajú:
 
-* Preukazovanie empatie a láskavosti voči ostatným ľuďom
-* Byť rešpektujúci voči rozdielnym názorom, pohľadom a skúsenostiam
-* Poskytovanie a prijímanie konštruktívnej spätnej väzby
-* Prevzatie zodpovednosti a ospravedlnenie sa tým, ktorých naše chyby ovplyvnili, a poučenie sa z tejto skúsenosti
-* Zameranie sa na to, čo je najlepšie nie len pre nás ako jednotlivcov, ale pre celú komunitu
+* Preukazovanie empatie a láskavosti voči iným ľuďom
+* Rešpektovanie odlišných názorov, stanovísk a skúseností
+* Poskytovanie a s vďakou prijímanie konštruktívnej spätnej väzby
+* Prijímanie zodpovednosti a ospravedlnenie sa tým, ktorých sa naše chyby dotkli,
+  a poučenie sa zo skúsenosti
+* Zameranie sa na to, čo je najlepšie nielen pre nás ako jednotlivcov, ale pre
+  celkovú komunitu
 
 Príklady neprijateľného správania zahŕňajú:
 
-* Používanie sexualizovaného jazyka alebo obrazov a sexuálna pozornosť alebo návrhy akéhokoľvek druhu
-* Trollovanie, urážlivé alebo znevažujúce komentáre a osobné alebo politické útoky
+* Používanie sexualizovaného jazyka alebo zobrazení a sexuálnu pozornosť alebo
+  pokroky akéhokoľvek druhu
+* Trolenie, urážlivé alebo ponižujúce komentáre a osobné alebo politické útoky
 * Verejné alebo súkromné obťažovanie
-* Zverejňovanie súkromných informácií druhých, ako je fyzická alebo emailová adresa, bez ich výslovného povolenia
-* Iné správanie, ktoré by sa dalo považovať za nevhodné v profesionálnom prostredí
+* Zverejňovanie súkromných informácií iných, ako je fyzická alebo e-mailová
+  adresa, bez ich výslovného povolenia
+* Iné správanie, ktoré by sa dalo primerane považovať za nevhodné v
+  profesionálnom prostredí
 
 ## Zodpovednosti za presadzovanie
 
-Lídri komunity sú zodpovední za objasnenie a presadzovanie našich štandardov prijateľného správania a prijmú vhodné a spravodlivé nápravné opatrenia v reakcii na akékoľvek správanie, ktoré považujú za nevhodné, hrozivé, urážlivé alebo škodlivé.
+Vedúci komunity sú zodpovední za objasnenie a presadzovanie našich štandardov
+prijateľného správania a podniknú primerané a spravodlivé nápravné kroky v
+reakcii na akékoľvek správanie, ktoré považujú za nevhodné, výhražné, urážlivé
+alebo škodlivé.
 
-Lídri komunity majú právo a zodpovednosť odstrániť, upraviť alebo odmietnuť komentáre, príspevky, kód, úpravy wiki, problémy a iné príspevky, ktoré nie sú v súlade s týmto Kódexom správania, a budú komunikovať dôvody pre rozhodnutia o moderovaní, keď to bude vhodné.
+Vedúci komunity majú právo a zodpovednosť odstraňovať, upravovať alebo odmietať
+komentáre, commity, kód, úpravy wiki, problémy a iné príspevky, ktoré nie sú
+v súlade s týmto Kódexom správania, a v prípade potreby budú komunikovať dôvody
+pre rozhodnutia o moderovaní.
 
-## Rozsah
+## Rozsah pôsobnosti
 
-Tento Kódex správania sa vzťahuje na všetky komunitné priestory a tiež sa vzťahuje, keď jednotlivec oficiálne zastupuje komunitu na verejných miestach. Príklady zastupovania našej komunity zahŕňajú použitie oficiálnej emailovej adresy, zverejňovanie prostredníctvom oficiálneho účtu na sociálnych médiách alebo konanie ako určený zástupca na online alebo offline udalosti.
+Tento Kódex správania platí vo všetkých priestoroch komunity a platí aj vtedy, keď
+jednotlivec oficiálne zastupuje komunitu vo verejných priestoroch.
+Príklady zastupovania našej komunity zahŕňajú používanie oficiálnej e-mailovej adresy,
+uverejňovanie príspevkov prostredníctvom oficiálneho účtu na sociálnych médiách alebo
+vystupovanie ako vymenovaný zástupca na online alebo offline udalosti.
 
 ## Presadzovanie
 
-Prípady zneužívajúceho, obťažujúceho alebo inak neprijateľného správania môžu byť hlásené lídrom komunity zodpovedným za presadzovanie na admin@cachyos.org. Všetky sťažnosti budú preverené a vyšetrované promptne a spravodlivo.
+Prípady zneužívajúceho, obťažujúceho alebo inak neprijateľného správania je možné
+nahlásiť vedúcim komunity zodpovedným za presadzovanie na
+admin@cachyos.org.
+Všetky sťažnosti budú preskúmané a prešetrené rýchlo a spravodlivo.
 
-Všetci lídri komunity sú povinní rešpektovať súkromie a bezpečnosť oznamovateľa akéhokoľvek incidentu.
+Všetci vedúci komunity sú povinní rešpektovať súkromie a bezpečnosť
+oznamovateľa akéhokoľvek incidentu.
 
 ## Usmernenia pre presadzovanie
 
-Lídri komunity budú nasledovať tieto Usmernenia pre vplyv na komunitu pri určovaní dôsledkov akéhokoľvek správania, ktoré považujú za porušenie tohto Kódexu správania:
+Vedúci komunity sa budú riadiť týmito Usmerneniami pre dopad na komunitu pri
+určovaní dôsledkov za akékoľvek konanie, ktoré považujú za porušenie tohto
+Kódexu správania:
 
-### 1. Oprava
+### 1. Napravenie
 
-**Vplyv na komunitu**: Použitie nevhodného jazyka alebo iného správania považovaného za neprofesionálne alebo nevítané v komunite.
+**Dopad na komunitu**: Použitie nevhodného jazyka alebo iného správania, ktoré sa
+považuje za neprofesionálne alebo nevítané v komunite.
 
-**Dôsledok**: Súkromné, písomné varovanie od lídrov komunity, ktoré poskytuje jasnosť o povahe porušenia a vysvetlenie, prečo bolo správanie nevhodné. Môže byť požadované verejné ospravedlnenie.
+**Dôsledok**: Súkromné, písomné varovanie od vedúcich komunity, ktoré objasňuje
+povahu porušenia a vysvetlenie, prečo bolo správanie nevhodné. Môže byť
+požadované verejné ospravedlnenie.
 
 ### 2. Varovanie
 
-**Vplyv na komunitu**: Porušenie prostredníctvom jedného incidentu alebo série akcií.
+**Dopad na komunitu**: Porušenie prostredníctvom jedného incidentu alebo série
+činov.
 
-**Dôsledok**: Varovanie s dôsledkami pre pokračujúce správanie. Žiadna interakcia s dotknutými ľuďmi, vrátane nevyžiadaných interakcií s tými, ktorí presadzujú Kódex správania, na špecifikované obdobie. To zahŕňa vyhýbanie sa interakciám v komunitných priestoroch, ako aj externých kanáloch ako sociálne médiá. Porušenie týchto podmienok môže viesť k dočasnému alebo trvalému zákazu.
+**Dôsledok**: Varovanie s dôsledkami pre pokračujúce správanie. Žiadna
+interakcia so zapojenými ľuďmi, vrátane nevyžiadanej interakcie s tými, ktorí
+presadzujú Kódex správania, na určené obdobie. To zahŕňa vyhýbanie sa
+interakciám v priestoroch komunity, ako aj na externých kanáloch, ako sú
+sociálne médiá. Porušenie týchto podmienok môže viesť k dočasnému alebo
+trvalému zákazu.
 
 ### 3. Dočasný zákaz
 
-**Vplyv na komunitu**: Vážne porušenie komunitných štandardov, vrátane trvalého nevhodného správania.
+**Dopad na komunitu**: Závažné porušenie štandardov komunity, vrátane
+trvalého nevhodného správania.
 
-**Dôsledok**: Dočasný zákaz akéhokoľvek druhu interakcie alebo verejnej komunikácie s komunitou na špecifikované obdobie. Počas tohto obdobia nie je povolená žiadna verejná ani súkromná interakcia s dotknutými ľuďmi, vrátane nevyžiadaných interakcií s tými, ktorí presadzujú Kódex správania. Porušenie týchto podmienok môže viesť k trvalému zákazu.
+**Dôsledok**: Dočasný zákaz akejkoľvek interakcie alebo verejnej
+komunikácie s komunitou na určené obdobie. Počas tohto obdobia nie je
+povolená žiadna verejná ani súkromná interakcia so zapojenými ľuďmi,
+vrátane nevyžiadanej interakcie s tými, ktorí presadzujú Kódex správania.
+Porušenie týchto podmienok môže viesť k trvalému zákazu.
 
 ### 4. Trvalý zákaz
 
-**Vplyv na komunitu**: Preukázanie vzoru porušovania komunitných štandardov, vrátane trvalého nevhodného správania, obťažovania jednotlivca alebo agresie voči triedam jednotlivcov alebo ich znevažovanie.
+**Dopad na komunitu**: Preukazovanie vzorca porušovania štandardov komunity,
+vrátane trvalého nevhodného správania, obťažovania jednotlivca alebo
+agresie voči alebo znevažovania skupín jednotlivcov.
 
-**Dôsledok**: Trvalý zákaz akéhokoľvek druhu verejnej interakcie v rámci komunity.
+**Dôsledok**: Trvalý zákaz akejkoľvek verejnej interakcie v rámci
+komunity.
 
-## Pripisovanie
+## Autorstvo
 
-Tento Kódex správania je prispôsobený z [Contributor Covenant][homepage], verzia 2.0, dostupného na https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+Tento Kódex správania je adaptovaný z [Contributor Covenant][homepage],
+verzia 2.0, dostupná na
+https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-Usmernenia pre vplyv na komunitu boli inšpirované [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity).
+Usmernenia pre dopad na komunitu boli inšpirované [rebríčkom presadzovania kódexu správania Mozilly](https://github.com/mozilla/diversity).
 
 [homepage]: https://www.contributor-covenant.org
 
-Odpovede na bežné otázky týkajúce sa tohto kódexu správania nájdete v FAQ na https://www.contributor-covenant.org/faq. Preklady sú dostupné na https://www.contributor-covenant.org/translations.
+Odpovede na časté otázky týkajúce sa tohto kódexu správania nájdete v časti FAQ na
+https://www.contributor-covenant.org/faq. Preklady sú k dispozícii na
+https://www.contributor-covenant.org/translations.

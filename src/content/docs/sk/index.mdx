@@ -1,27 +1,26 @@
 ---
-title: Vitajte na CachyOS Wiki
+title: Vitajte na Wiki CachyOS
 description: Zapojte sa!
 template: splash
 hero:
-  tagline: Preskúmajte a nájdite odpovede na svoje otázky!
+  tagline: Preskúmajte a nájdite odpovede na vaše otázky!
   image:
     file: ~/assets/logo.png
   actions:
-    - text: Preskúmajte
-      link: /installation/installation_prepare/
+    - text: Preskúmať
+      link: /cachyos_basic/download
       icon: right-arrow
       variant: primary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Ďalšie kroky
+## Začíname
 
-<CardGrid stagger>
-  <Card title="Ako CachyOS zlepšuje výkon?" icon="pencil">
-    [Naše repozitáre](/cachyos_repositories/what_are_the_cachyos_repo/) obsahujú optimalizované balíčky a naše optimalizované jadrá..
-  </Card>
-  <Card title="Inštalácia" icon="add-document">
-    Máme 2 inštalátory: GUI & CLI. S možnosťou [inštalácie](/installation/installation_prepare/) s dostupným alebo bez dostupného internetového pripojenia.
-  </Card>
+<CardGrid>
+  <LinkCard title="Ako CachyOS zlepšuje výkon" href="/cachyos_basic/why_cachyos"
+   description="Pozrite sa na zmeny, ktoré robíme s cieľom zlepšiť výkon.">
+  </LinkCard>
+  <LinkCard title="Inštalačná príručka" href="/installation/installation_prepare" description="Naučte sa, ako nainštalovať CachyOS pomocou nášho grafického inštalátora alebo inštalátora príkazového riadku. Vyžaduje sa internet.">
+  </LinkCard>
 </CardGrid>

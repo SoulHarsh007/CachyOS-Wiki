@@ -1,0 +1,132 @@
+---
+title: Nastavenia CachyOS
+---
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+
+Popri našich optimalizovaných jadrách a repozitároch poskytujeme aj nastavenia, ktoré ďalej zlepšujú zážitok z používania desktopu.
+Taktiež pribalíme niekoľko pomocných skriptov pre zlepšenie QoL (Quality of Life - kvality života). Všetky tieto konfigurácie a skripty sa nachádzajú v balíčku `cachyos-settings`.
+
+## sysctl Vylepšenia
+
+Poskytujeme množstvo vylepšení `sysctl`, ktorých cieľom je zlepšiť celkový výkon desktopu. Každá položka `sysctl` je dobre zdokumentovaná
+v súbore [`99-cachyos-settings.conf`](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/sysctl.d/99-cachyos-settings.conf)
+
+Ak chcete vykonať zmeny v niektorej z týchto hodnôt, skopírujte pôvodnú položku a vytvorte nový súbor v adresári `/etc/sysctl.d/` pre upravenú hodnotu.
+
+### Modifikácia hodnôt sysctl
+
+<Steps>
+
+1. Pozrite si pôvodnú hodnotu z `cachyos-settings`
+
+    ```sh
+    ❯ cat /usr/lib/sysctl.d/99-cachyos-settings.conf
+    # Iba experimentálne!
+    # Nechajte úlohy Realtime bežať tak dlho, ako potrebujú
+    # sched: RT throttling aktivované
+    kernel.sched_rt_runtime_us=-1
+    ```
+
+2. Vytvorte nový súbor v `/etc/sysctl.d`, aby ste mohli vykonať zmeny v nastaveniach `sysctl`
+
+    ```sh title="Vrátenie kernel.sched_rt_runtime_us= na pôvodnú hodnotu"
+    ❯ sudo micro /etc/sysctl.d/99-kernel-sched-rt.conf # Ak súbor neexistuje, tento príkaz ho vytvorí a umožní vám ho upraviť
+    kernel.sched_rt_runtime_us=950000
+    ```
+
+</Steps>
+
+## udev Pravidlá
+
+- [ZRAM Pravidlá](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/30-zram.rules) - Nastavuje ZRAM swappiness na agresívnejšiu
+hodnotu, takže cache sa s väčšou pravdepodobnosťou presunie do swapu ZRAM.
+- [HPET Povolenia](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/40-hpet-permissions.rules) - Umožňuje prístup k uzlom zariadenia `rtc0`
+a `hpet` pre skupinu audio.
+- [SATA Správa napájania](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/50-sata.rules) - Nastavuje pravidlo správy napájania zariadení SATA na `max_performance`.
+- [I/O Scheduler Pravidlá](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/60-ioschedulers.rules) - Vyberá optimálny plánovač pre každý typ disku (HDD, SSD, NVMe).
+- [hdparm Pravidlá](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/69-hdparm.rules) - Nastavuje HDD SATA a IDE na maximálny výkon.
+- [NVIDIA RTD3](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/71-nvidia.rules) - Konfiguruje funkciu dynamickej správy napájania pre generáciu GPU Turing. **RTD3 nefunguje správne na GPU Turing s otvorenými modulmi**
+- [CPU DMA Latency](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/99-cpu-dma-latency.rules) -
+Umožňuje prístup k uzlu zariadenia `cpu_dma_latency` pre skupinu audio.
+- [NTSync](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/99-ntsync.rules) - Umožňuje prístup k `ntsync` aplikáciám v priestore používateľa.
+
+## modprobe Možnosti
+
+- Vynúti ovládač AMDGPU na Southern Islands (GCN 1.0) a Sea Islands (GCN 2.0).
+- Povoliť [rôzne vylepšenia](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/modprobe.d/nvidia.conf) pre NVIDIA.
+- Na čiernu listinu moduly watchdog.
+
+## Pomocné Skripty
+
+- **`amdpstate-guided`** - Nastaví prepínač škálovania `amd-pstate` na `guided` a prepne riadenie CPU na `schedutil`.
+- **`cachyos-bugreport.sh`** - Zbierka rôznych protokolov z `inxi`, `dmesg` a `journalctl` na pomoc pri riešení problémov.
+- **`game-performance`** - Baliaci skript pre `powerprofilesctl` na prepnutie na výkonnostný profil na požiadanie.
+Pozri [Prepínanie výkonnostných profilov na požiadanie](/configuration/gaming#power-profile-switching-on-demand).
+- **`kerver`** - QoL skript na zobrazenie informácií o aktuálnom jadre.
+- **`ksmctl`** - Nástroj na povolenie zlúčenia rovnakých pamäťových stránok do jednej, čím sa zníži využitie pamäte za cenu určitej réžie CPU. **Neočekávajte obrovské úspory.**
+
+    <Tabs>
+        <TabItem label="Povoliť Kernel Samepage Merging">
+            ```sh
+            ❯ sudo ksmctl --enable
+            ```
+        </TabItem>
+        <TabItem label="Zakázať Kernel Samepage Merging">
+            ```sh
+            ❯ sudo ksmctl --disable
+            ```
+        </TabItem>
+    </Tabs>
+- **`ksmstats`** - Zobrazuje všeobecné úspory z Kernel Samepage Merging.
+- **`paste-cachyos`** - Skript na vloženie výstupu terminálu pre textové súbory zo systému.
+
+    <Tabs>
+        <TabItem label="Nahrávanie textových súborov">
+            ```sh
+            ❯ paste-cachyos /path/to/file
+            ```
+        </TabItem>
+        <TabItem label="Nahrávanie výstupu terminálu">
+            ```sh
+            ❯ <príkaz> | paste-cachyos
+            ```
+        </TabItem>
+    </Tabs>
+- [`pci-latency`](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/pci-latency)
+    ```sh title="Povolenie pci-latency v celom systéme"
+    ❯ sudo systemctl enable --now pci-latency.service
+    ```
+- **`sbctl-batch-sign`** - Pomocný skript na jednoduché podpísanie obrazov jadra a binárnych súborov EFI pre bezpečné spustenie a ukladá ich do databázy sbctl.
+- **`topmem`** - Zobrazuje štatistiky RAM, swapu a ksm 10 procesov v zostupnom poradí.
+
+## Ďalšie konfigurácie
+
+### Vylepšenia využitia pamäte
+
+- Nastavenie THP Shrinker (max_ptes_none = 409).
+- Nastaviť maximálnu veľkosť na 50 MB pre systemd journal.
+- [ZRAM Generator](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/systemd/zram-generator.conf) - Nastaví ZRAM na rovnakú veľkosť ako RAM a používa ZSTD na kompresiu.
+
+### Pravidlá Ananicy-cpp
+
+- [ananicy-cpp](https://gitlab.com/ananicy-cpp/ananicy-cpp) s [komunitou spravovanými pravidlami](https://github.com/CachyOS/ananicy-rules).
+
+### Sieťové Modifikácie
+
+- [systemd-resolved ako predvolený DNS resolver](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/NetworkManager/conf.d/dns.conf) pre NetworkManager.
+
+### RTC
+
+- Zvýšiť najvyššiu požadovanú frekvenciu prerušenia RTC na **3072**.
+
+### NTP QoL
+
+- Preferovaný server nastavený na **Cloudflare**.
+- Náhradné servery > **Google a Arch Linux**.
+
+### systemd Služby Vylepšenia
+
+- Časový limit na spustenie služby/jednotky nastavený na **15s**.
+- Časový limit na zastavenie služby/jednotky nastavený na **10s**.
+- Mäkký limit pre otvorené deskriptory súborov nastavený na **2048**.
+- Tvrdý limit pre otvorené deskriptory súborov nastavený na **2097152**.

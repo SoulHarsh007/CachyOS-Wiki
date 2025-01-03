@@ -1,73 +1,65 @@
 ---
-title: Inštalácia Handheld Edition
-description: How to install CachyOS on Handheld Devices
+title: Inštalácia edície pre vreckové zariadenia
+description: Ako nainštalovať CachyOS na vreckové zariadenia
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
+CachyOS poskytuje edíciu pre vreckové zariadenia, ako sú Steam Deck, ROG Ally a Legion Go. Táto edícia ponúka zážitok podobný SteamOS s prepínaním herného režimu (Game Mode Switching), predinštalovanými hernými aplikáciami a ďalšími funkciami.
 
-CachyOS poskytuje verziu pre prenosné zariadenia, ako sú Steam Deck, Rog Ally a Legion Go.
-Táto edícia poskytuje zážitok podobný SteamOS s prepínaním režimov hry, predinštalovanými hernými aplikáciami a podobne.
+Edícia pre vreckové zariadenia používa plánovač LAVD ako predvolený plánovač CPU, ktorý je optimalizovaný pre vreckové zariadenia. Výsledkom sú lepšie snímkové frekvencie a výdrž batérie počas hrania.
 
-Handheld Edition používa plánovač LAVD ako predvolený plánovač, ktorý je optimalizovaný pre prenosné zariadenia.
-Toto poskytne lepšie časy snímok pre hranie hier.
-
-Handheld Edition používa `systemd-boot` ako bootloader a nie je dostupný výber bootloadera, ako je to v predvolenej edícii CachyOS.
-Toto je zámerne zjednodušené pre proces inštalácie.
+Edícia pre vreckové zariadenia používa `systemd-boot` ako správcu zavádzania. Výber správcu zavádzania nie je k dispozícii, na rozdiel od predvoleného CachyOS ISO. Cieľom je zjednodušiť proces inštalácie.
 
 ## Inštalácia na Root
 
 <Steps>
 
-1. **Stiahnite** najnovšie Handheld ISO z webu/fóra.
+1. **Stiahnite** si najnovšie Handheld ISO z webovej stránky/fóra.
 
-2. **Nahranie** ISO na USB disk. https://wiki.cachyos.org/installation/installation_prepare/
+2. [Flashnite](/installation/installation_prepare) ISO.
 
-3. **Bootovanie** do ISO.
+3. **Zaveďte** systém z ISO.
 
 4. Kliknite na tlačidlo **Launch Installer**.
 
-5. Calamares sa otvorí a pokračujte podľa krokov v Calamares.
+5. Teraz sa otvorí Calamares. Postupujte podľa pokynov na obrazovke.
 
-6. Pri kroku s partíciami použite možnosť **Erase Disk**. Pri prechode z iných distribúcií, ktoré používajú iné rozloženie partícií, môže byť možnosť nahradenia partície problematická.
+6. V kroku s rozdelením disku použite možnosť **Erase Disk**. Ak prechádzate z inej distribúcie Linuxu, ktorá pravdepodobne používa iné rozloženie partícií. Upozorňujeme, že možnosť nahradiť partíciu môže byť problematická a nemusí fungovať podľa očakávania.
 
 7. Nainštalujte systém.
 
 </Steps>
 
-Po dokončení inštalácie je potrebné zariadenie reštartovať. Calamares na to poskytuje výzvu.
+Po dokončení inštalácie vás Calamares vyzve na reštartovanie zariadenia.
 
-Prvé spustenie môže trvať nejaký čas, pretože sa sťahuje a spúšťa Steam.
+Prvé spustenie môže trvať trochu dlhšie, pretože sa sťahuje a spúšťa Steam.
 Tento proces môže trvať až 2 minúty.
 
-## Inštalácia s Dual Boot
+## Inštalácia s duálnym zavedením
 
 <Steps>
 
-1. **Stiahnite** najnovšie Handheld ISO z webu/fóra.
+1. **Stiahnite** si najnovšie Handheld ISO z webovej stránky/fóra.
 
-2. **Nahranie** ISO na USB disk. https://wiki.cachyos.org/installation/installation_prepare/
+2. [Flashnite](/installation/installation_prepare) ISO.
 
-3. **Bootovanie** do ISO.
+3. **Zaveďte** systém z ISO.
 
 4. Kliknite na tlačidlo **Launch Installer**.
 
-5. Calamares sa otvorí a pokračujte podľa krokov v Calamares.
+5. Teraz sa otvorí Calamares. Postupujte podľa pokynov na obrazovke.
 
-6. Pri kroku s partíciami vyberte možnosť **Manual Partition** a vytvorte nasledujúce partície:
+6. V kroku s rozdelením disku musíte vybrať **Manual Partition** a vytvoriť nasledujúce partície:
 
     - 2GB /boot
-    - XGB /
+    - XGB / (X môže byť ľubovoľný počet úložného priestoru, ktorý chcete prideliť pre root filesystem)
 
-7. Pokračujte podľa krokov a nainštalujte systém.
+7. Pokračujte krokmi a nainštalujte systém.
 
 </Steps>
 
-Po dokončení inštalácie je potrebné zariadenie reštartovať. Calamares na to poskytuje výzvu.
+Po dokončení inštalácie vás Calamares vyzve na reštartovanie zariadenia.
 
-Prvé spustenie môže trvať nejaký čas, pretože sa sťahuje a spúšťa Steam.
+Prvé spustenie môže trvať trochu dlhšie, pretože sa sťahuje a spúšťa Steam.
 Tento proces môže trvať až 2 minúty.
-
-## Inštalácia s podporou Secure Boot
-
-Urobiť
