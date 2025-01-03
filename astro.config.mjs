@@ -112,8 +112,8 @@ export default defineConfig({
             {
               label: 'Requirements & Preinstall Setup',
               translations: {
-                sk: 'PPožiadavky CachyOS a inštalačné médium',
-                cs: 'Požadavky CachyOS a instalační médium',
+                sk: 'Požiadavky CachyOS a inštalačné médium',
+                cs: 'Požadavky CachyOS a předinstalační příprava',
               },
               link: 'installation/installation_prepare',
             },
@@ -121,7 +121,7 @@ export default defineConfig({
               label: 'Boot Managers',
               translations: {
                 sk: 'Boot manažéry',
-                cs: 'Boot manažeři',
+                cs: 'Správci zavádění',
               },
               link: 'installation/boot_managers',
             },
@@ -129,7 +129,7 @@ export default defineConfig({
               label: 'Filesystem',
               translations: {
                 sk: 'Súborový systém',
-                cs: 'Filesystem',
+                cs: 'Souborový systém',
               },
               link: 'installation/filesystem',
             },
@@ -137,7 +137,7 @@ export default defineConfig({
               label: 'Screenshots',
               translations: {
                 sk: 'Snímky obrazovky',
-                cs: 'Screenshots',
+                cs: 'Snímky obrazovky',
               },
               link: 'installation/screenshots',
             },
@@ -247,7 +247,7 @@ export default defineConfig({
               label: 'General System Tweaks',
               translations: {
                 sk: 'Všeobecné systémové úpravy',
-                cs: 'Obecná úprava systému',
+                cs: 'Obecné úpravy systému',
               },
               link: 'configuration/general_system_tweaks',
             },
@@ -366,6 +366,8 @@ export default defineConfig({
               label: 'Community Rules',
               translations: {
                 id: 'Peraturan Komunitas',
+                sk: 'Pravidlá komunity',
+                cs: 'Pravidla komunity',
               },
               link: 'policy/community-rules',
             },
