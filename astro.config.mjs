@@ -191,20 +191,32 @@ export default defineConfig({
           label: 'CachyOS Features',
           translations: {
             ru: 'Возможности CachyOS',
+            cs: 'Funkce CachyOS',
+            sk: 'Funkcie CachyOS',
           },
           items: [
             {
               label: 'CachyOS chroot Helper (cachy-chroot)',
               link: 'features/cachy_chroot',
+              translations: {
+                cs: 'Pomůcka pro chroot CachyOS (cachy-chroot)',
+                sk: 'Pomôcka pre chroot CachyOS (cachy-chroot)',
+              },
             },
             {
               label: 'CachyOS Hardware Detection (chwd)',
               link: 'features/chwd',
+              translations: {
+                cs: 'Detekce hardwaru CachyOS (chwd)',
+                sk: 'Detekcia hardvéru CachyOS (chwd)',
+              },
             },
             {
               label: 'CachyOS Kernel',
               translations: {
                 ru: 'Ядро CachyOS',
+                cs: 'Jádro CachyOS',
+                sk: 'Jadro CachyOS',
               },
               link: 'features/kernel',
             },
@@ -221,6 +233,8 @@ export default defineConfig({
               label: 'CachyOS Settings',
               translations: {
                 ru: 'Настройки CachyOS',
+                cs: 'Nastavení CachyOS',
+                sk: 'Nastavenia CachyOS',
               },
               link: 'features/cachyos_settings',
             },
@@ -228,6 +242,8 @@ export default defineConfig({
               label: 'Optimized Repositories',
               translations: {
                 ru: 'Оптимизированные репозитории',
+                cs: 'Optimalizované repozitáře',
+                sk: 'Optimalizované repozitáre',
               },
               link: 'features/optimized_repos',
             },
@@ -245,6 +261,8 @@ export default defineConfig({
               label: 'Secure Boot Setup',
               translations: {
                 ru: 'Настройка Secure Boot',
+                cs: 'Nastavení Secure Boot',
+                sk: 'Nastavenie Secure Boot',
               },
               link: 'configuration/secure_boot_setup',
             },
@@ -261,6 +279,7 @@ export default defineConfig({
               label: 'Boot Manager Configuration',
               translations: {
                 ru: 'Конфигурация Boot менеджера',
+                sk: 'Konfigurácia Boot manažéra',
               },
               link: 'configuration/boot_manager_configuration',
             },
@@ -276,6 +295,10 @@ export default defineConfig({
             {
               label: 'Gaming',
               link: 'configuration/gaming',
+              translations: {
+                cs: 'Hraní her',
+                sk: 'Hranie hier',
+              },
             },
             {
               label: 'General System Tweaks',
@@ -299,6 +322,8 @@ export default defineConfig({
               label: 'NVIDIA Wayland Overclocking',
               translations: {
                 ru: 'Разгон NVIDIA на Wayland',
+                cs: 'Přetaktování NVIDIA na Waylandu',
+                sk: 'Pretaktovanie NVIDIA na Waylande',
               },
               link: 'configuration/nvidia-wayland-overclock',
             },
@@ -306,6 +331,8 @@ export default defineConfig({
               label: 'Automounting Additional Drives',
               translations: {
                 ru: 'Автоматическое монтирование дополнительных дисков',
+                cs: 'Automatické připojování dalších disků',
+                sk: 'Automatické pripájanie ďalších diskov',
               },
               link: 'configuration/automount_with_fstab',
             },
@@ -315,6 +342,8 @@ export default defineConfig({
           label: 'Desktop Environments',
           translations: {
             ru: 'Окружения рабочего стола',
+            cs: 'Desktopová prostředí',
+            sk: 'Desktopové prostredia',
           },
           items: [
             {
@@ -347,6 +376,7 @@ export default defineConfig({
               label: 'FAQ',
               translations: {
                 cs: 'Často kladené otázky',
+                sk: 'Najčastejšie kladené otázky',
               },
               link: 'support/faq',
             },
