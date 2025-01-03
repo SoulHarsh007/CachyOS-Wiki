@@ -261,8 +261,8 @@ export default defineConfig({
               label: 'Secure Boot Setup',
               translations: {
                 ru: 'Настройка Secure Boot',
-                cs: 'Nastavení Secure Boot',
-                sk: 'Nastavenie Secure Boot',
+                cs: 'Nastavení zabezpečeného spouštění',
+                sk: 'Nastavenie zabezpečeného spúšťania',
               },
               link: 'configuration/secure_boot_setup',
             },
@@ -280,6 +280,7 @@ export default defineConfig({
               translations: {
                 ru: 'Конфигурация Boot менеджера',
                 sk: 'Konfigurácia Boot manažéra',
+                cs: 'Konfigurace správce spouštění',
               },
               link: 'configuration/boot_manager_configuration',
             },
