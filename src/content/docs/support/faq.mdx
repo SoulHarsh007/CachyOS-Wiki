@@ -91,7 +91,7 @@ sudo rm -R /var/lib/pacman/sync
 sudo pacman -Syuu
 ```
 
-### When trying to install a package with pacman i received the following error
+### error: failed retrieving file, The requested URL returned error: 404
 
 ```text
 # Example
@@ -107,12 +107,13 @@ Total Installed Size:  67.51 MiB
 
 :: Proceed with installation? [Y/n] Y
 :: Retrieving packages...
-error: failed retrieving file 'telegram-desktop-2.5.1-1-x86_64.pkg.tar.zst' from archlinux.mailtunnel.eu : The requested URL returned error: 404
+error: failed retrieving file 'telegram-desktop-2.5.1-1-x86_64.pkg.tar.zst'
+from archlinux.mailtunnel.eu : The requested URL returned error: 404
 ```
 
-This means that your local database is outdated therefore the package you're asking for can't be downloaded. Run the following command to refresh the package database and do a full upgrade:
+*This means that your local database is outdated therefore the package you're asking for can't be downloaded.*
 
-```sh
+```sh title='Run the following command to refresh the package database and do a full upgrade:'
 sudo pacman -Syu
 # Then try to install the package you want again.
 ```
