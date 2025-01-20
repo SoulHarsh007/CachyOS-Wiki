@@ -12,13 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.1.4",
-    "@astrojs/starlight": "^0.31.0",
+    "@astrojs/react": "^4.1.5",
+    "@astrojs/starlight": "^0.31.1",
     "@astrojs/starlight-tailwind": "^3.0.0",
     "@astrojs/tailwind": "^5.1.4",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
-    "astro": "^5.1.6",
+    "astro": "^5.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-image-previewer": "^1.1.6",
@@ -36,5 +36,13 @@
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.20.0"
+  },
+  "trustedDependencies": [
+    "esbuild",
+    "sharp",
+    "styled-components"
+  ],
+  "patchedDependencies": {
+    "@astrojs/starlight@0.31.1": "patches/@astrojs%2Fstarlight@0.31.1.patch"
   }
 }
