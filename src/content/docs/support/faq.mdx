@@ -50,7 +50,7 @@ This means that your internet connection is either very slow or unstable causing
 
 ## Software management
 
-### How can I fix the "unable to lock database" error in CachyOS?
+### "unable to lock database" error
 ```sh
 sudo rm /var/lib/pacman/db.lck
 ```
@@ -58,7 +58,7 @@ sudo rm /var/lib/pacman/db.lck
 You can achieve the same outcome by using **"Remove db lock"** function in `CachyOS Hello` in the **Apps/Tweaks** tab.
 :::
 
-### How can I fix possible keyring issues in CachyOS?
+### File is corrupted (invalid or corrupted package (PGP signature))
 
 ```text
 # Example:
@@ -77,17 +77,14 @@ sudo pacman-key --lsign-key F3B607488DB35A47
 sudo rm -R /var/lib/pacman/sync
 ```
 
-### How can I remove those annoying warnings while updating my system? Is it safe to update the system when this happens?
+### warning local is newer than
 
 #### Example:
 
 <br />
 <ImageComponent imgsrc={import('~/assets/images/update-warnings.png')} />
 
-**Yes, it is safe to update the system.**
-
-*To remove these errors, run the following command:*
-```sh
+```sh title='To remove these warnings, execute the following command:'
 sudo pacman -Syuu
 ```
 
@@ -136,7 +133,7 @@ unable to use Discord.
 In order to get around this issue, follow [Arch Wiki's fix guide](<https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository>).
 
 
-### I got an error while trying to clear pacman cache
+### error: could not remove /var/cache/pacman/pkg/download
 
 :::tip
 You can also clean the pacman cache using CachyOS Hello in **Apps/Tweaks** > **Clear package cache**
@@ -154,9 +151,9 @@ You can also clean the pacman cache using CachyOS Hello in **Apps/Tweaks** > **C
 sudo rm -r /var/cache/pacman/pkg/*
 ```
 
-### I got this nvidia module error when I tried to update my system.
+### ERROR: module not found: 'nvidia', 'nvidia_modeset', 'nvidia_uvm', 'nvidia_drm'
 
-```text
+```sh title='Example'
 ==> ERROR: module not found: 'nvidia'
 ==> ERROR: module not found: 'nvidia_modeset'
 ==> ERROR: module not found: 'nvidia_uvm'
