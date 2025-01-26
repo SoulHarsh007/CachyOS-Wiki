@@ -33,3 +33,12 @@
 :root {
   --sl-content-width: 70rem;
 }
+
+ol ul {
+  list-style: disc;
+  margin-left: 1.5em;
+}
+
+ol ul li::marker {
+  color: inherit;
+}
