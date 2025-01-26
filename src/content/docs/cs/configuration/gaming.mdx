@@ -1,31 +1,32 @@
+```mdx
 ---
-title: Průvodce Hraním Her na CachyOS
-description: 'Pokrývá základní instalaci balíčků, hraní her na Steamu s Protonem, různé možnosti verzí Protonu, Lutris jako centrální rozbočovač pro všechny hry a skriptové instalátory pro populární hry.'
+title: Průvodce hraním her v CachyOS
+description: 'Pokrývá základní instalaci balíčků, hraní her přes Steam s Protonem, různé možnosti verzí Protonu, Lutris jako centrální rozcestník pro všechny hry a skriptové instalátory pro populární hry.'
 ---
 
 import MultipleImageComponent from '~/components/multiple-images-component.astro';
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
-Vítejte v průvodci Hraním her na CachyOS. Provedeme vás základními aspekty nastavení všeho a skvělého zážitku.
+Vítejte v průvodci hraním her v CachyOS. Provedeme vás základními aspekty nastavení všeho potřebného pro skvělý zážitek.
 
 ## Předpoklady
 
 :::caution
-Než se pustíme do zábavy, je nezbytné zajistit, aby byly ovladače vaší grafické karty nainstalovány a správně fungovaly. Pokud vaše grafická karta nefunguje optimálně, můžete se při hraní her setkat s problémy.
+Než se pustíme do zábavných věcí, je nezbytné zajistit, aby byly ovladače vaší grafické karty nainstalovány a správně fungovaly. Pokud vaše grafická karta nepracuje optimálně, můžete se při hraní her setkat s problémy.
 :::
 
-### Základní Balíčky
+### Základní balíčky
 
-Abychom vám usnadnili práci, CachyOS seskupil všechny potřebné balíčky pro hraní her do jednoho meta balíčku, který zahrnuje všechny známé obchody a doplňky pro hraní her v Linuxu. Díky tomu je proces instalace a nastavení pro hraní her rychlejší a méně komplikovaný pro všechny.
+Abychom vám to usnadnili, CachyOS seskupil všechny potřebné balíčky pro hraní her do jednoho meta balíčku, který zahrnuje všechny známé obchody a doplňky pro hraní her v Linuxu. Díky tomu je proces instalace a nastavení pro hraní her rychlejší a méně komplikovaný pro všechny.
 
 ```sh title='Spusťte následující příkaz v terminálu'
 sudo pacman -S cachyos-gaming-meta
 ```
 
 :::note
-Balíček `cachyos-gaming-meta` instaluje všechny důležité knihovny, balíčky, pluginy a obchody, jako je Steam, Lutris a některé nástroje, které jsou nezbytné pro správné spouštění a fungování většiny her. Pro více informací o instalaci se podívejte na [seznam balíčků](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-gaming-meta/PKGBUILD#L10).
+Balíček `cachyos-gaming-meta` instaluje všechny důležité knihovny, balíčky, pluginy a obchody, jako je Steam, Lutris a některé nástroje, které jsou nezbytné pro správné spuštění a fungování většiny her. Podívejte se na [seznam balíčků](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-gaming-meta/PKGBUILD#L10) pro více informací o tom, co se instaluje.
 
-*Pokud zjistíte, že nějaké balíčky chybí, neváhejte to sdělit týmu CachyOS.*
+*Pokud zjistíte, že nějaké balíčky chybí, neváhejte a dejte vědět týmu CachyOS.*
 :::
 
 ## Steam
@@ -33,10 +34,10 @@ Balíček `cachyos-gaming-meta` instaluje všechny důležité knihovny, balíč
 Pro uživatele Steamu je hraní her na CachyOS hračkou! Otevřete Steam a postupujte podle [průvodce Protonem](/configuration/gaming#how-to-enable-proton-support-in-steam) a můžete si užívat své hry.
 
 :::note
-Uživatelé notebooků s dedikovanými grafickými kartami NVIDIA by se měli podívat na následující [průvodce](https://wiki.cachyos.org/configuration/dual_gpu/).
+Uživatelé notebooků s dedikovanými grafickými kartami NVIDIA by se měli řídit následujícím [průvodcem](https://wiki.cachyos.org/configuration/dual_gpu/)
 :::
 
-### Jak povolit podporu Protonu ve službě Steam
+### Jak povolit podporu Protonu ve Steamu
 
 <br />
 <MultipleImageComponent
@@ -50,27 +51,27 @@ Uživatelé notebooků s dedikovanými grafickými kartami NVIDIA by se měli po
 
 :::tip
 CachyOS poskytuje různé verze Protonu, které sestavujeme a udržujeme pro další zlepšení výkonu:
-- `proton-cachyos` `(součást balíčku cachyos-gaming-meta)` je ten, který vyvíjíme s přidanými změnami QoL + vybranými patche + optimalizacemi kompilace `(x86-64-v3 & x86-64-v4)`
+- `proton-cachyos` `(součást balíčku cachyos-gaming-meta)` je verze, kterou vyvíjíme s přidanými QoL změnami + vybranými patchi + optimalizacemi kompilace `(x86-64-v3 & x86-64-v4)`
 - `proton-ge-custom`, `proton-tkg-git`, `proton-experimental` a `proton stable releases` jsou sestaveny proti nativním knihovnám.
-- `proton-ge-custom-bin` staženo z AUR.
+- `proton-ge-custom-bin` stažený z AUR.
 :::
 
 :::tip
-Chcete-li zkontrolovat, zda je vaše hra kompatibilní nebo jak funguje v Linuxu, navštivte [proton-db](https://www.protondb.com/) nebo [Are We Anti-Cheat Yet?](https://areweanticheatyet.com/).
+Chcete-li zjistit, zda je vaše hra kompatibilní s Linuxem, nebo jak na něm běží, navštivte [proton-db](https://www.protondb.com/) nebo [Are We Anti-Cheat Yet?](https://areweanticheatyet.com/).
 :::
 
-## Steam FAQ a Tipy
+## Časté dotazy a tipy ke Steamu
 
-### Kterou verzi Protonu bych měl ve Steamu používat?
+### Kterou verzi Protonu bych měl používat ve Steamu?
 
-- [`proton-cachyos`](https://github.com/CachyOS/proton-cachyos) Je vysoce doporučeno používat ten, který sestavujeme a udržujeme, pokud nemá problém s hrou, kterou chcete hrát. Měl by fungovat ve většině případů.
-- `Proton Experimental` Nejnovější verze od `Valve`. Pokud je hra, kterou chcete hrát, relativně nová nebo nefunguje dobře s aktuální stabilní verzí Protonu, nebo jste viděli, že ji lidé doporučují na [ProtonDB](https://www.protondb.com/).
+- [`proton-cachyos`](https://github.com/CachyOS/proton-cachyos) Je vysoce doporučeno používat verzi, kterou sestavujeme a udržujeme, pokud nemá problémy s hrou, kterou chcete hrát. Měla by fungovat ve většině případů.
+- `Proton Experimental` Nejnovější vývojářská verze od `Valve`. Pokud je hra, kterou chcete hrát, relativně nová, nebo nefunguje dobře se současnou stabilní verzí Protonu, nebo pokud jste viděli doporučení na [ProtonDB](https://www.protondb.com/).
 - `Proton 9.0.3 nebo nižší` Stabilní verze od `Valve`. Pokud hra, kterou chcete hrát, funguje pouze v předchozí verzi Protonu.
-- `Proton-GE` Sestavení od [GloriousEggroll](https://github.com/GloriousEggroll/proton-ge-custom), které se v některých případech hodí.
+- `Proton-GE` Verze vytvořená [GloriousEggroll](https://github.com/GloriousEggroll/proton-ge-custom) se v některých případech hodí.
 
 ### Co je proton-cachyos?
 
-Podívejte se na toto [vysvětlení.](/configuration/gaming#proton-cachyos)
+Podívejte se na toto [vysvětlení o něm.](/configuration/gaming#proton-cachyos)
 
 ### Jak správně kombinovat více možností spuštění
 
@@ -81,31 +82,31 @@ Podívejte se na toto [vysvětlení.](/configuration/gaming#proton-cachyos)
 Nepřidávejte více `%command%` a nepoužívejte je jako oddělovače pro více možností spuštění.
 
 Příklad: `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 %command% game-performance %command% prime-run %command%`
-    - V tomto případě bude vše po prvním `%command%` ignorováno, protože je to považováno za argumenty hry, takže jako možnost spuštění byla rozpoznána pouze `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1`.
+    - V tomto případě bude vše po prvním `%command%` ignorováno, protože je to považováno za argumenty hry, a proto byla jako možnost spuštění rozpoznána pouze `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1`.
 :::
 
-### Oprava zadrhávání způsobeného funkcí Steam Game Recorder
+### Oprava zadrhávání způsobeného funkcí Záznam hry Steamu
 
-```sh title='Přidejte následující možnost spuštění do vaší hry'
+```sh title='Přidejte do hry následující možnost spuštění'
 LD_PRELOAD="" %command%
 ```
 
 ## Tipy pro výkon
 
-### Přepínání Profilu Napájení na Požádání
+### Přepínání profilů napájení na vyžádání
 
 :::note
-Toto chování je mírně odlišné u `intel_pstate`. U Intelu zůstává regulátor na powersave, ale hodnoty EPP/EPB jsou nastaveny na performance.
+Toto chování se mírně liší u `intel_pstate`. Na Intelu zůstává regulátor v režimu powersave, ale hodnoty EPP/EPB jsou nastaveny na performance.
 :::
 
-CachyOS poskytuje obalový skript [`game-performance`](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/game-performance),
+CachyOS poskytuje wrapper skript [`game-performance`](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/game-performance),
 který používá `power-profiles-daemon` k dočasnému přepnutí aktuálního profilu napájení na `performance`.
-Profil `performance` zvyšuje úrovně napájení systému a mění regulátor CPU na `performance`.
+Profil `performance` zvyšuje úroveň výkonu systému a mění regulátor CPU na `performance`.
 
-Když se tento skript používá ke spuštění hry, systém bude nastaven na používání profilu `performance`, dokud hra běží.
-Dříve používaný profil napájení bude obnoven po zavření hry.
+Když se tento skript použije ke spuštění hry, systém bude nastaven na používání profilu `performance` po dobu, kdy hra běží.
+Předchozí profil napájení bude obnoven po ukončení hry.
 
-*[GameMode od Feralu](https://github.com/FeralInteractive/gamemode)
+*[Feral's GameMode](https://github.com/FeralInteractive/gamemode)
 má podobné chování, ale neměl by se používat, protože CachyOS již obsahuje [`ananicy-cpp`](https://gitlab.com/ananicy-cpp/ananicy-cpp)*
 
 ### Jak přidat game-performance do Steamu, Lutrisu, Heroic Games Launcheru a Bottles
@@ -115,10 +116,10 @@ má podobné chování, ale neměl by se používat, protože CachyOS již obsah
 <TabItem label='Steam'>
 
 <Steps>
-1. Otevřete svou `Knihovnu Steam`
+1. Otevřete si `Knihovnu Steamu`
 2. Klikněte pravým tlačítkem myši na název hry a vyberte `Vlastnosti`.
-3. Na kartě `Obecné` najdete sekci `Možnosti spuštění`.
-4. Přidejte následující možnost spuštění:
+3. Na záložce `Obecné` najdete sekci `Možnosti spuštění`.
+4. Přidejte následující Možnost spuštění:
     ```sh
     game-performance %command%
     ```
@@ -130,12 +131,12 @@ má podobné chování, ale neměl by se používat, protože CachyOS již obsah
 
 <Steps>
 1. V levém panelu otevřete `Nastavení`.
-2. Přejděte na `Výchozí nastavení hry` a poté klikněte na `Pokročilé`.
-3. V sekci příkazu `wrapper`. Přidejte následující řádek bez jakéhokoli argumentu:
+2. Přejděte do `Výchozí nastavení her` a poté klikněte na `Pokročilé`.
+3. V sekci příkazu `wrapper` přidejte následující řádek bez jakýchkoli argumentů:
    ```sh
    game-performance
    ```
-4. Kliknutím na znaménko `+` uložte změny.
+4. Klikněte na znaménko `+` pro uložení změn.
 </Steps>
 
 </TabItem>
@@ -143,10 +144,10 @@ má podobné chování, ale neměl by se používat, protože CachyOS již obsah
 <TabItem label='Lutris'>
 
 <Steps>
-1. V pravém horním rohu otevřete `hamburgerové menu`
-2. Přejděte na `Předvolby/Globální možnosti`.
-3. Povolte `Pokročilý režim` v pravém horním rohu.
-4. Přejděte dolů na `Předpona příkazu` a přidejte následující řádek:
+1. Vpravo nahoře otevřete `hamburger menu`
+2. Přejděte do `Předvolby/Globální možnosti`.
+3. Povolte `Pokročilý režim` vpravo nahoře.
+4. Přejděte dolů na `Prefix příkazu` a přidejte následující řádek:
    ```sh
    game-performance
    ```
@@ -172,10 +173,10 @@ má podobné chování, ale neměl by se používat, protože CachyOS již obsah
 
 ## Proton-CachyOS
 
-Proton-CachyOS je založen na větvi `proton-bleeding-edge` a používá na ni řadu patchů a změn.
+Proton-CachyOS je založen na `proton-bleeding-edge branch` a aplikuje na něj řadu patchů a změn.
 - **Patche Wine-staging**
 - **Wine Fullscreen FSR**
-- **Podpora Reflex: `Pouze tituly DX12`**
+- **Podpora Reflex: `Pouze DX12 tituly`**
 - **Podpora pro umu-launcher**
 
 *Kromě toho je proton-cachyos kompilován proti nativním systémovým knihovnám a instrukcím kompilátoru, což může dále zlepšit výkon.*
@@ -184,49 +185,49 @@ Proton-CachyOS je založen na větvi `proton-bleeding-edge` a používá na ni �
 
 Toto je řešení podobné proton-cachyos, ale jako samostatná verze, kterou mohou používat Lutris, Heroic, Bottles a další.
 
-:::note
-Přestože jej lze použít jako systémové Wine pro desktopové aplikace, uvědomte si, že to může vést k některým neočekávaným chováním a problémům, protože je více zaměřeno na hraní her s patchemi a změnami.
+:::caution
+I když jej lze používat jako systémový Wine pro Desktopové aplikace, mějte na paměti, že to může vést k některým neočekávaným chováním a problémům, protože je více zaměřený na hry s patchi a změnami.
 :::
 
 - **Založeno na Valve's bleeding-edge Wine**
-- **Přidává včasné opravy/řešení pro hry**
+- **Přidává časné opravy/řešení pro hry**
 - **protonfixes**
 - **Podpora pro `umu-launcher`**
 
-**Modifikace QoL**
+**QoL Modifikace**
 
-- `WINE_WMCLASS:` proměnná prostředí pro nastavení wm třídy všech oken wine, což umožňuje wm ovládat okno pomocí pravidel.
-- `WINEUSERSANDBOX:` proměnná prostředí pro zakázání vytváření symbolických odkazů ze složek Wine, jako jsou Dokumenty/Obrázky atd., na ekvivalentní složky v uživatelském adresáři.
-- `Zakázané Nativní Dekorace Oken`
-- `Změny pro optimalizaci výkonu Wine podobně jako u proton-cachyos`
+- `WINE_WMCLASS:` proměnná prostředí pro nastavení wm class všech oken Wine, což umožňuje WM řídit okno pomocí pravidel.
+- `WINEUSERSANDBOX:` proměnná prostředí pro zakázání vytváření symlinků ze složek Wine, jako jsou Dokumenty/Obrázky atd., do ekvivalentních složek v uživatelském adresáři
+- `Zakázané Nativní dekorace oken`
+- `Změny pro optimalizaci výkonu Wine podobné tomu, jak to děláme s proton-cachyos`
 
 ## Bottles
 
-Bottles je aplikace, která vám umožňuje snadno spravovat předpony Windows na vašich oblíbených distribucích Linuxu.
+Bottles je aplikace, která vám umožňuje snadno spravovat prefixy Windows na vaší oblíbené linuxové distribuci.
 
-Bottles může také využívat různé spouštěče, jako je Lutris, a všechny jsou spravovatelné v rámci aplikace. Bottles nabízí možnost herní orientované předpony.
+Bottles může také využívat různá běžící prostředí, jako je Lutris, a vše je spravovatelné v rámci aplikace. Bottles nabízí možnost prefixu zaměřeného na hry.
 
-Můžete také instalovat závislosti, přidávat soubory EXE a používat jejich instalační programy na jedno kliknutí pro aplikace související s hraním her, jako je EA App nebo Battle.net.
+Můžete také instalovat závislosti, přidávat EXE soubory a používat instalátory na jedno kliknutí pro aplikace související s hrami, jako je EA App nebo Battle.net.
 
 ```sh title="Jak nainstalovat Bottles"
 # Otevřete terminál a spusťte následující příkaz:
 sudo pacman -S bottles
 ```
 
-*Pokud se o něm chcete dozvědět více, podívejte se na jejich [dokumentaci](https://docs.usebottles.com/).*
+*Pokud se chcete dozvědět více, podívejte se na jejich [dokumentaci](https://docs.usebottles.com/).*
 
-## Úvod a tipy pro Lutris
+## Úvod do Lutrisu a tipy
 
-Lutris slouží jako centrální rozbočovač pro všechny vaše hry na CachyOS.
+Lutris slouží jako centrální rozcestník pro všechny vaše hry na CachyOS.
 
-S Lutris můžete efektivně spravovat spouštěče her, včetně Wine, Proton a emulátorů.
+S Lutrisem můžete efektivně spravovat běžící prostředí her, včetně Wine, Protonu a emulátorů.
 
 - **Hry můžete spouštět přes Lutris jednoduše kliknutím na tlačítko `Přehrát`.**
-- **Přidejte libovolnou hru kliknutím na znaménko `+` v levém horním rohu.**
-- **Nastavte obchod v `Zdroje` v levém panelu a propojte svůj účet, poté se zahájí instalace daného obchodu a poté budete moci spouštět hry z obchodu, stejně jako ve Windows.**
+- **Přidejte libovolnou hru kliknutím na znaménko `+` vlevo nahoře.**
+- **Nastavte si obchod v `Zdroje` v levém panelu a propojte svůj účet, poté se přistoupí k instalaci daného obchodu a poté budete moci spouštět hry z obchodu, stejně jako to děláte ve Windows.**
 - **A mnohem více!**
 
-### Herní obchody podporované v Lutris
+### Obchody s hrami podporované v Lutrisu
 
 - [EA App](https://lutris.net/games/ea-app/)
 - [Epic Games Store](https://lutris.net/games/epic-games-store/)
@@ -234,7 +235,7 @@ S Lutris můžete efektivně spravovat spouštěče her, včetně Wine, Proton a
 - [Steam](https://lutris.net/games/steam/)
 - [Ubisoft Connect](https://lutris.net/games/ubisoft-connect/)
 
-### Nastavení Wine runneru wine-cachyos
+### Nastavení wine-cachyos jako běžícího prostředí Wine
 
 <br />
 <MultipleImageComponent
@@ -243,11 +244,11 @@ S Lutris můžete efektivně spravovat spouštěče her, včetně Wine, Proton a
     import('~/assets/images/lutris-guide-2.png')]}
 />
 
-## Lutris FAQ
+## Časté dotazy k Lutrisu
 
 ### Jak mohu přidat parametr při spouštění hry? Například -dx11
 
-- Klikněte pravým tlačítkem na ikonu hry > `Konfigurovat` > `Možnosti hry` > `Argumenty` > Přidejte libovolný argument, který potřebujete.
+- Klikněte pravým tlačítkem myši na ikonu hry > `Konfigurovat` > `Možnosti hry` > `Argumenty` > Přidejte libovolný argument, který potřebujete.
 
 ### Funguje game-performance na Lutrisu?
 
@@ -255,7 +256,7 @@ S Lutris můžete efektivně spravovat spouštěče her, včetně Wine, Proton a
 
 ### Jak mohu používat wine-cachyos v Lutrisu?
 
-- V `Možnosti spouštěče` > `Verze Wine` se zobrazuje s názvem `System 9.0 Staging Default`
+- V `Možnosti běžícího prostředí` > `Verze Wine` se zobrazuje pod názvem `System 9.0 Staging Default`
 
 ### Jak mohu nastavit umu-launcher s proton-cachyos v Lutrisu?
 
@@ -266,66 +267,66 @@ Ujistěte se, že máte umu-launcher nainstalovaný ve vašem systému. Nainstal
 
     <Tabs>
 
-    <TabItem label="Globální (ovlivňuje všechny hry)">
+    <TabItem label="Globální (ovlivní všechny hry)">
 
     <Steps>
 
-    1. V hlavní obrazovce Lutris klikněte na `ozubené kolečko` napravo od **Wine**
-    2. Proveďte následující změny na kartě **Možnosti spouštěče**
+    1. Na hlavní obrazovce Lutrisu klikněte na `ozubené kolečko` napravo od **Wine**
+    2. Proveďte následující změny v záložce **Možnosti běžícího prostředí**
         - **Verze Wine** = `proton-cachyos`
-        - **Použít systémové winetricks** = *Zakázáno*
+        - **Použít System winetricks** = *Zakázáno*
         - **Grafika**
             - **Povolit DXVK** = `Povoleno`
             - **Povolit VKD3D** = `Povoleno`
             - **Povolit D3D Extras** = `Povoleno`
             - **Povolit DXVK-NVAPI / DLSS** = `Povoleno`
             - Uživatelsky definované verze **DXVK**, **VKD3D** a **DXVK-NVAPI** se nepoužijí při použití `umu-launcher`
-    3. Přejděte na kartu **Možnosti systému**
+    3. Přejděte na záložku **Možnosti systému**
         - **Lutris**
-            - **Zakázat běhové prostředí Lutris** = `Povoleno`
+            - **Zakázat Lutris Runtime** = `Povoleno`
             - **Preferovat systémové knihovny** = `Povoleno`
-    4. Přejděte dolů k **Spuštění hry** a vyhledejte tabulku **Proměnné prostředí**
+    4. Přejděte dolů na **Spuštění hry** a vyhledejte tabulku **Proměnné prostředí**
     5. Přidejte následující proměnné prostředí:
         - **Klíč**: `UMU_NO_RUNTIME`
-            - **Hodnota**: `1`, *pokud používáte umu-launcher `1.1.4` z CachyOS*
-            - **Hodnota**: `pressure-vessel`, *pokud používáte umu-launcher `1.1.3` dodávaný s Lutris*
+            - **Hodnota**: `1` *pokud používáte umu-launcher `1.1.4` z CachyOS*
+            - **Hodnota**: `pressure-vessel` *pokud používáte umu-launcher `1.1.3` dodávaný s Lutrisem*
         - **Klíč**: `UMU_RUNTIME_UPDATE` *volitelné*
-            - **Hodnota**: `0`, *přeskočí aktualizace Steam Linux Runtime pro `proton-cachyos`*
+            - **Hodnota**: `0` *přeskočí aktualizace Steam Linux Runtime pro `proton-cachyos`*
         - **Klíč**: `PROTON_VERB` *volitelné*
-            - **Hodnota**: `waitforexitandrun`, *umožňuje protonfixes pracovat s odpovídajícím `GAMEID`*
+            - **Hodnota**: `waitforexitandrun` *umožňuje funkčnost protonfixes s odpovídajícím `GAMEID`*
     6. Uložte změny.
 
     </Steps>
 
     </TabItem>
 
-    <TabItem label="Pro jednotlivé hry (preferováno)">
+    <TabItem label="Pro každou hru (preferováno)">
 
     <Steps>
 
     1. Klikněte pravým tlačítkem myši na hru, kterou chcete konfigurovat, a poté klikněte na **Konfigurovat**
-    2. Proveďte následující změny na kartě **Možnosti spouštěče**
+    2. Proveďte následující změny v záložce **Možnosti běžícího prostředí**
         - **Verze Wine** = `proton-cachyos`
-        - **Použít systémové winetricks** = *Zakázáno*
+        - **Použít System winetricks** = *Zakázáno*
         - **Grafika**
             - **Povolit DXVK** = `Povoleno`
             - **Povolit VKD3D** = `Povoleno`
             - **Povolit D3D Extras** = `Povoleno`
             - **Povolit DXVK-NVAPI / DLSS** = `Povoleno`
             - Uživatelsky definované verze **DXVK**, **VKD3D** a **DXVK-NVAPI** se nepoužijí při použití `umu-launcher`
-    3. Přejděte na kartu **Možnosti systému**
+    3. Přejděte na záložku **Možnosti systému**
         - **Lutris**
-            - **Zakázat běhové prostředí Lutris** = `Povoleno`
+            - **Zakázat Lutris Runtime** = `Povoleno`
             - **Preferovat systémové knihovny** = `Povoleno`
-    4. Přejděte dolů k **Spuštění hry** a vyhledejte tabulku **Proměnné prostředí**
+    4. Přejděte dolů na **Spuštění hry** a vyhledejte tabulku **Proměnné prostředí**
     5. Přidejte následující proměnné prostředí:
         - **Klíč**: `UMU_NO_RUNTIME`
-            - **Hodnota**: `1`, *pokud používáte umu-launcher `1.1.4` z CachyOS*
-            - **Hodnota**: `pressure-vessel`, *pokud používáte umu-launcher `1.1.3` dodávaný s Lutris*
+            - **Hodnota**: `1` *pokud používáte umu-launcher `1.1.4` z CachyOS*
+            - **Hodnota**: `pressure-vessel` *pokud používáte umu-launcher `1.1.3` dodávaný s Lutrisem*
         - **Klíč**: `UMU_RUNTIME_UPDATE` *volitelné*
-            - **Hodnota**: `0`, *přeskočí aktualizace Steam Linux Runtime pro `proton-cachyos`*
+            - **Hodnota**: `0` *přeskočí aktualizace Steam Linux Runtime pro `proton-cachyos`*
         - **Klíč**: `PROTON_VERB` *volitelné*
-            - **Hodnota**: `waitforexitandrun`, *umožňuje protonfixes pracovat s odpovídajícím `GAMEID`*
+            - **Hodnota**: `waitforexitandrun` *umožňuje funkčnost protonfixes s odpovídajícím `GAMEID`*
     6. Uložte změny.
     </Steps>
 
@@ -333,10 +334,11 @@ Ujistěte se, že máte umu-launcher nainstalovaný ve vašem systému. Nainstal
 
     </Tabs>
 
-## Podpora Ray Tracingu
+## Podpora Ray tracingu
 Arch Wiki již poskytuje komplexní instrukce, jak povolit [ray tracing](https://wiki.archlinux.org/title/Hardware_raytracing) pro různé hardwarové platformy.
 - [Ray tracing na NVIDIA](https://wiki.archlinux.org/title/Hardware_raytracing#NVIDIA)
 - [Ray tracing na AMD](https://wiki.archlinux.org/title/Hardware_raytracing#AMD)
 - [Ray tracing na Intel](https://wiki.archlinux.org/title/Hardware_raytracing#Intel)
 
 **S tímto průvodcem jste nyní připraveni začít hrát hry na CachyOS. Užijte si to!**
+```
